@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PP7-aT-Jrd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="login_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="P2Q-sI-hMs">
+                                <rect key="frame" x="94" y="325" width="226" height="246"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRA-ad-e8b">
+                                <rect key="frame" x="94" y="579" width="226" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="SVT-00-QrR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="17"/>
+                                <state key="normal" title="Continue with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17P-Md-Kew">
+                                <rect key="frame" x="94" y="632" width="226" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="F1E-If-exd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="13"/>
+                                <state key="normal" title="Create Account with Student Email"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="y1g-xc-0nR">
+                                <rect key="frame" x="120" y="242" width="175" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="rA5-b3-pzV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uRA-ad-e8b" secondAttribute="trailing" constant="94" id="6IZ-S1-DQ5"/>
+                            <constraint firstItem="uRA-ad-e8b" firstAttribute="top" secondItem="P2Q-sI-hMs" secondAttribute="bottom" constant="8" id="7Ga-Du-45I"/>
+                            <constraint firstItem="P2Q-sI-hMs" firstAttribute="top" secondItem="y1g-xc-0nR" secondAttribute="bottom" constant="8" id="8TJ-co-0BQ"/>
+                            <constraint firstItem="P2Q-sI-hMs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Brb-hH-d6g"/>
+                            <constraint firstItem="17P-Md-Kew" firstAttribute="top" secondItem="uRA-ad-e8b" secondAttribute="bottom" constant="8" id="I5P-Za-tvu"/>
+                            <constraint firstItem="17P-Md-Kew" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="KmG-pt-tgW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y1g-xc-0nR" secondAttribute="trailing" constant="119" id="PlT-NA-xAG"/>
+                            <constraint firstItem="uRA-ad-e8b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="Wvp-bR-RL2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="17P-Md-Kew" secondAttribute="trailing" constant="94" id="fdA-KF-fIm"/>
+                            <constraint firstItem="P2Q-sI-hMs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fjS-oV-DXu"/>
+                            <constraint firstItem="y1g-xc-0nR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="kgk-ub-kwb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1oW-YH-Oi1"/>
+                    <connections>
+                        <outlet property="faceBookButton" destination="uRA-ad-e8b" id="OPi-dq-RIA"/>
+                        <outlet property="studentEmailButton" destination="17P-Md-Kew" id="nBg-8C-3IL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h9S-1B-4DJ">
+            <objects>
+                <navigationController id="PP7-aT-Jrd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c7p-yx-bNQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4fr-vT-eAR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cl-hM-Jtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-664" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="login_placeholder" width="226" height="246"/>
+        <image name="logo" width="126" height="55"/>
+    </resources>
+</document>
