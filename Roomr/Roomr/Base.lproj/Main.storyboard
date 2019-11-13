@@ -43,6 +43,11 @@
                                     <constraint firstAttribute="height" constant="75" id="rA5-b3-pzV"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzf-Ug-Ah2" customClass="GIDSignInButton">
+                                <rect key="frame" x="94" y="685" width="226" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -63,6 +68,7 @@
                     <navigationItem key="navigationItem" id="1oW-YH-Oi1"/>
                     <connections>
                         <outlet property="faceBookButton" destination="uRA-ad-e8b" id="OPi-dq-RIA"/>
+                        <outlet property="googleButton" destination="gzf-Ug-Ah2" id="KhP-gm-7iG"/>
                         <outlet property="studentEmailButton" destination="17P-Md-Kew" id="nBg-8C-3IL"/>
                     </connections>
                 </viewController>

@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, GIDSignInDelegate{
     @IBOutlet weak var faceBookButton: UIButton!
     @IBOutlet weak var studentEmailButton: UIButton!
+    @IBOutlet weak var googleButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
+        
         faceBookButton.titleLabel?.adjustsFontSizeToFitWidth = true
         studentEmailButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
@@ -25,6 +32,17 @@ class LoginController: UIViewController {
         studentEmailButton.layer.borderWidth = 1
         studentEmailButton.layer.borderColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0).cgColor
         // Do any additional setup after loading the view.
+    }
+
+    //Delegate functionality
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+          print(error)
+          return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let _ = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
     }
 }
 
