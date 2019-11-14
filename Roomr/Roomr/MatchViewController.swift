@@ -9,61 +9,48 @@
 import UIKit
 
 
-class MatchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MatchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var people: [People] = []
+    var peopleInit: [People] = []
     var peopleQuery: [People] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.people = createArray()
+        self.SearchBar.delegate = self
+        self.peopleInit = People.createArray()
+        self.peopleQuery = People.createArray()
     }
     
-    func createArray() -> [People] {
-        var allPeople: [People] = []
-        
-        let person1 = People(image: #imageLiteral(resourceName: "example"), name: "Sophia", message: "hi", date: "Nov 1st")
-        let person2 = People(image: #imageLiteral(resourceName: "example"), name: "Ahmed", message: "hi", date: "Nov 1st")
-        let person3 = People(image: #imageLiteral(resourceName: "example"), name: "Hari", message: "hi", date: "Nov 1st")
-        let person4 = People(image: #imageLiteral(resourceName: "example"), name: "Dylan", message: "hi", date: "Nov 1st")
-        let person5 = People(image: #imageLiteral(resourceName: "example"), name: "Vincent", message: "hi", date: "Nov 1st")
-        let person6 = People(image: #imageLiteral(resourceName: "example"), name: "Sai", message: "hi", date: "Nov 1st")
-        let person7 = People(image: #imageLiteral(resourceName: "example"), name: "Tianyang", message: "hi", date: "Nov 1st")
-        let person8 = People(image: #imageLiteral(resourceName: "example"), name: "Shelly", message: "hi", date: "Nov 1st")
-        let person9 = People(image: #imageLiteral(resourceName: "example"), name: "Ryan", message: "hi", date: "Nov 1st")
-        let person10 = People(image: #imageLiteral(resourceName: "example"), name: "Katie", message: "hi", date: "Nov 1st")
-        
-        allPeople.append(person1)
-        allPeople.append(person2)
-        allPeople.append(person3)
-        allPeople.append(person4)
-        allPeople.append(person5)
-        allPeople.append(person6)
-        allPeople.append(person7)
-        allPeople.append(person8)
-        allPeople.append(person9)
-        allPeople.append(person10)
-        
-        return allPeople
-    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.people.count
+        return self.peopleQuery.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let person = people[indexPath.row]
+        let person = peopleQuery[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as! ContactCell
         cell.setContact(profile: person)
         return cell
     }
-    
- 
-    
 
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            peopleQuery = self.peopleInit
+            self.tableView.reloadData()
+            
+        } else {
+            filterTableView(text: searchText)
+        }
+    }
     
+    func filterTableView(text: String) {
+        peopleQuery = self.peopleInit.filter({(mod) -> Bool in
+            return mod.name.lowercased().contains(text.lowercased())
+        })
+        self.tableView.reloadData()
+    }
 }
