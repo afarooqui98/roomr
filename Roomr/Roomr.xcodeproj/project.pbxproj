@@ -90,20 +90,28 @@
 		65B6ECA823752BF4002CE8D7 /* Roomr */ = {
 			isa = PBXGroup;
 			children = (
+				65EC8A05237DE94B009CBF8F /* Models */,
 				65B6ECAF23752BF4002CE8D7 /* Main.storyboard */,
 				65B6ECB423752BF5002CE8D7 /* LaunchScreen.storyboard */,
 				65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */,
-				65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */,
 				65B6ECAD23752BF4002CE8D7 /* LoginController.swift */,
+				65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */,
 				EC834403237CAFCD00EBB218 /* match.storyboard */,
 				EC834405237CB46200EBB218 /* MatchViewController.swift */,
-				EC83440B237D095B00EBB218 /* ContactCell.swift */,
-				EC83440D237D0A5600EBB218 /* People.swift */,
 				65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */,
 				65B6ECB723752BF5002CE8D7 /* Info.plist */,
 				65B6ECBD23753955002CE8D7 /* Assets.xcassets */,
 			);
 			path = Roomr;
+			sourceTree = "<group>";
+		};
+		65EC8A05237DE94B009CBF8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC83440D237D0A5600EBB218 /* People.swift */,
+				EC83440B237D095B00EBB218 /* ContactCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
