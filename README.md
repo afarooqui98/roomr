@@ -1,3 +1,2 @@
 # Roomr
-
-Will update with milestone 1 info later.
+Trello Board: https://trello.com/b/hp9w4Hu1/weekly-sprints
