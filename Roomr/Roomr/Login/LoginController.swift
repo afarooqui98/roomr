@@ -19,7 +19,7 @@ class LoginController: UIViewController, GIDSignInDelegate{
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.signIn()
+//        GIDSignIn.sharedInstance()?.signIn()
         
         faceBookButton.titleLabel?.adjustsFontSizeToFitWidth = true
         studentEmailButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -42,7 +42,13 @@ class LoginController: UIViewController, GIDSignInDelegate{
         }
         
         guard let authentication = user.authentication else { return }
-        let _ = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        Auth.auth().signIn(with: credentials){ user, error in
+            if let err = error {
+                print("Failed to create a Firebase User with Google account: ", err)
+                return
+            }
+        }
     }
 }
 

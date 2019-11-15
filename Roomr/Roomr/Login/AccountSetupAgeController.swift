@@ -1,5 +1,5 @@
 //
-//  AccountSetupGenderController.swift
+//  AccountSetupAgeController.swift
 //  Roomr
 //
 //  Created by Ahmed Farooqui on 11/14/19.
@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AccountSetupGenderController: UIViewController {
-
+class AccountSetupAgeController: UIViewController {
+    @IBOutlet weak var ageField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nextButton.layer.cornerRadius = 10
+        ageField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     

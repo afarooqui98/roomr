@@ -9,10 +9,14 @@
 import UIKit
 
 class AccountSetupNameController: UIViewController {
-
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    var profile : UserSetupProfile = UserSetupProfile.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nextButton.layer.cornerRadius = 10
+        nameField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
