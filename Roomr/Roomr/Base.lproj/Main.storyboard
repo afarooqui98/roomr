@@ -95,7 +95,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZk-w0-qjL">
                                 <rect key="frame" x="50" y="181" width="220" height="30"/>
                                 <state key="normal" title="This will show up on your profile">
-                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVu-XG-szx">
@@ -174,7 +174,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SE-GN-bgB">
                                 <rect key="frame" x="50" y="181" width="150" height="30"/>
                                 <state key="normal" title="This is publicly shown">
-                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5a-de-pge">
@@ -282,7 +282,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66N-xo-sfL">
                                 <rect key="frame" x="50" y="181" width="41" height="30"/>
                                 <state key="normal" title="I am a">
-                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCf-G2-7bo">
@@ -354,6 +354,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="DKT-vX-0XR" kind="show" id="1VD-t5-Syh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCD-gQ-sDJ">
                                 <rect key="frame" x="132" y="269" width="150" height="39"/>
@@ -366,6 +369,9 @@
                                 <state key="normal" title="Men">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectMen:" destination="4f9-Zi-Dja" eventType="touchUpInside" id="gdi-wz-Zut"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHr-Xd-fNs">
                                 <rect key="frame" x="132" y="353" width="150" height="39"/>
@@ -378,6 +384,9 @@
                                 <state key="normal" title="Women">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectWomen:" destination="4f9-Zi-Dja" eventType="touchUpInside" id="gek-AO-5ig"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDa-zD-KXJ">
                                 <rect key="frame" x="132" y="437" width="150" height="39"/>
@@ -390,11 +399,14 @@
                                 <state key="normal" title="Everyone">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectEveryone:" destination="4f9-Zi-Dja" eventType="touchUpInside" id="RcZ-yV-SHA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b84-wU-9ja">
                                 <rect key="frame" x="50" y="181" width="87" height="30"/>
                                 <state key="normal" title="I want to see">
-                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                         </subviews>
@@ -416,6 +428,11 @@
                         <viewLayoutGuide key="safeArea" id="IiG-Tb-84c"/>
                     </view>
                     <navigationItem key="navigationItem" id="w38-35-hQs"/>
+                    <connections>
+                        <outlet property="everyoneButton" destination="PDa-zD-KXJ" id="gZW-xe-1je"/>
+                        <outlet property="menButton" destination="uCD-gQ-sDJ" id="S5D-6p-zJ6"/>
+                        <outlet property="womenButton" destination="VHr-Xd-fNs" id="qVI-sl-Ygb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKA-Zy-q16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -428,13 +445,33 @@
                     <view key="view" contentMode="scaleToFill" id="b1u-uu-sYd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDz-3M-jEQ">
+                                <rect key="frame" x="50" y="141" width="176" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Upload Some Pictures!"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOx-Ol-f3u">
+                                <rect key="frame" x="50" y="181" width="275" height="30"/>
+                                <state key="normal" title="We want pictures of you AND your room">
+                                    <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vDz-3M-jEQ" firstAttribute="leading" secondItem="5lA-3B-xPc" secondAttribute="leading" constant="50" id="96V-zX-DXs"/>
+                            <constraint firstItem="vDz-3M-jEQ" firstAttribute="top" secondItem="5lA-3B-xPc" secondAttribute="top" constant="53" id="Lcq-Ec-QMZ"/>
+                            <constraint firstItem="XOx-Ol-f3u" firstAttribute="leading" secondItem="5lA-3B-xPc" secondAttribute="leading" constant="50" id="cOo-Fa-RK1"/>
+                            <constraint firstItem="XOx-Ol-f3u" firstAttribute="top" secondItem="vDz-3M-jEQ" secondAttribute="bottom" constant="8" id="yEz-9e-PFH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5lA-3B-xPc"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ayZ-f2-xig"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFg-Tn-IKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4157" y="915"/>
+            <point key="canvasLocation" x="4319" y="915"/>
         </scene>
     </scenes>
     <resources>
