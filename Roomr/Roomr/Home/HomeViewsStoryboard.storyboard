@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="L8g-JE-leO">
+            <objects>
+                <viewController storyboardIdentifier="homeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mPo-zM-Tfv" customClass="HomeViewController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hw9-pn-bMP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-kw-uxI">
+                                <rect key="frame" x="50" y="20" width="275" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CurvedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Nvf-rr-xrF">
+                                <rect key="frame" x="0.0" y="450" width="375" height="217"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-Sh-7bC" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="50" y="101" width="275" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-j0-VF8">
+                                <rect key="frame" x="30" y="500" width="315" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="sn9-hF-18M">
+                                <rect key="frame" x="168" y="433" width="39" height="39"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-sJ-inm" userLabel="DetailsStack">
+                                <rect key="frame" x="30" y="544" width="315" height="61.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 yrs old" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-lm-8MD">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="61.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bullet" translatesAutoresizingMaskIntoConstraints="NO" id="Jux-5x-ORn">
+                                        <rect key="frame" x="113" y="0.0" width="89" height="61.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Jux-5x-ORn" secondAttribute="height" multiplier="13:9" id="y33-uu-BP4"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        </preferredSymbolConfiguration>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10mi away" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-mR-5RG">
+                                        <rect key="frame" x="210" y="0.0" width="105" height="61.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5iU-lm-8MD" firstAttribute="width" secondItem="vKU-mR-5RG" secondAttribute="width" id="DWA-a8-4M7"/>
+                                    <constraint firstItem="5iU-lm-8MD" firstAttribute="height" secondItem="vKU-mR-5RG" secondAttribute="height" id="IMZ-H1-geM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97245675325393677" green="0.97261565923690796" blue="0.97242289781570435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nvf-rr-xrF" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" id="0YM-Ri-R1e"/>
+                            <constraint firstItem="sn9-hF-18M" firstAttribute="top" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="32" id="1Ds-AC-FCZ"/>
+                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="XOe-sJ-inm" secondAttribute="trailing" constant="30" id="1pa-54-PdO"/>
+                            <constraint firstItem="sn9-hF-18M" firstAttribute="centerX" secondItem="Hw9-pn-bMP" secondAttribute="centerX" id="2Ld-3H-EQa"/>
+                            <constraint firstItem="Nvf-rr-xrF" firstAttribute="trailing" secondItem="7jg-z7-l7t" secondAttribute="trailing" id="3uZ-rl-r9h"/>
+                            <constraint firstItem="dSk-kw-uxI" firstAttribute="top" secondItem="7jg-z7-l7t" secondAttribute="top" constant="20" id="4fv-eB-0oD"/>
+                            <constraint firstItem="M2j-j0-VF8" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="30" id="66M-zx-IP8"/>
+                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="50" id="F3O-aj-q1a"/>
+                            <constraint firstItem="XOe-sJ-inm" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="30" id="Js6-0w-u5F"/>
+                            <constraint firstItem="Nvf-rr-xrF" firstAttribute="bottom" secondItem="7jg-z7-l7t" secondAttribute="bottom" id="Loi-k1-vPo"/>
+                            <constraint firstItem="XOe-sJ-inm" firstAttribute="top" secondItem="M2j-j0-VF8" secondAttribute="bottom" constant="8" symbolic="YES" id="PEt-XV-w73"/>
+                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="n1c-Sh-7bC" secondAttribute="trailing" constant="50" id="UDO-hN-hop"/>
+                            <constraint firstAttribute="bottom" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="266" id="ayz-IH-Wag"/>
+                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="M2j-j0-VF8" secondAttribute="trailing" constant="30" id="hNO-Pq-XvF"/>
+                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="top" secondItem="dSk-kw-uxI" secondAttribute="bottom" constant="33" id="p8O-b3-bEX"/>
+                            <constraint firstItem="dSk-kw-uxI" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="50" id="urH-5d-jgA"/>
+                            <constraint firstItem="M2j-j0-VF8" firstAttribute="top" secondItem="sn9-hF-18M" secondAttribute="bottom" constant="28" id="v3Z-JE-C4w"/>
+                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="dSk-kw-uxI" secondAttribute="trailing" constant="50" id="zDP-Nf-2xg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7jg-z7-l7t"/>
+                    </view>
+                    <connections>
+                        <outlet property="kolodaView" destination="n1c-Sh-7bC" id="AQU-g6-tVE"/>
+                        <outlet property="userName_label" destination="M2j-j0-VF8" id="OIG-cj-aGR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjf-tS-6uU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103.2" y="-221.73913043478262"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bullet" width="29" height="30"/>
+        <image name="CurvedBackground" width="458.5" height="217"/>
+        <image name="Star" width="39" height="39"/>
+    </resources>
+</document>

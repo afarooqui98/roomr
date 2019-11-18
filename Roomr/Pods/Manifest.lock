@@ -201,7 +201,6 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseUI
-  - FirebaseUI/Facebook
   - GoogleSignIn
 
 SPEC REPOS:
@@ -267,6 +266,6 @@ SPEC CHECKSUMS:
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
 
-PODFILE CHECKSUM: eacb9f97e1846f2c0e7c14eb30b003304da53b25
+PODFILE CHECKSUM: 1cd289aa92ff74f3e43f47832c1c8899cd587419
 
 COCOAPODS: 1.8.4
