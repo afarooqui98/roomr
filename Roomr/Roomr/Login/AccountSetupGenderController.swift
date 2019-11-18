@@ -13,6 +13,7 @@ class AccountSetupGenderController: UIViewController {
     @IBOutlet weak var womanButton: UIButton!
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    var profile : UserSetupProfile!
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     
     override func viewDidLoad() {
@@ -27,12 +28,16 @@ class AccountSetupGenderController: UIViewController {
         setWhite(manButton)
         setBlue(womanButton)
         setBlue(otherButton)
+        
+        profile.gender = "Man"
     }
     
     @IBAction func selectWoman(_ sender: Any) {
         setWhite(womanButton)
         setBlue(manButton)
         setBlue(otherButton)
+        
+        profile.gender = "Woman"
     }
     
     @IBAction func selectOther(_ sender: Any) {
@@ -41,23 +46,19 @@ class AccountSetupGenderController: UIViewController {
     
     func setWhite(_ button: UIButton){
         button.backgroundColor = UIColor.white
-        button.titleLabel?.textColor = roomrBlue
         button.layer.borderColor = roomrBlue.cgColor
         button.layer.borderWidth = 1
+        button.setTitleColor(roomrBlue, for: .normal)
     }
     
     func setBlue(_ button : UIButton){
         button.backgroundColor = roomrBlue
         button.titleLabel?.textColor = UIColor.white
     }
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destination as? AccountSetupGenderPrefController
+        vc?.profile = self.profile
     }
-    */
-
 }

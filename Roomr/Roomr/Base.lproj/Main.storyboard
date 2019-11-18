@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -106,7 +107,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="20"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -117,6 +118,9 @@
                                 <rect key="frame" x="50" y="219" width="4" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fillName:" destination="CJ7-au-GhR" eventType="editingDidEnd" id="1PK-uM-fdK"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -185,17 +189,20 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="20"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="KnA-2N-mjg" kind="show" id="zq2-PT-pi9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="mm/dd/yyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UR3-6F-aea">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="mm/dd/yyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UR3-6F-aea" customClass="DateTextField" customModule="DateTextField">
                                 <rect key="frame" x="50" y="219" width="72.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fillDate:" destination="KNK-uC-Pfq" eventType="editingDidEnd" id="NUI-A5-QY1"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -438,40 +445,79 @@
             </objects>
             <point key="canvasLocation" x="3234.7826086956525" y="914.73214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Account Setup Pics Controller-->
         <scene sceneID="q1I-k5-fks">
             <objects>
-                <viewController id="DKT-vX-0XR" sceneMemberID="viewController">
+                <viewController id="DKT-vX-0XR" customClass="AccountSetupPicsController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b1u-uu-sYd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDz-3M-jEQ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDz-3M-jEQ">
                                 <rect key="frame" x="50" y="141" width="176" height="32"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Upload Some Pictures!"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOx-Ol-f3u">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOx-Ol-f3u">
                                 <rect key="frame" x="50" y="181" width="275" height="30"/>
                                 <state key="normal" title="We want pictures of you AND your room">
                                     <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-Rr-jyN">
+                                <rect key="frame" x="45" y="273" width="323" height="422"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RqD-Vv-Ceb">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Gbs-rV-V5I">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cpa-Qo-PZC">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-fI-5g2">
+                                <rect key="frame" x="157" y="750" width="100" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="GVi-HC-c8s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="20"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="goHome:" destination="DKT-vX-0XR" eventType="touchUpInside" id="CIk-ja-ZWH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vDz-3M-jEQ" firstAttribute="leading" secondItem="5lA-3B-xPc" secondAttribute="leading" constant="50" id="96V-zX-DXs"/>
-                            <constraint firstItem="vDz-3M-jEQ" firstAttribute="top" secondItem="5lA-3B-xPc" secondAttribute="top" constant="53" id="Lcq-Ec-QMZ"/>
-                            <constraint firstItem="XOx-Ol-f3u" firstAttribute="leading" secondItem="5lA-3B-xPc" secondAttribute="leading" constant="50" id="cOo-Fa-RK1"/>
-                            <constraint firstItem="XOx-Ol-f3u" firstAttribute="top" secondItem="vDz-3M-jEQ" secondAttribute="bottom" constant="8" id="yEz-9e-PFH"/>
+                            <constraint firstItem="XOx-Ol-f3u" firstAttribute="top" secondItem="vDz-3M-jEQ" secondAttribute="bottom" constant="8" id="5Fx-lf-imF"/>
+                            <constraint firstItem="wbg-fI-5g2" firstAttribute="centerX" secondItem="b1u-uu-sYd" secondAttribute="centerX" id="7ju-RT-cfK"/>
+                            <constraint firstItem="5lA-3B-xPc" firstAttribute="trailing" secondItem="Vcl-Rr-jyN" secondAttribute="trailing" constant="46" id="BTP-I0-Zi8"/>
+                            <constraint firstItem="Vcl-Rr-jyN" firstAttribute="leading" secondItem="5lA-3B-xPc" secondAttribute="leading" constant="45" id="Bgh-z4-IGc"/>
+                            <constraint firstItem="vDz-3M-jEQ" firstAttribute="top" secondItem="5lA-3B-xPc" secondAttribute="top" constant="53" id="RSk-FP-pUq"/>
+                            <constraint firstItem="Vcl-Rr-jyN" firstAttribute="top" secondItem="XOx-Ol-f3u" secondAttribute="bottom" constant="62" id="Yqo-rU-ZyJ"/>
+                            <constraint firstItem="5lA-3B-xPc" firstAttribute="bottom" secondItem="wbg-fI-5g2" secondAttribute="bottom" constant="73" id="cwD-ZC-67z"/>
+                            <constraint firstItem="wbg-fI-5g2" firstAttribute="top" secondItem="Vcl-Rr-jyN" secondAttribute="bottom" constant="55" id="wl5-BN-U8T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5lA-3B-xPc"/>
                     </view>
                     <navigationItem key="navigationItem" id="ayZ-f2-xig"/>
+                    <connections>
+                        <outlet property="nextButton" destination="wbg-fI-5g2" id="itS-Xt-hQQ"/>
+                        <outlet property="picsCollection" destination="Vcl-Rr-jyN" id="wb3-ZM-pi6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFg-Tn-IKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4319" y="915"/>
+            <point key="canvasLocation" x="4318.125" y="913.73239436619724"/>
         </scene>
     </scenes>
     <resources>
