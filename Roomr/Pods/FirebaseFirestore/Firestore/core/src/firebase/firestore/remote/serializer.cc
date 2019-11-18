@@ -92,7 +92,6 @@ using model::TransformMutation;
 using model::TransformOperation;
 using nanopb::ByteString;
 using nanopb::CheckedSize;
-using nanopb::MakeArray;
 using nanopb::MakeStringView;
 using nanopb::Reader;
 using nanopb::SafeReadBoolean;

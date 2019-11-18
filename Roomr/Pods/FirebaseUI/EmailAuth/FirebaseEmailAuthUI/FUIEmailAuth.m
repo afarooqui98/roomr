@@ -199,11 +199,9 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
     }
   } else {
     if ([delegate respondsToSelector:@selector(emailEntryViewControllerForAuthUI:)]) {
-      controller = [delegate passwordSignInViewControllerForAuthUI:self.authUI
-                                                             email:defaultValue ?: @""];
+      controller = [delegate passwordSignInViewControllerForAuthUI:self.authUI email:@""];
     } else {
-      controller = [[FUIPasswordSignInViewController alloc] initWithAuthUI:self.authUI
-                                                                     email:defaultValue];
+      controller = [[FUIPasswordSignInViewController alloc] initWithAuthUI:self.authUI email:nil];
     }
   }
 

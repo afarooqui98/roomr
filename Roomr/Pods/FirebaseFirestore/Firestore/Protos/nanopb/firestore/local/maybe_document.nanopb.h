@@ -25,8 +25,6 @@
 
 #include "google/protobuf/timestamp.nanopb.h"
 
-#include <string>
-
 namespace firebase {
 namespace firestore {
 
@@ -40,16 +38,12 @@ namespace firestore {
 typedef struct _firestore_client_NoDocument {
     pb_bytes_array_t *name;
     google_protobuf_Timestamp read_time;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:firestore_client_NoDocument) */
 } firestore_client_NoDocument;
 
 typedef struct _firestore_client_UnknownDocument {
     pb_bytes_array_t *name;
     google_protobuf_Timestamp version;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:firestore_client_UnknownDocument) */
 } firestore_client_UnknownDocument;
 
@@ -61,8 +55,6 @@ typedef struct _firestore_client_MaybeDocument {
         firestore_client_UnknownDocument unknown_document;
     };
     bool has_committed_mutations;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:firestore_client_MaybeDocument) */
 } firestore_client_MaybeDocument;
 

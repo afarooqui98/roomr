@@ -29,9 +29,8 @@ namespace local {
 
 using util::Path;
 using util::Status;
-using util::StatusOr;
 
-StatusOr<Path> LevelDbPersistence::AppDataDirectory() {
+Path LevelDbPersistence::AppDataDirectory() {
 #if TARGET_OS_IOS
   NSArray<NSString*>* directories = NSSearchPathForDirectoriesInDomains(
       NSDocumentDirectory, NSUserDomainMask, YES);

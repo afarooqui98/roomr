@@ -61,6 +61,11 @@ class LocalSerializer;
 
 namespace remote {
 
+template <typename T>
+T* MakeArray(pb_size_t count) {
+  return static_cast<T*>(calloc(count, sizeof(T)));
+}
+
 core::Query InvalidQuery();
 
 /**

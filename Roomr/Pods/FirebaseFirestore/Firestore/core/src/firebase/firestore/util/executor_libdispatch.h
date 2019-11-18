@@ -17,14 +17,13 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_UTIL_EXECUTOR_LIBDISPATCH_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_UTIL_EXECUTOR_LIBDISPATCH_H_
 
-#include <dispatch/dispatch.h>
-
 #include <chrono>  // NOLINT(build/c++11)
 #include <functional>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <utility>
+#include <vector>
+#include "dispatch/dispatch.h"
 
 #include "Firestore/core/src/firebase/firestore/util/executor.h"
 #include "absl/strings/string_view.h"
@@ -58,12 +57,8 @@ class TimeSlot;
 // a dedicated serial dispatch queue.
 class ExecutorLibdispatch : public Executor {
  public:
-  // An opaque, monotonically increasing identifier for TimeSlots that does
-  // not depend on their address.
-  using TimeSlotId = uint32_t;
-
   explicit ExecutorLibdispatch(dispatch_queue_t dispatch_queue);
-  ~ExecutorLibdispatch() override;
+  ~ExecutorLibdispatch();
 
   bool IsCurrentExecutor() const override;
   std::string CurrentExecutorName() const override;
@@ -74,7 +69,7 @@ class ExecutorLibdispatch : public Executor {
   DelayedOperation Schedule(Milliseconds delay,
                             TaggedOperation&& operation) override;
 
-  void RemoveFromSchedule(TimeSlotId to_remove);
+  void RemoveFromSchedule(const TimeSlot* to_remove);
 
   bool IsScheduled(Tag tag) const override;
   absl::optional<TaggedOperation> PopFromSchedule() override;
@@ -84,16 +79,10 @@ class ExecutorLibdispatch : public Executor {
   }
 
  private:
-  using ScheduleMap = std::unordered_map<TimeSlotId, TimeSlot*>;
-  using ScheduleEntry = ScheduleMap::value_type;
-
-  TimeSlotId NextId();
-
   dispatch_queue_t dispatch_queue_;
   // Stores non-owned pointers to `TimeSlot`s.
   // Invariant: if a `TimeSlot` is in `schedule_`, it's a valid pointer.
-  ScheduleMap schedule_;
-  TimeSlotId current_id_ = 0;
+  std::vector<TimeSlot*> schedule_;
 };
 
 }  // namespace util

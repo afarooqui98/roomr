@@ -252,22 +252,22 @@ FIRQuery *Wrap(Query &&query) {
                                  value:value];
 }
 
-- (FIRQuery *)queryWhereField:(NSString *)field arrayContainsAny:(NSArray<id> *)values {
-  return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny field:field value:values];
+- (FIRQuery *)queryWhereField:(NSString *)field arrayContainsAny:(NSArray<id> *)value {
+  return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny field:field value:value];
 }
 
-- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path arrayContainsAny:(NSArray<id> *)values {
+- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path arrayContainsAny:(NSArray<id> *)value {
   return [self queryWithFilterOperator:Filter::Operator::ArrayContainsAny
                                   path:path.internalValue
-                                 value:values];
+                                 value:value];
 }
 
-- (FIRQuery *)queryWhereField:(NSString *)field in:(NSArray<id> *)values {
-  return [self queryWithFilterOperator:Filter::Operator::In field:field value:values];
+- (FIRQuery *)queryWhereField:(NSString *)field in:(NSArray<id> *)value {
+  return [self queryWithFilterOperator:Filter::Operator::In field:field value:value];
 }
 
-- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path in:(NSArray<id> *)values {
-  return [self queryWithFilterOperator:Filter::Operator::In path:path.internalValue value:values];
+- (FIRQuery *)queryWhereFieldPath:(FIRFieldPath *)path in:(NSArray<id> *)value {
+  return [self queryWithFilterOperator:Filter::Operator::In path:path.internalValue value:value];
 }
 
 - (FIRQuery *)queryFilteredUsingComparisonPredicate:(NSPredicate *)predicate {
@@ -429,10 +429,6 @@ FIRQuery *Wrap(Query &&query) {
   return [self.firestore.dataConverter parsedQueryValue:value];
 }
 
-- (FieldValue)parsedQueryValue:(id)value allowArrays:(bool)allowArrays {
-  return [self.firestore.dataConverter parsedQueryValue:value allowArrays:allowArrays];
-}
-
 - (QuerySnapshot::Listener)wrapQuerySnapshotBlock:(FIRQuerySnapshotBlock)block {
   class Converter : public EventListener<QuerySnapshot> {
    public:
@@ -466,8 +462,7 @@ FIRQuery *Wrap(Query &&query) {
 - (FIRQuery *)queryWithFilterOperator:(Filter::Operator)filterOperator
                                  path:(const FieldPath &)fieldPath
                                 value:(id)value {
-  FieldValue fieldValue = [self parsedQueryValue:value
-                                     allowArrays:filterOperator == Filter::Operator::In];
+  FieldValue fieldValue = [self parsedQueryValue:value];
   auto describer = [value] { return util::MakeString(NSStringFromClass([value class])); };
   return Wrap(_query.Filter(fieldPath, filterOperator, std::move(fieldValue), describer));
 }

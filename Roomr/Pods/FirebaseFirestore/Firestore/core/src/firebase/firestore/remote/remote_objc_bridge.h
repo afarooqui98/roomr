@@ -80,6 +80,12 @@ class WatchStreamSerializer {
       nanopb::Reader* reader,
       const google_firestore_v1_ListenResponse& response) const;
 
+  /** Creates a pretty-printed description of the proto for debugging. */
+  static std::string Describe(
+      const nanopb::Message<google_firestore_v1_ListenRequest>& request);
+  static std::string Describe(
+      const nanopb::Message<google_firestore_v1_ListenResponse>& response);
+
  private:
   Serializer serializer_;
 };
@@ -105,6 +111,12 @@ class WriteStreamSerializer {
   std::vector<model::MutationResult> DecodeMutationResults(
       nanopb::Reader* reader,
       const google_firestore_v1_WriteResponse& proto) const;
+
+  /** Creates a pretty-printed description of the proto for debugging. */
+  static std::string Describe(
+      const nanopb::Message<google_firestore_v1_WriteRequest>& request);
+  static std::string Describe(
+      const nanopb::Message<google_firestore_v1_WriteResponse>& response);
 
  private:
   Serializer serializer_;

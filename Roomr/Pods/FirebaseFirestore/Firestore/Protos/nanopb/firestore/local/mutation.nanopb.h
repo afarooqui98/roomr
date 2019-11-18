@@ -25,8 +25,6 @@
 
 #include "google/protobuf/timestamp.nanopb.h"
 
-#include <string>
-
 namespace firebase {
 namespace firestore {
 
@@ -40,8 +38,6 @@ namespace firestore {
 typedef struct _firestore_client_MutationQueue {
     int32_t last_acknowledged_batch_id;
     pb_bytes_array_t *last_stream_token;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:firestore_client_MutationQueue) */
 } firestore_client_MutationQueue;
 
@@ -52,8 +48,6 @@ typedef struct _firestore_client_WriteBatch {
     google_protobuf_Timestamp local_write_time;
     pb_size_t base_writes_count;
     struct _google_firestore_v1_Write *base_writes;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:firestore_client_WriteBatch) */
 } firestore_client_WriteBatch;
 

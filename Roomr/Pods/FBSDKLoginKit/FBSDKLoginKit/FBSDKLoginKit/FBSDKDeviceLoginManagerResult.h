@@ -18,7 +18,7 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef FBSDKCOCOAPODS
+#if COCOAPODS
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 #endif
 

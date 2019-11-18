@@ -17,6 +17,8 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_FIRESTORE_CLIENT_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_CORE_FIRESTORE_CLIENT_H_
 
+#import <Foundation/Foundation.h>
+
 #include <memory>
 #include <vector>
 

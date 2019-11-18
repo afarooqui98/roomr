@@ -66,7 +66,7 @@ void WriteStream::WriteHandshake() {
 
   auto request = write_serializer_.EncodeHandshake();
   LOG_DEBUG("%s initial request: %s", GetDebugDescription(),
-            request.ToString());
+            write_serializer_.Describe(request));
   Write(MakeByteBuffer(request));
 
   // TODO(dimond): Support stream resumption. We intentionally do not set the
@@ -81,7 +81,8 @@ void WriteStream::WriteMutations(const std::vector<Mutation>& mutations) {
 
   auto request = write_serializer_.EncodeWriteMutationsRequest(
       mutations, last_stream_token());
-  LOG_DEBUG("%s write request: %s", GetDebugDescription(), request.ToString());
+  LOG_DEBUG("%s write request: %s", GetDebugDescription(),
+            write_serializer_.Describe(request));
   Write(MakeByteBuffer(request));
 }
 
@@ -123,7 +124,8 @@ Status WriteStream::NotifyStreamResponse(const grpc::ByteBuffer& message) {
     return reader.status();
   }
 
-  LOG_DEBUG("%s response: %s", GetDebugDescription(), response.ToString());
+  LOG_DEBUG("%s response: %s", GetDebugDescription(),
+            write_serializer_.Describe(response));
 
   // Always capture the last stream token.
   set_last_stream_token(ByteString::Take(response->stream_token));

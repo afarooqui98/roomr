@@ -131,7 +131,7 @@ Status DeleteDir(const Path& path) {
   return Status::OK();
 }
 
-Status DeleteSingleFile(const Path& path) {
+Status DeleteFile(const Path& path) {
   if (::unlink(path.c_str())) {
     if (errno != ENOENT) {
       return Status::FromErrno(

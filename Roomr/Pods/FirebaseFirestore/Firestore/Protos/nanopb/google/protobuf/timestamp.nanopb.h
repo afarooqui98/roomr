@@ -21,8 +21,6 @@
 #define PB_GOOGLE_PROTOBUF_TIMESTAMP_NANOPB_H_INCLUDED
 #include <pb.h>
 
-#include <string>
-
 namespace firebase {
 namespace firestore {
 
@@ -36,8 +34,6 @@ namespace firestore {
 typedef struct _google_protobuf_Timestamp {
     int64_t seconds;
     int32_t nanos;
-
-    std::string ToString(int indent = 0) const;
 /* @@protoc_insertion_point(struct:google_protobuf_Timestamp) */
 } google_protobuf_Timestamp;
 

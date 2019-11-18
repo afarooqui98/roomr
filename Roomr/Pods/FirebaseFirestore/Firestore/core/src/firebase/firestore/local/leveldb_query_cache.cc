@@ -46,6 +46,7 @@ using model::TargetId;
 using nanopb::ByteString;
 using nanopb::Message;
 using nanopb::StringReader;
+using util::MakeString;
 
 absl::optional<Message<firestore_client_TargetGlobal>>
 LevelDbQueryCache::TryReadMetadata(leveldb::DB* db) {
