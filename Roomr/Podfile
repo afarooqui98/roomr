@@ -18,4 +18,5 @@ target 'Roomr' do
   pod 'Firebase/Firestore'
   
   pod 'GoogleSignIn'
+  pod 'Koloda'
 end
