@@ -20,15 +20,21 @@ class AccountSetupNameController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func fillName(_ sender: Any) {
+        profile.firstName = nameField.text ?? ""
     }
-    */
-
+    
+    // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if nameField.text?.isEmpty ?? true || nameField.text == "" {
+            nameField.placeholder = "Please fill out a name before proceeding"
+            return false
+        }
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? AccountSetupAgeController
+        vc?.profile = self.profile
+    }
 }
