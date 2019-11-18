@@ -24,6 +24,11 @@
 		65F924AE237E5B4F0089EE3B /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F924AB237E5B4F0089EE3B /* CustomOverlayView.swift */; };
 		65F924AF237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */; };
 		65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */; };
+		EC5FBEEC238366A300B60C57 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC5FBEE7238366A300B60C57 /* Profile.storyboard */; };
+		EC5FBEED238366A300B60C57 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FBEE8238366A300B60C57 /* EditProfileViewController.swift */; };
+		EC5FBEEE238366A300B60C57 /* AddMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FBEE9238366A300B60C57 /* AddMediaViewController.swift */; };
+		EC5FBEEF238366A300B60C57 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FBEEA238366A300B60C57 /* ProfileViewController.swift */; };
+		EC5FBEF0238366A300B60C57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FBEEB238366A300B60C57 /* SettingsViewController.swift */; };
 		EC834404237CAFCE00EBB218 /* match.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC834403237CAFCD00EBB218 /* match.storyboard */; };
 		EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC834405237CB46200EBB218 /* MatchViewController.swift */; };
 		EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83440B237D095B00EBB218 /* ContactCell.swift */; };
@@ -52,6 +57,11 @@
 		65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupPicsController.swift; sourceTree = "<group>"; };
 		7DDBD1223662A07D95E2BCC9 /* Pods-Roomr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.release.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.release.xcconfig"; sourceTree = "<group>"; };
 		AB26F3B45EEEF53D03077DFA /* Pods_Roomr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC5FBEE7238366A300B60C57 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		EC5FBEE8238366A300B60C57 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		EC5FBEE9238366A300B60C57 /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
+		EC5FBEEA238366A300B60C57 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EC5FBEEB238366A300B60C57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EC834403237CAFCD00EBB218 /* match.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = match.storyboard; sourceTree = "<group>"; };
 		EC834405237CB46200EBB218 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		EC83440B237D095B00EBB218 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -100,6 +110,7 @@
 		65B6ECA823752BF4002CE8D7 /* Roomr */ = {
 			isa = PBXGroup;
 			children = (
+				EC5FBEE6238366A300B60C57 /* Profile */,
 				65F924A9237E5B4F0089EE3B /* Home */,
 				65F9249A237E48D50089EE3B /* Matches */,
 				65F92499237E48970089EE3B /* Login */,
@@ -155,6 +166,18 @@
 				AB26F3B45EEEF53D03077DFA /* Pods_Roomr.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC5FBEE6238366A300B60C57 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EC5FBEE7238366A300B60C57 /* Profile.storyboard */,
+				EC5FBEE8238366A300B60C57 /* EditProfileViewController.swift */,
+				EC5FBEE9238366A300B60C57 /* AddMediaViewController.swift */,
+				EC5FBEEA238366A300B60C57 /* ProfileViewController.swift */,
+				EC5FBEEB238366A300B60C57 /* SettingsViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +246,7 @@
 				EC834404237CAFCE00EBB218 /* match.storyboard in Resources */,
 				65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */,
 				65B6ECBE23753955002CE8D7 /* Assets.xcassets in Resources */,
+				EC5FBEEC238366A300B60C57 /* Profile.storyboard in Resources */,
 				65F924AF237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,13 +324,17 @@
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
 				EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */,
 				EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */,
+				EC5FBEEF238366A300B60C57 /* ProfileViewController.swift in Sources */,
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
+				EC5FBEED238366A300B60C57 /* EditProfileViewController.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
 				EC83440E237D0A5600EBB218 /* People.swift in Sources */,
 				65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */,
 				65F924AE237E5B4F0089EE3B /* CustomOverlayView.swift in Sources */,
 				65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */,
 				65F924AD237E5B4F0089EE3B /* HomeViewController.swift in Sources */,
+				EC5FBEEE238366A300B60C57 /* AddMediaViewController.swift in Sources */,
+				EC5FBEF0238366A300B60C57 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
