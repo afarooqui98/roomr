@@ -24,10 +24,11 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.delegate = self
         self.SearchBar.delegate = self
         self.ref = Database.database().reference()
-        
+        let userID = "90VZVPq028eFEJPCt83PeLFPKem2"
         var allPeople: [People] = []
         
-        ref?.child("Contact").observe(DataEventType.value, with: { (snapshot) in
+//        ref?.child("Contact").observe(DataEventType.value, with: { (snapshot) in
+        ref?.child("user").child(userID).child("Contacts").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return }
 
