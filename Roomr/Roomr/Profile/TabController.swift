@@ -1,18 +1,20 @@
 //
-//  EditProfileViewController.swift
+//  TabController.swift
 //  Roomr
 //
-//  Created by Ryan on 11/17/19.
+//  Created by Ryan on 11/18/19.
 //  Copyright © 2019 Ahmed Farooqui. All rights reserved.
 //
 
 import UIKit
 
-class EditProfileViewController: UITableViewController {
+class TabController: UITabBarController {
 
+    @IBInspectable var defaultIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Update data on server
+        selectedIndex = defaultIndex
     }
     
 
