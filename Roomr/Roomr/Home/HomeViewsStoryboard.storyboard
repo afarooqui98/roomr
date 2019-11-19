@@ -7,8 +7,213 @@
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Home View Controller-->
+        <!--Side Menu Controller-->
+        <scene sceneID="lQp-1t-60D">
+            <objects>
+                <viewController storyboardIdentifier="sideMenuController" id="cpY-9Z-6OP" customClass="SideMenuController" customModule="SideMenuSwift" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u92-AD-RHZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="pON-Cg-P9R"/>
+                    </view>
+                    <connections>
+                        <segue destination="HgA-N7-zEM" kind="custom" identifier="SideMenu.Menu" customClass="SideMenuSegue" customModule="SideMenuSwift" id="vqP-Is-fNr"/>
+                        <segue destination="l8X-w5-0cb" kind="custom" identifier="SideMenu.Content" customClass="SideMenuSegue" customModule="SideMenuSwift" id="Llj-v9-T29"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubc-eo-2IG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2407" y="-194"/>
+        </scene>
+        <!--Hamburger Menu View Controller-->
+        <scene sceneID="qNF-SS-afS">
+            <objects>
+                <viewController id="HgA-N7-zEM" customClass="HamburgerMenuViewController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="center" id="J36-Qr-DLt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGU-pq-IFh" userLabel="Menu Content View">
+                                <rect key="frame" x="0.0" y="256" width="375" height="411"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-oD-qND" userLabel="Menu Items Stack View">
+                                        <rect key="frame" x="137" y="10" width="213" height="183"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkt-Fc-4Ao" userLabel="Matches View">
+                                                <rect key="frame" x="0.0" y="0.0" width="213" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY5-R8-DZl" userLabel="Matches Button">
+                                                        <rect key="frame" x="77" y="9" width="130" height="42"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                                                        <state key="normal" title="My matches">
+                                                            <color key="titleColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Matches_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="OpE-V6-zEm" userLabel="Matches Icon">
+                                                        <rect key="frame" x="17" y="15" width="34" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="JGk-GK-KNc"/>
+                                                            <constraint firstAttribute="width" constant="34" id="wF1-8j-2YU"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="OpE-V6-zEm" firstAttribute="centerY" secondItem="QY5-R8-DZl" secondAttribute="centerY" id="BEC-zZ-GAO"/>
+                                                    <constraint firstItem="QY5-R8-DZl" firstAttribute="leading" secondItem="OpE-V6-zEm" secondAttribute="trailing" constant="26" id="FOG-cG-eu3"/>
+                                                    <constraint firstItem="OpE-V6-zEm" firstAttribute="centerY" secondItem="jkt-Fc-4Ao" secondAttribute="centerY" id="any-En-8sR"/>
+                                                    <constraint firstItem="OpE-V6-zEm" firstAttribute="leading" secondItem="jkt-Fc-4Ao" secondAttribute="leading" constant="17" id="hZu-Ey-h9V"/>
+                                                    <constraint firstItem="OpE-V6-zEm" firstAttribute="top" secondItem="jkt-Fc-4Ao" secondAttribute="top" constant="15" id="y0x-dR-4Jp"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfT-3z-qcY" userLabel="Settings View">
+                                                <rect key="frame" x="0.0" y="61" width="213" height="60"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Settings_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Jf1-Ag-fnd" userLabel="Settings Icon">
+                                                        <rect key="frame" x="22" y="16" width="28" height="28"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="28" id="1Gh-ps-pKX"/>
+                                                            <constraint firstAttribute="height" constant="28" id="Zoq-g1-qiv"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBD-K2-ief" userLabel="Settings Button">
+                                                        <rect key="frame" x="76" y="8" width="92" height="42"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                                                        <state key="normal" title="Settings">
+                                                            <color key="titleColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="BBD-K2-ief" firstAttribute="leading" secondItem="Jf1-Ag-fnd" secondAttribute="trailing" constant="26" id="5S0-b7-OhC"/>
+                                                    <constraint firstItem="Jf1-Ag-fnd" firstAttribute="centerY" secondItem="HfT-3z-qcY" secondAttribute="centerY" id="8kg-ox-efU"/>
+                                                    <constraint firstItem="Jf1-Ag-fnd" firstAttribute="leading" secondItem="HfT-3z-qcY" secondAttribute="leading" constant="22" id="YQE-Sf-hh2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BBD-K2-ief" secondAttribute="trailing" constant="45" id="oCn-Zf-Ji8"/>
+                                                    <constraint firstItem="Jf1-Ag-fnd" firstAttribute="top" secondItem="HfT-3z-qcY" secondAttribute="top" constant="16" id="w5B-WR-PKg"/>
+                                                    <constraint firstItem="BBD-K2-ief" firstAttribute="top" secondItem="HfT-3z-qcY" secondAttribute="topMargin" id="zKg-Az-nlg"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXh-zs-GKT" userLabel="Messages View">
+                                                <rect key="frame" x="0.0" y="122" width="213" height="61"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybo-F2-SPe" userLabel="Messages Button">
+                                                        <rect key="frame" x="78" y="9.5" width="106" height="42"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                                                        <state key="normal" title="Messages">
+                                                            <color key="titleColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Messages_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="rYY-AO-apG" userLabel="Messages Icon">
+                                                        <rect key="frame" x="23" y="16" width="29" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="29" id="4Qg-TW-CVg"/>
+                                                            <constraint firstAttribute="width" constant="29" id="Im5-Wy-9vX"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="rYY-AO-apG" firstAttribute="centerY" secondItem="SXh-zs-GKT" secondAttribute="centerY" id="1Fs-Fb-cpq"/>
+                                                    <constraint firstItem="ybo-F2-SPe" firstAttribute="leading" secondItem="rYY-AO-apG" secondAttribute="trailing" constant="26" id="4vf-rg-cQS"/>
+                                                    <constraint firstItem="rYY-AO-apG" firstAttribute="leading" secondItem="SXh-zs-GKT" secondAttribute="leading" constant="23" id="81v-VS-RKR"/>
+                                                    <constraint firstItem="rYY-AO-apG" firstAttribute="top" secondItem="SXh-zs-GKT" secondAttribute="top" constant="16" id="ZQH-bo-sUQ"/>
+                                                    <constraint firstItem="rYY-AO-apG" firstAttribute="centerY" secondItem="ybo-F2-SPe" secondAttribute="centerY" id="pWg-SY-fU5"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="jkt-Fc-4Ao" secondAttribute="trailing" id="ahn-xy-4aa"/>
+                                            <constraint firstItem="jkt-Fc-4Ao" firstAttribute="leading" secondItem="Gyo-oD-qND" secondAttribute="leading" id="bbJ-GR-awO"/>
+                                            <constraint firstAttribute="trailing" secondItem="SXh-zs-GKT" secondAttribute="trailing" id="eQE-gj-0aN"/>
+                                            <constraint firstItem="SXh-zs-GKT" firstAttribute="leading" secondItem="Gyo-oD-qND" secondAttribute="leading" id="iNX-dv-QQ6"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTb-6u-p94" userLabel="Logo Bottom Bar View">
+                                        <rect key="frame" x="0.0" y="320" width="375" height="91"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_inverse" translatesAutoresizingMaskIntoConstraints="NO" id="m31-V4-3es">
+                                                <rect key="frame" x="241" y="18" width="94" height="55"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="m31-V4-3es" firstAttribute="centerY" secondItem="WTb-6u-p94" secondAttribute="centerY" id="ReY-tJ-kA7"/>
+                                            <constraint firstItem="m31-V4-3es" firstAttribute="leading" secondItem="WTb-6u-p94" secondAttribute="leading" constant="241" id="Ssw-hj-LeN"/>
+                                            <constraint firstAttribute="trailing" secondItem="m31-V4-3es" secondAttribute="trailing" constant="40" id="zkb-Bn-fLQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Gyo-oD-qND" firstAttribute="top" secondItem="yGU-pq-IFh" secondAttribute="top" constant="10" id="191-Y6-rWp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gyo-oD-qND" secondAttribute="trailing" constant="25" id="2gH-f4-WO1"/>
+                                    <constraint firstAttribute="bottom" secondItem="WTb-6u-p94" secondAttribute="bottom" id="D32-bM-AsF"/>
+                                    <constraint firstAttribute="trailing" secondItem="WTb-6u-p94" secondAttribute="trailing" id="XjC-md-vdH"/>
+                                    <constraint firstItem="WTb-6u-p94" firstAttribute="top" secondItem="yGU-pq-IFh" secondAttribute="top" constant="320" id="iyy-qx-fyj"/>
+                                    <constraint firstItem="WTb-6u-p94" firstAttribute="leading" secondItem="yGU-pq-IFh" secondAttribute="leading" id="oEc-XS-kHL"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Divider" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-B0-nUM">
+                                <rect key="frame" x="16" y="225" width="343" height="1"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TaJ-Si-hae" userLabel="User Profile View">
+                                <rect key="frame" x="25" y="20" width="295" height="170"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-Qk-swV">
+                                        <rect key="frame" x="205" y="0.0" width="90" height="90"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cameron" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieD-PW-8j9" userLabel="Name Label">
+                                        <rect key="frame" x="195.5" y="100" width="99.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obr-wZ-cWH" userLabel="Edit Profile Button">
+                                        <rect key="frame" x="198" y="140" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <state key="normal" title="EDIT PROFILE">
+                                            <color key="titleColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TaJ-Si-hae" firstAttribute="top" secondItem="fw5-ff-RaF" secondAttribute="top" constant="20" id="2ng-DC-1yu"/>
+                            <constraint firstItem="fw5-ff-RaF" firstAttribute="trailing" secondItem="TaJ-Si-hae" secondAttribute="trailing" constant="55" id="Dv6-OA-3IP"/>
+                            <constraint firstItem="yGU-pq-IFh" firstAttribute="trailing" secondItem="fw5-ff-RaF" secondAttribute="trailing" id="LAe-Hg-joW"/>
+                            <constraint firstItem="dR8-B0-nUM" firstAttribute="leading" secondItem="J36-Qr-DLt" secondAttribute="leadingMargin" id="MZ6-gB-t8p"/>
+                            <constraint firstItem="TaJ-Si-hae" firstAttribute="leading" secondItem="fw5-ff-RaF" secondAttribute="leading" constant="25" id="Mjr-Ln-DGO"/>
+                            <constraint firstItem="dR8-B0-nUM" firstAttribute="top" secondItem="TaJ-Si-hae" secondAttribute="bottom" constant="35" id="OA3-dK-cg8"/>
+                            <constraint firstItem="fw5-ff-RaF" firstAttribute="bottom" secondItem="yGU-pq-IFh" secondAttribute="bottom" id="VpS-0v-1Hf"/>
+                            <constraint firstItem="yGU-pq-IFh" firstAttribute="top" secondItem="dR8-B0-nUM" secondAttribute="bottom" constant="30" id="bHV-L2-BGh"/>
+                            <constraint firstItem="yGU-pq-IFh" firstAttribute="leading" secondItem="fw5-ff-RaF" secondAttribute="leading" id="g5z-wO-AwZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dR8-B0-nUM" secondAttribute="trailing" id="twX-JR-ioH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fw5-ff-RaF"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idN-Zh-NK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1546.4000000000001" y="599.55022488755628"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="L8g-JE-leO">
             <objects>
                 <viewController storyboardIdentifier="homeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mPo-zM-Tfv" customClass="HomeViewController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,34 +221,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-kw-uxI">
-                                <rect key="frame" x="50" y="20" width="275" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CurvedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Nvf-rr-xrF">
-                                <rect key="frame" x="0.0" y="450" width="375" height="217"/>
+                                <rect key="frame" x="0.0" y="233" width="375" height="434"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-Sh-7bC" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="50" y="101" width="275" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-j0-VF8">
-                                <rect key="frame" x="30" y="500" width="315" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="30" y="310" width="315" height="35"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="sn9-hF-18M">
-                                <rect key="frame" x="168" y="433" width="39" height="39"/>
+                                <rect key="frame" x="148.5" y="204" width="78" height="78"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-sJ-inm" userLabel="DetailsStack">
-                                <rect key="frame" x="30" y="544" width="315" height="61.5"/>
+                                <rect key="frame" x="30" y="353" width="315" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 yrs old" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-lm-8MD">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="61.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -58,7 +253,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10mi away" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-mR-5RG">
                                         <rect key="frame" x="210" y="0.0" width="105" height="61.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -68,30 +263,44 @@
                                     <constraint firstItem="5iU-lm-8MD" firstAttribute="height" secondItem="vKU-mR-5RG" secondAttribute="height" id="IMZ-H1-geM"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-Sh-7bC" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="50" y="99" width="275" height="73"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97245675325393677" green="0.97261565923690796" blue="0.97242289781570435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nvf-rr-xrF" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" id="0YM-Ri-R1e"/>
-                            <constraint firstItem="sn9-hF-18M" firstAttribute="top" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="32" id="1Ds-AC-FCZ"/>
                             <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="XOe-sJ-inm" secondAttribute="trailing" constant="30" id="1pa-54-PdO"/>
                             <constraint firstItem="sn9-hF-18M" firstAttribute="centerX" secondItem="Hw9-pn-bMP" secondAttribute="centerX" id="2Ld-3H-EQa"/>
                             <constraint firstItem="Nvf-rr-xrF" firstAttribute="trailing" secondItem="7jg-z7-l7t" secondAttribute="trailing" id="3uZ-rl-r9h"/>
-                            <constraint firstItem="dSk-kw-uxI" firstAttribute="top" secondItem="7jg-z7-l7t" secondAttribute="top" constant="20" id="4fv-eB-0oD"/>
                             <constraint firstItem="M2j-j0-VF8" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="30" id="66M-zx-IP8"/>
-                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="50" id="F3O-aj-q1a"/>
+                            <constraint firstItem="sn9-hF-18M" firstAttribute="top" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="32" id="BPB-Mi-4y2"/>
                             <constraint firstItem="XOe-sJ-inm" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="30" id="Js6-0w-u5F"/>
+                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="top" secondItem="7jg-z7-l7t" secondAttribute="top" constant="55" id="LS3-Dt-zKc"/>
                             <constraint firstItem="Nvf-rr-xrF" firstAttribute="bottom" secondItem="7jg-z7-l7t" secondAttribute="bottom" id="Loi-k1-vPo"/>
                             <constraint firstItem="XOe-sJ-inm" firstAttribute="top" secondItem="M2j-j0-VF8" secondAttribute="bottom" constant="8" symbolic="YES" id="PEt-XV-w73"/>
-                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="n1c-Sh-7bC" secondAttribute="trailing" constant="50" id="UDO-hN-hop"/>
-                            <constraint firstAttribute="bottom" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="266" id="ayz-IH-Wag"/>
                             <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="M2j-j0-VF8" secondAttribute="trailing" constant="30" id="hNO-Pq-XvF"/>
-                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="top" secondItem="dSk-kw-uxI" secondAttribute="bottom" constant="33" id="p8O-b3-bEX"/>
-                            <constraint firstItem="dSk-kw-uxI" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="50" id="urH-5d-jgA"/>
+                            <constraint firstItem="Nvf-rr-xrF" firstAttribute="top" secondItem="n1c-Sh-7bC" secondAttribute="bottom" constant="61" id="mUw-kU-71s"/>
                             <constraint firstItem="M2j-j0-VF8" firstAttribute="top" secondItem="sn9-hF-18M" secondAttribute="bottom" constant="28" id="v3Z-JE-C4w"/>
-                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="dSk-kw-uxI" secondAttribute="trailing" constant="50" id="zDP-Nf-2xg"/>
+                            <constraint firstItem="n1c-Sh-7bC" firstAttribute="leading" secondItem="7jg-z7-l7t" secondAttribute="leading" constant="50" id="xal-JQ-fHm"/>
+                            <constraint firstItem="7jg-z7-l7t" firstAttribute="trailing" secondItem="n1c-Sh-7bC" secondAttribute="trailing" constant="50" id="yvB-ZW-4n1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7jg-z7-l7t"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="Bau-An-Rvf">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="XHT-Dc-qhq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wVp-yB-Ows" userLabel="Hamburger Button">
+                                <rect key="frame" x="16" y="0.0" width="40" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="35"/>
+                                <state key="normal" image="HamburgerMenu/Hamburger"/>
+                                <connections>
+                                    <action selector="hamburger_pressed:" destination="mPo-zM-Tfv" eventType="touchUpInside" id="rnd-O9-U5m"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="kolodaView" destination="n1c-Sh-7bC" id="AQU-g6-tVE"/>
                         <outlet property="userName_label" destination="M2j-j0-VF8" id="OIG-cj-aGR"/>
@@ -99,12 +308,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjf-tS-6uU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103.2" y="-221.73913043478262"/>
+            <point key="canvasLocation" x="-463.19999999999999" y="-195.6521739130435"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tTl-kU-APE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l8X-w5-0cb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n52-04-aEh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mPo-zM-Tfv" kind="relationship" relationship="rootViewController" id="rC0-lw-jRc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFL-BD-aRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1449" y="-196"/>
         </scene>
     </scenes>
     <resources>
         <image name="Bullet" width="29" height="30"/>
         <image name="CurvedBackground" width="458.5" height="217"/>
+        <image name="HamburgerMenu/Divider" width="227" height="1"/>
+        <image name="HamburgerMenu/Hamburger" width="20" height="15"/>
+        <image name="HamburgerMenu/Matches_Icon" width="17.5" height="17.5"/>
+        <image name="HamburgerMenu/Messages_Icon" width="14.5" height="14.5"/>
+        <image name="HamburgerMenu/Profile_pic_placeholder" width="90" height="90"/>
+        <image name="HamburgerMenu/Settings_Icon" width="14" height="14.5"/>
         <image name="Star" width="39" height="39"/>
+        <image name="logo_inverse" width="126" height="55"/>
     </resources>
 </document>
