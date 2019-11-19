@@ -16,6 +16,10 @@ class SettingsViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.white
+
+    }
 
     /*
     // MARK: - Navigation
