@@ -15,7 +15,7 @@ class AccountSetupNameController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.layer.cornerRadius = 10
+        nextButton.layer.cornerRadius = 4
         nameField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
