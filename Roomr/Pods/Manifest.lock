@@ -10,6 +10,11 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - BSGridCollectionViewLayout (1.2.5)
+  - BSImagePicker (2.10.3):
+    - BSGridCollectionViewLayout (= 1.2.5)
+    - BSImageView (= 1.0.3)
+  - BSImageView (1.0.3)
   - DateTextField (2.1.0)
   - FBSDKCoreKit (5.10.0):
     - FBSDKCoreKit/Basics (= 5.10.0)
@@ -199,8 +204,10 @@ PODS:
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
+  - SideMenuSwift (2.0.3)
 
 DEPENDENCIES:
+  - BSImagePicker
   - DateTextField
   - Firebase/Analytics
   - Firebase/Auth
@@ -208,11 +215,15 @@ DEPENDENCIES:
   - FirebaseUI
   - GoogleSignIn
   - Koloda
+  - SideMenuSwift
 
 SPEC REPOS:
   trunk:
     - AppAuth
     - BoringSSL-GRPC
+    - BSGridCollectionViewLayout
+    - BSImagePicker
+    - BSImageView
     - DateTextField
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -243,10 +254,14 @@ SPEC REPOS:
     - pop
     - Protobuf
     - SDWebImage
+    - SideMenuSwift
 
 SPEC CHECKSUMS:
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  BSGridCollectionViewLayout: 333dcb457a5a3bdd9212607ab5756553dcfe06cb
+  BSImagePicker: 07404254f2fcdaf5a2eb403c0f8c337267ce8738
+  BSImageView: a149459433a2687157d034c78e059d30ac7f2544
   DateTextField: 7e36dec07cea49abd787341b7af9436da89fb348
   FBSDKCoreKit: f9bae468a078f20c05c73450825ccd54cfafbbb7
   FBSDKLoginKit: 4ece964272a52c4e1363d5c048a545e33761491b
@@ -277,7 +292,8 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  SideMenuSwift: 5c2b1496544ce3f1f08f4dddf4810eaac49f543d
 
-PODFILE CHECKSUM: 85af6f4b7a32349ccad17f00f41c1cb9040f6f9c
+PODFILE CHECKSUM: 826283f732d5ffda06844df8ed52981c1e3102ad
 
 COCOAPODS: 1.8.4

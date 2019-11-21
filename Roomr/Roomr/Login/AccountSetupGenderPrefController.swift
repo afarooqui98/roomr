@@ -12,6 +12,7 @@ class AccountSetupGenderPrefController: UIViewController {
     @IBOutlet weak var menButton: UIButton!
     @IBOutlet weak var womenButton: UIButton!
     @IBOutlet weak var everyoneButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     var profile : UserSetupProfile!
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     
@@ -20,6 +21,9 @@ class AccountSetupGenderPrefController: UIViewController {
         menButton.layer.cornerRadius = 10
         womenButton.layer.cornerRadius = 10
         everyoneButton.layer.cornerRadius = 10
+        nextButton.layer.cornerRadius = 10
+        nextButton.layer.borderColor = roomrBlue.cgColor
+        nextButton.layer.borderWidth = 1
         // Do any additional setup after loading the view.
     }
     
