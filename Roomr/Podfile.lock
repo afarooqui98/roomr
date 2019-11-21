@@ -199,6 +199,7 @@ PODS:
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
+  - SideMenuSwift (2.0.3)
 
 DEPENDENCIES:
   - DateTextField
@@ -208,6 +209,7 @@ DEPENDENCIES:
   - FirebaseUI
   - GoogleSignIn
   - Koloda
+  - SideMenuSwift
 
 SPEC REPOS:
   trunk:
@@ -243,6 +245,7 @@ SPEC REPOS:
     - pop
     - Protobuf
     - SDWebImage
+    - SideMenuSwift
 
 SPEC CHECKSUMS:
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
@@ -277,7 +280,8 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  SideMenuSwift: 5c2b1496544ce3f1f08f4dddf4810eaac49f543d
 
-PODFILE CHECKSUM: 85af6f4b7a32349ccad17f00f41c1cb9040f6f9c
+PODFILE CHECKSUM: 39aa1fbf925ef1d6f9cb31358c32d62ed39f8e3b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3
