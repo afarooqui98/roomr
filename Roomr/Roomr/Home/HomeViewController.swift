@@ -8,26 +8,49 @@
 
 import UIKit
 import Koloda
+import SideMenuSwift
 
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var kolodaView: KolodaView!
     @IBOutlet weak var userName_label: UILabel!
+    
     var candidatesImages = [UIImage]()
     var likedCandidates = [UIImage]()
     
     let candidateNames = ["Abigail", "Aria", "Ava", "Benjamin", "Emma", "Hannah", "James", "Liam", "Mason", "Mila", "Noah", "Oliver", "Olivia", "William"]
     
+    // Have an array of images associated with each candidate
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSideMenuPreferences()
         loadCandidates()
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        
+
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Lato-Bold", size: 30)!]
         //kolodaView.reloadData()
     } /* viewDidLoad() */
     
+    
+    func setSideMenuPreferences() {
+        SideMenuController.preferences.basic.menuWidth = 250
+        //SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
+        //SideMenuController.preferences.basic.position = .below
+        SideMenuController.preferences.basic.direction = .left
+        SideMenuController.preferences.basic.enablePanGesture = true
+        SideMenuController.preferences.basic.supportedOrientations = .portrait
+        SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
+    } /* setSideMenuPreferences() */
+
+    @IBAction func hamburger_pressed(_ sender: UIButton) {
+        sideMenuController?.revealMenu()
+    }
     
     
     func loadCandidates() {

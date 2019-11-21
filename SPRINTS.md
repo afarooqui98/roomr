@@ -10,3 +10,12 @@ The second meeting was where we configured most of the team roles. By Thursday, 
 - Sophia: Firebase project setup, Message Kit
 - Ahmed: Firebase Authentication, API endpoints (matching logic)
 The weekly goals have been outlined softly in the first milestone, and there are entries in the trello board for the eventual firebase integration that has to be handled.
+
+### Meeting 3
+This week's Monday sprint focused mostly on pushing some initial week 2 changes to the repo. Here is the breakdown of what was pushed:
+- Katie: Home controller with side bar functionality and aesthetic changes
+- Ryan: profile view update
+- Sophia: Uploading chats from firebase
+- Ahmed: Saving data to firebase after login, hooking up proper login flow
+
+By the end of Thursday, all of the flows should be put together so a coherent user flow may be navigated, even though not all funcionality may be enabled. All flows should be able to save and read data from the database coherently.
