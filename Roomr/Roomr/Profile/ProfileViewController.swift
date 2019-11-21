@@ -12,11 +12,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var universityLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var separator: UIView!
 
     override func viewDidLoad() {
@@ -47,6 +43,8 @@ class ProfileViewController: UIViewController {
         //Update image
         
     }
+    
+    
     
 //Scene Delegate testing code
 //guard let windowScene = (scene as? UIWindowScene) else { return }

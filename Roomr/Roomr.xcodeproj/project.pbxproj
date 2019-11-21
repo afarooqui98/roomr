@@ -24,6 +24,7 @@
 		65F924AE237E5B4F0089EE3B /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F924AB237E5B4F0089EE3B /* CustomOverlayView.swift */; };
 		65F924AF237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */; };
 		65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */; };
+		9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9415C42A23868974007D1FD3 /* ProfileTableViewController.swift */; };
 		94AB192423835B8400D2928C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AB191F23835B8300D2928C /* Profile.storyboard */; };
 		94AB192623835B8400D2928C /* AddMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB192123835B8300D2928C /* AddMediaViewController.swift */; };
 		94AB192723835B8400D2928C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB192223835B8300D2928C /* ProfileViewController.swift */; };
@@ -56,6 +57,7 @@
 		65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupPicsController.swift; sourceTree = "<group>"; };
 		7DDBD1223662A07D95E2BCC9 /* Pods-Roomr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.release.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.release.xcconfig"; sourceTree = "<group>"; };
+		9415C42A23868974007D1FD3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		94AB191F23835B8300D2928C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		94AB192123835B8300D2928C /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
 		94AB192223835B8300D2928C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				94AB192223835B8300D2928C /* ProfileViewController.swift */,
 				94AB192323835B8300D2928C /* SettingsViewController.swift */,
 				94AB19292383B1A800D2928C /* TabController.swift */,
+				9415C42A23868974007D1FD3 /* ProfileTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				94AB192A2383B1A800D2928C /* TabController.swift in Sources */,
 				94AB192723835B8400D2928C /* ProfileViewController.swift in Sources */,
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
+				9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
 				EC83440E237D0A5600EBB218 /* People.swift in Sources */,
 				65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */,
