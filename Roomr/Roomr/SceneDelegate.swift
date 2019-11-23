@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,17 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = storyboard.instantiateViewController(identifier: "matchViewController")
 //        self.window?.windowScene = windowScene
 //        self.window?.rootViewController = vc
-//
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
-        //MARK: enable for proper app flow
-//        if Auth.auth().currentUser != nil{
-//                    let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
-//                    let vc = storyBoard.instantiateViewController(identifier: "homeViewController")
-//                    vc.modalPresentationStyle = .fullScreen
-//                    self.window?.windowScene = windowScene
-//                    self.window?.rootViewController = vc
-//        }
+//        
+//        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

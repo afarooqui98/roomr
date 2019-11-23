@@ -18,12 +18,9 @@ class AccountSetupGenderController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manButton.layer.cornerRadius = 4
-        womanButton.layer.cornerRadius = 4
-        otherButton.layer.cornerRadius = 4
-        nextButton.layer.cornerRadius = 4
-        nextButton.layer.borderColor = roomrBlue.cgColor
-        nextButton.layer.borderWidth = 1
+        manButton.layer.cornerRadius = 10
+        womanButton.layer.cornerRadius = 10
+        otherButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
     

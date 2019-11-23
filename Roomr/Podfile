@@ -8,7 +8,6 @@ target 'Roomr' do
   # Pods for Roomr
   pod 'Koloda'
   pod 'SideMenuSwift'
-  pod "BSImagePicker"
   # Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
 
