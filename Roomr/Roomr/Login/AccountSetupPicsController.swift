@@ -8,25 +8,95 @@
 
 import UIKit
 import Firebase
+import AVFoundation
+import Photos
+import BSImagePicker
 
-class AccountSetupPicsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AccountSetupPicsController: UIViewController{
     @IBOutlet weak var picsCollection: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
     var ref: DatabaseReference!
-    
+    var storageRef: StorageReference!
+    var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
+    let maxPics = 12
     var profile : UserSetupProfile!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
-        // Do any additional setup after loading the view.
+        storageRef = Storage.storage().reference()
+        self.populateImages(profile.pics)
+        
+        picsCollection.backgroundColor = .white
+        picsCollection.dragInteractionEnabled = true
+        picsCollection.dataSource = self
+        picsCollection.delegate = self
+        picsCollection.dragDelegate = self
+        picsCollection.dropDelegate = self
+        self.setupCollectionViewItemSize()
+        
+        cameraButton.layer.cornerRadius = 4
+        nextButton.layer.cornerRadius = 4
+        nextButton.layer.borderColor = roomrBlue.cgColor
+        nextButton.layer.borderWidth = 1
+    }
+    
+    private func setupCollectionViewItemSize() {
+        if collectionViewFlowLayout == nil {
+            let numberOfItemsPerRow: CGFloat = 3
+            let lineSpacing: CGFloat = 5
+            let interItemSpacing: CGFloat = 2
+            
+            let width = (self.picsCollection.frame.width - (numberOfItemsPerRow - 1) * interItemSpacing) / numberOfItemsPerRow
+            let height = width
+            
+            collectionViewFlowLayout = UICollectionViewFlowLayout()
+            collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
+            collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
+            collectionViewFlowLayout.scrollDirection = .vertical
+            collectionViewFlowLayout.minimumLineSpacing = lineSpacing
+            collectionViewFlowLayout.minimumInteritemSpacing = interItemSpacing
+            self.picsCollection.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
+        }
+    }
+    
+    func populateImages(_ pics: [UIImage]){
+        for _ in 0...maxPics{
+            let defaultPic = UIImage(named: "image_placeholder")
+            profile.pics.append(defaultPic!)
+        }
+    }
+    
+    @IBAction func takePicture(_ sender: Any) {
+        //ask for permissions
+        askCameraPermission(self)
+        askPhotoLibraryPermission(self)
+        //open camera
+        let vc = BSImagePickerViewController()
+        vc.takePhotos = true
+        bs_presentImagePickerController(vc, animated: true, select: nil, deselect: nil, cancel: nil, finish: {(assets: [PHAsset]) -> Void in
+            let assets = self.getAssetThumbnail(assets: assets) //only add the pictures youve uploaded
+            for i in 0...assets.count-1{
+                self.profile.pics[i] = assets[i]
+            }
+            self.picsCollection.reloadData()
+            print(self.profile.pics.count)
+        }, completion: nil)
+        //save to array
     }
     
     @IBAction func goHome(_ sender: Any) {
-//        let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
-//        let vc = storyBoard.instantiateViewController(identifier: "homeViewController")
-//        let home = vc as! HomeViewController
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(home, animated: true, completion: {})
+        //load home view
+        let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "homeViewController")
+        let home = vc as! HomeViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(home, animated: true, completion: {})
+        
+        //store user data
         let key = ref.child("user").child(Auth.auth().currentUser?.uid ?? "invalid_user")
         let df = DateFormatter()
         df.dateFormat = "mm-dd-yyyy"
@@ -34,24 +104,46 @@ class AccountSetupPicsController: UIViewController, UICollectionViewDelegate, UI
             "firstName" : profile.firstName,
             "dob" : df.string(from: profile.DOB),
             "gender" : profile.gender,
-            "genderpref" : profile.genderPref
-        ]
-        
+            "genderpref" : profile.genderPref,
+            "housingpref" : profile.housingPref,
+            "cleanliness" : profile.cleanliness,
+            "volume" : profile.volume
+            ] as [String : Any]
         key.setValue(post)
+        
+        let storage = Storage.storage()
+        var i = 0
+        for image in profile.pics{
+            if let data = image.pngData(){
+                let storageRef = storage.reference()
+                let key = Auth.auth().currentUser?.uid ?? "invalid_user"
+                let imageRef = storageRef.child("\(key)/image\(i).png")
+                _ = imageRef.putData(data, metadata: nil){ metadata, error in
+                    guard let _ = metadata else{
+                        print(error.debugDescription)
+                        return
+                    }
+                }
+                i += 1
+            }
+        }
+        
+        //store picture datas
     }
     
-    //MARK: datasource implementation
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = picsCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
-//        cell.contentView.addSubview(<#T##view: UIView##UIView#>)
-        return cell
+    //MARK: Convert array of PHAsset to UIImages
+    func getAssetThumbnail(assets: [PHAsset]) -> [UIImage] {
+        var arrayOfImages = [UIImage]()
+        for asset in assets {
+            let manager = PHImageManager.default()
+            let option = PHImageRequestOptions()
+            var image = UIImage()
+            option.isSynchronous = true
+            manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+                image = result!
+                arrayOfImages.append(image)
+            })
+        }
+        return arrayOfImages
     }
 }

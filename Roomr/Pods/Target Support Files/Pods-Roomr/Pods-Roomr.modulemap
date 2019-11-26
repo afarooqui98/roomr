@@ -1,6 +1,0 @@
-framework module Pods_Roomr {
-  umbrella header "Pods-Roomr-umbrella.h"
-
-  export *
-  module * { export * }
-}

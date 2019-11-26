@@ -10,34 +10,42 @@ import UIKit
 import DateTextField
 
 class AccountSetupAgeController: UIViewController {
-    @IBOutlet weak var ageField: DateTextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var secondaryTitleLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var errorLabel: UILabel!
     var profile : UserSetupProfile!
+    var youngestDate: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.layer.cornerRadius = 10
-        ageField.becomeFirstResponder()
-        ageField.dateFormat = .monthDayYear
-        ageField.separator = "/"
+        nextButton.layer.cornerRadius = 4
+        
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.2
+        
+        secondaryTitleLabel.adjustsFontSizeToFitWidth = true
+        secondaryTitleLabel.minimumScaleFactor = 0.2
+        
+        errorLabel.adjustsFontSizeToFitWidth = true
+        errorLabel.minimumScaleFactor = 0.2
+
+        
+        //MARK: set a minimum date to check for 18 and older
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func fillDate(_ sender: Any) {
-        if let date = ageField.date {
-            profile.DOB = date
-        } else {
-            print("error parsing")
-        }
-    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let _ = ageField.date {
+        //MARK: uncomment this stuff later
+//        if datePicker.date >= youngestDate {
+            profile.DOB = datePicker.date
             return true
-        }
+//        }
         
-        ageField.placeholder = "Please fill out with format mm/dd/yyyy"
-        return false
+//        errorLabel.text = "Please enter a date that is 18 years or older"
+//        return false
     }
     
     // MARK: - Navigation
