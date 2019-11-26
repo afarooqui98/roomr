@@ -8,6 +8,7 @@ target 'Roomr' do
   # Pods for Roomr
   pod 'Koloda'
   pod 'SideMenuSwift'
+  pod "BSImagePicker"
   # Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
 
@@ -16,8 +17,7 @@ target 'Roomr' do
   pod 'FirebaseUI'
   
   pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   
   pod 'GoogleSignIn'
-  pod 'DateTextField'
 end

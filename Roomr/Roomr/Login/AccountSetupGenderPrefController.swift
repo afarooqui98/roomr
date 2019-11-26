@@ -12,14 +12,26 @@ class AccountSetupGenderPrefController: UIViewController {
     @IBOutlet weak var menButton: UIButton!
     @IBOutlet weak var womenButton: UIButton!
     @IBOutlet weak var everyoneButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var secondaryTitleLabel: UILabel!
     var profile : UserSetupProfile!
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menButton.layer.cornerRadius = 10
-        womenButton.layer.cornerRadius = 10
-        everyoneButton.layer.cornerRadius = 10
+        menButton.layer.cornerRadius = 4
+        womenButton.layer.cornerRadius = 4
+        everyoneButton.layer.cornerRadius = 4
+        nextButton.layer.cornerRadius = 4
+        nextButton.layer.borderColor = roomrBlue.cgColor
+        nextButton.layer.borderWidth = 1
+        
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.2
+        
+        secondaryTitleLabel.adjustsFontSizeToFitWidth = true
+        secondaryTitleLabel.minimumScaleFactor = 0.2
         // Do any additional setup after loading the view.
     }
     
@@ -56,12 +68,12 @@ class AccountSetupGenderPrefController: UIViewController {
     
     func setBlue(_ button : UIButton){
         button.backgroundColor = roomrBlue
-        button.titleLabel?.textColor = UIColor.white
+        button.setTitleColor(.white, for: .normal)
     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as? AccountSetupPicsController
+        let vc = segue.destination as? AccountSetupMorePrefsController
         vc?.profile = self.profile
     }
 }

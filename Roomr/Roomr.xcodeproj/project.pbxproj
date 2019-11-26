@@ -20,12 +20,14 @@
 		022A268D2383DF21009DD8C0 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */; };
 		022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A268F2383E083009DD8C0 /* CameraViewController.swift */; };
 		022A26922383E083009DD8C0 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A26902383E083009DD8C0 /* Camera.storyboard */; };
-		174AED19CD40873F82B327BA /* Pods_Roomr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26F3B45EEEF53D03077DFA /* Pods_Roomr.framework */; };
 		65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */; };
 		65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */; };
 		65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAD23752BF4002CE8D7 /* LoginController.swift */; };
 		65B6ECBE23753955002CE8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBD23753955002CE8D7 /* Assets.xcassets */; };
 		65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */; };
+		65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */; };
+		65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */; };
+		65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */; };
 		65EC8A07237DEB9E009CBF8F /* AccountSetupNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */; };
 		65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */; };
 		65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A0A237DEBBE009CBF8F /* AccountSetupGenderController.swift */; };
@@ -62,7 +64,6 @@
 		022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		022A268F2383E083009DD8C0 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		022A26902383E083009DD8C0 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		5D551939CAA757EF9E84EF97 /* Pods-Roomr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.debug.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.debug.xcconfig"; sourceTree = "<group>"; };
 		65B6ECA623752BF4002CE8D7 /* Roomr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		65B6ECB723752BF5002CE8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B6ECBD23753955002CE8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupMorePrefsController.swift; sourceTree = "<group>"; };
+		65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupUtils.swift; sourceTree = "<group>"; };
+		65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupHousingPrefsController.swift; sourceTree = "<group>"; };
 		65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupNameController.swift; sourceTree = "<group>"; };
 		65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupAgeController.swift; sourceTree = "<group>"; };
 		65EC8A0A237DEBBE009CBF8F /* AccountSetupGenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupGenderController.swift; sourceTree = "<group>"; };
@@ -80,14 +84,12 @@
 		65F924AA237E5B4F0089EE3B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupPicsController.swift; sourceTree = "<group>"; };
-		7DDBD1223662A07D95E2BCC9 /* Pods-Roomr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.release.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.release.xcconfig"; sourceTree = "<group>"; };
 		9415C42A23868974007D1FD3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		94AB191F23835B8300D2928C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		94AB192123835B8300D2928C /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
 		94AB192223835B8300D2928C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		94AB192323835B8300D2928C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		94AB19292383B1A800D2928C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
-		AB26F3B45EEEF53D03077DFA /* Pods_Roomr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5FBEE7238366A300B60C57 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EC5FBEE8238366A300B60C57 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EC5FBEE9238366A300B60C57 /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				174AED19CD40873F82B327BA /* Pods_Roomr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +150,6 @@
 		40C2341635D989A501C91058 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5D551939CAA757EF9E84EF97 /* Pods-Roomr.debug.xcconfig */,
-				7DDBD1223662A07D95E2BCC9 /* Pods-Roomr.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -161,7 +160,6 @@
 				65B6ECA823752BF4002CE8D7 /* Roomr */,
 				65B6ECA723752BF4002CE8D7 /* Products */,
 				40C2341635D989A501C91058 /* Pods */,
-				BA6F9AC166A7D6488582B048 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +195,9 @@
 		65F92499237E48970089EE3B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */,
+				65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */,
+				65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */,
 				65B6ECAD23752BF4002CE8D7 /* LoginController.swift */,
 				65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */,
 				65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */,
@@ -241,14 +242,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		BA6F9AC166A7D6488582B048 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AB26F3B45EEEF53D03077DFA /* Pods_Roomr.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EC5FBEE6238366A300B60C57 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,12 +261,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B6ECBA23752BF5002CE8D7 /* Build configuration list for PBXNativeTarget "Roomr" */;
 			buildPhases = (
-				066B1F661204D9B4A4CD6066 /* [CP] Check Pods Manifest.lock */,
 				65B6ECA223752BF4002CE8D7 /* Sources */,
 				65B6ECA323752BF4002CE8D7 /* Frameworks */,
 				65B6ECA423752BF4002CE8D7 /* Resources */,
-				10235644DCB2D84521AF4A95 /* [CP] Embed Pods Frameworks */,
-				05736836BD29479F8A86ACAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,65 +336,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		05736836BD29479F8A86ACAC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		066B1F661204D9B4A4CD6066 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Roomr-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		10235644DCB2D84521AF4A95 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		65B6ECA223752BF4002CE8D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -415,6 +346,7 @@
 				65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */,
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
+				65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */,
 				EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */,
 				EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */,
 				94AB192A2383B1A800D2928C /* TabController.swift in Sources */,
@@ -422,12 +354,14 @@
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
 				9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
+				65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */,
 				EC83440E237D0A5600EBB218 /* People.swift in Sources */,
 				65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */,
 				65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */,
 				65F924AD237E5B4F0089EE3B /* HomeViewController.swift in Sources */,
 				94AB192623835B8400D2928C /* AddMediaViewController.swift in Sources */,
 				94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */,
+				65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */,
 				022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +506,6 @@
 		};
 		65B6ECBB23752BF5002CE8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D551939CAA757EF9E84EF97 /* Pods-Roomr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -591,7 +524,6 @@
 		};
 		65B6ECBC23752BF5002CE8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DDBD1223662A07D95E2BCC9 /* Pods-Roomr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

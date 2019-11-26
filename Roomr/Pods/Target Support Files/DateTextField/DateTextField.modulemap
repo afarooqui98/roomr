@@ -1,6 +1,0 @@
-framework module DateTextField {
-  umbrella header "DateTextField-umbrella.h"
-
-  export *
-  module * { export * }
-}
