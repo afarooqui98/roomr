@@ -13,14 +13,13 @@ import FirebaseDatabase
 class People {
     let image: UIImage
     let name: String
-    let message: String
-    let date: String
+    let date: Date
     
-    init(image: UIImage, name: String, message: String, date: String) {
+    init(image: UIImage, name: String, date: Date) {
         self.image = image
         self.name = name
-        self.message = message
-        self.date = date
+        self.date = Date()
+       
     }
     
     static func createArray(_ db: DatabaseReference?) -> [People] {
@@ -32,9 +31,8 @@ class People {
             
             for person in snapshot {
                 let name = person.childSnapshot(forPath: "Name").value as? String
-                let msg = person.childSnapshot(forPath: "Msg").value as? String
-            
-                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil", message: msg ?? "nil", date: "Nov 1st")
+                
+                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date())
                 
                 allPeople.append(people)
             }
@@ -43,16 +41,16 @@ class People {
            
         }
 
-//        let person1 = People(image: #imageLiteral(resourceName: "example"), name: "Sophia", message: "hi", date: "Nov 1st")
-//        let person2 = People(image: #imageLiteral(resourceName: "example"), name: "Ahmed", message: "hi", date: "Nov 1st")
-//        let person3 = People(image: #imageLiteral(resourceName: "example"), name: "Hari", message: "hi", date: "Nov 1st")
-//        let person4 = People(image: #imageLiteral(resourceName: "example"), name: "Dylan", message: "hi", date: "Nov 1st")
-//        let person5 = People(image: #imageLiteral(resourceName: "example"), name: "Vincent", message: "hi", date: "Nov 1st")
-//        let person6 = People(image: #imageLiteral(resourceName: "example"), name: "Sai", message: "hi", date: "Nov 1st")
-//        let person7 = People(image: #imageLiteral(resourceName: "example"), name: "Tianyang", message: "hi", date: "Nov 1st")
-//        let person8 = People(image: #imageLiteral(resourceName: "example"), name: "Shelly", message: "hi", date: "Nov 1st")
-//        let person9 = People(image: #imageLiteral(resourceName: "example"), name: "Ryan", message: "hi", date: "Nov 1st")
-//        let person10 = People(image: #imageLiteral(resourceName: "example"), name: "Katie", message: "hi", date: "Nov 1st")
+//        let person1 = People(image: #imageLiteral(resourceName: "example"), name: "Sophia", date:Date())
+//        let person2 = People(image: #imageLiteral(resourceName: "example"), name: "Ahmed",date:Date())
+//        let person3 = People(image: #imageLiteral(resourceName: "example"), name: "Hari",date:Date())
+//        let person4 = People(image: #imageLiteral(resourceName: "example"), name: "Dylan", date:Date())
+//        let person5 = People(image: #imageLiteral(resourceName: "example"), name: "Vincent",date:Date())
+//        let person6 = People(image: #imageLiteral(resourceName: "example"), name: "Sai", date:Date())
+//        let person7 = People(image: #imageLiteral(resourceName: "example"), name: "Tianyang", date:Date())
+//        let person8 = People(image: #imageLiteral(resourceName: "example"), name: "Shelly", date:Date())
+//        let person9 = People(image: #imageLiteral(resourceName: "example"), name: "Ryan", date:Date())
+//        let person10 = People(image: #imageLiteral(resourceName: "example"), name: "Katie", date:Date())
 //        
 //        allPeople.append(person1)
 //        allPeople.append(person2)

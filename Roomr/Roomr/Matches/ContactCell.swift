@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ContactCell: UITableViewCell {
+class ContactCell: UICollectionViewCell {
 
     @IBOutlet weak var ImageView: UIImageView!
+    //    @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var msg: UILabel!
+    //    @IBOutlet weak var Name: UILabel!
+//    @IBOutlet weak var msg: UILabel!
     
 
     
@@ -26,7 +28,7 @@ class ContactCell: UITableViewCell {
         // assign data
         self.ImageView.image = profile.image
         self.Name.text = profile.name
-        self.msg.text = profile.message
+       
         
     }
 
