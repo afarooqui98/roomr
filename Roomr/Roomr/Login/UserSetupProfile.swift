@@ -14,6 +14,9 @@ class UserSetupProfile {
     var DOB : Date
     var gender: String
     var genderPref: String
+    var housingPref: Int
+    var cleanliness: Float
+    var volume: Float
     var pics : [UIImage]
     
     init(){
@@ -21,6 +24,9 @@ class UserSetupProfile {
         self.DOB = Date()
         self.gender = ""
         self.genderPref = ""
+        self.housingPref = 0
+        self.cleanliness = 0.0
+        self.volume = 0.0
         self.pics = []
     }
 }

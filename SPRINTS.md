@@ -19,3 +19,10 @@ This week's Monday sprint focused mostly on pushing some initial week 2 changes 
 - Ahmed: Saving data to firebase after login, hooking up proper login flow
 
 By the end of Thursday, all of the flows should be put together so a coherent user flow may be navigated, even though not all funcionality may be enabled. All flows should be able to save and read data from the database coherently.
+
+### Meeting 4
+This week's sprint will probably be somewhat intense given the holidays. Push notifications still need to be implemented, and there's still work that needs to be done putting all the controllers together. These are the final tasks:
+- Ahmed: enable push notifications
+- Ryan: finish off profile view/flow/aesthetics
+- Sophia: have working match screen with notifications sent to users
+- Katie: filter profiles

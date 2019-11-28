@@ -25,6 +25,9 @@
 		65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAD23752BF4002CE8D7 /* LoginController.swift */; };
 		65B6ECBE23753955002CE8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBD23753955002CE8D7 /* Assets.xcassets */; };
 		65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */; };
+		65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */; };
+		65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */; };
+		65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */; };
 		65EC8A07237DEB9E009CBF8F /* AccountSetupNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */; };
 		65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */; };
 		65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC8A0A237DEBBE009CBF8F /* AccountSetupGenderController.swift */; };
@@ -69,6 +72,9 @@
 		65B6ECB723752BF5002CE8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B6ECBD23753955002CE8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupMorePrefsController.swift; sourceTree = "<group>"; };
+		65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupUtils.swift; sourceTree = "<group>"; };
+		65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupHousingPrefsController.swift; sourceTree = "<group>"; };
 		65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupNameController.swift; sourceTree = "<group>"; };
 		65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupAgeController.swift; sourceTree = "<group>"; };
 		65EC8A0A237DEBBE009CBF8F /* AccountSetupGenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupGenderController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,9 @@
 		65F92499237E48970089EE3B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */,
+				65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */,
+				65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */,
 				65B6ECAD23752BF4002CE8D7 /* LoginController.swift */,
 				65EC8A06237DEB9E009CBF8F /* AccountSetupNameController.swift */,
 				65EC8A08237DEBAD009CBF8F /* AccountSetupAgeController.swift */,
@@ -337,6 +346,7 @@
 				65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */,
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
+				65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */,
 				EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */,
 				EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */,
 				94AB192A2383B1A800D2928C /* TabController.swift in Sources */,
@@ -344,12 +354,14 @@
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
 				9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
+				65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */,
 				EC83440E237D0A5600EBB218 /* People.swift in Sources */,
 				65F924C9237E7EF10089EE3B /* AccountSetupPicsController.swift in Sources */,
 				65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */,
 				65F924AD237E5B4F0089EE3B /* HomeViewController.swift in Sources */,
 				94AB192623835B8400D2928C /* AddMediaViewController.swift in Sources */,
 				94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */,
+				65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */,
 				022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

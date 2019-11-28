@@ -13,14 +13,25 @@ class AccountSetupGenderController: UIViewController {
     @IBOutlet weak var womanButton: UIButton!
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var secondaryTitleLabel: UILabel!
     var profile : UserSetupProfile!
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manButton.layer.cornerRadius = 10
-        womanButton.layer.cornerRadius = 10
-        otherButton.layer.cornerRadius = 10
+        manButton.layer.cornerRadius = 4
+        womanButton.layer.cornerRadius = 4
+        otherButton.layer.cornerRadius = 4
+        nextButton.layer.cornerRadius = 4
+        nextButton.layer.borderColor = roomrBlue.cgColor
+        nextButton.layer.borderWidth = 1
+        
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.2
+        
+        secondaryTitleLabel.adjustsFontSizeToFitWidth = true
+        secondaryTitleLabel.minimumScaleFactor = 0.2
         // Do any additional setup after loading the view.
     }
     
@@ -53,7 +64,7 @@ class AccountSetupGenderController: UIViewController {
     
     func setBlue(_ button : UIButton){
         button.backgroundColor = roomrBlue
-        button.titleLabel?.textColor = UIColor.white
+        button.setTitleColor(.white, for: .normal)
     }
     
     // MARK: - Navigation

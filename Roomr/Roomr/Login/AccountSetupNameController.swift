@@ -11,12 +11,16 @@ import UIKit
 class AccountSetupNameController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleField: UILabel!
     var profile : UserSetupProfile = UserSetupProfile.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.layer.cornerRadius = 10
+        nextButton.layer.cornerRadius = 4
         nameField.becomeFirstResponder()
+        
+        titleField.adjustsFontSizeToFitWidth = true
+        titleField.minimumScaleFactor = 0.2
         // Do any additional setup after loading the view.
     }
     
