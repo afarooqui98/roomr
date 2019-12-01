@@ -22,6 +22,7 @@ class AccountSetupPicsController: UIViewController{
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     let maxPics = 12
     var profile : UserSetupProfile!
+    var encodedPicsArray : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +66,12 @@ class AccountSetupPicsController: UIViewController{
     
     func populateImages(_ pics: [UIImage]){
         for _ in 0...maxPics{
-            let defaultPic = UIImage(named: "image_placeholder")
-            profile.pics.append(defaultPic!)
+            if let defaultPic = UIImage(named: "image_placeholder"), let data = defaultPic.pngData(){
+                profile.pics.append(defaultPic)
+                let pngRepresentation = data.base64EncodedString(options: .endLineWithLineFeed)
+                print(pngRepresentation)
+                encodedPicsArray.append(pngRepresentation)
+            }
         }
     }
     
@@ -81,6 +86,7 @@ class AccountSetupPicsController: UIViewController{
             let assets = self.getAssetThumbnail(assets: assets) //only add the pictures youve uploaded
             for i in 0...assets.count-1{
                 self.profile.pics[i] = assets[i]
+                self.encodedPicsArray[i] = assets[i].pngData()?.base64EncodedString(options: .endLineWithLineFeed) ?? "invalid_picture"
             }
             self.picsCollection.reloadData()
             print(self.profile.pics.count)
@@ -145,5 +151,20 @@ class AccountSetupPicsController: UIViewController{
             })
         }
         return arrayOfImages
+    }
+    
+    //MARK: reorders the collection view as well as the array of pictures
+    func reorder(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
+        if let item = coordinator.items.first , let sourceIndexPath = item.sourceIndexPath {
+            collectionView.performBatchUpdates({
+                //MARK: reorder array
+                self.encodedPicsArray.remove(at: sourceIndexPath.item)
+                self.encodedPicsArray.insert(item.dragItem.localObject as! String, at: destinationIndexPath.item)
+                collectionView.deleteItems(at: [sourceIndexPath])
+                collectionView.insertItems(at: [destinationIndexPath])
+                
+            }, completion: nil)
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		022A268D2383DF21009DD8C0 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */; };
 		022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A268F2383E083009DD8C0 /* CameraViewController.swift */; };
 		022A26922383E083009DD8C0 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A26902383E083009DD8C0 /* Camera.storyboard */; };
+		652755DE23946E2E00F36828 /* DataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652755DD23946E2E00F36828 /* DataFilter.swift */; };
 		65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */; };
 		65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */; };
 		65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAD23752BF4002CE8D7 /* LoginController.swift */; };
@@ -64,6 +65,7 @@
 		022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		022A268F2383E083009DD8C0 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		022A26902383E083009DD8C0 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		652755DD23946E2E00F36828 /* DataFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFilter.swift; sourceTree = "<group>"; };
 		65B6ECA623752BF4002CE8D7 /* Roomr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				94AB191E23835B8300D2928C /* Profile */,
 				65B6ECB423752BF5002CE8D7 /* LaunchScreen.storyboard */,
 				65EC8A10237E14F5009CBF8F /* Main.storyboard */,
+				652755DD23946E2E00F36828 /* DataFilter.swift */,
 				65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */,
 				65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */,
 				65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */,
@@ -353,6 +356,7 @@
 				94AB192723835B8400D2928C /* ProfileViewController.swift in Sources */,
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
 				9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */,
+				652755DE23946E2E00F36828 /* DataFilter.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
 				65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */,
 				EC83440E237D0A5600EBB218 /* People.swift in Sources */,
