@@ -63,10 +63,11 @@ extension AccountSetupPicsController: UICollectionViewDragDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let img = "example"
-        let itemProvider = NSItemProvider(object: img as NSString)
+        let item = self.encodedPicsArray[indexPath.row]
+//        let img = "example"
+        let itemProvider = NSItemProvider(object: item as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = img
+        dragItem.localObject = item
         return [dragItem]
     }
 }
@@ -166,18 +167,3 @@ func repeatPhotoLibraryAccessRequest(_ controller: AccountSetupPicsController) {
         controller.present(alert, animated: true, completion: nil)
     }
 } /* repeatPhotoLibraryAccessRequest(): Give user opportunity to grant photo library access */
-
-//MARK: reorders the collection view as well as the array of pictures
-func reorder(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
-    if let item = coordinator.items.first , let sourceIndexPath = item.sourceIndexPath {
-        collectionView.performBatchUpdates({
-            //MARK: reorder array
-//                self.profile.pics.remove(at: sourceIndexPath.item)
-//                self.profile.pics.insert(item.dragItem.localObject as! UIImage, at: destinationIndexPath.item)
-            collectionView.deleteItems(at: [sourceIndexPath])
-            collectionView.insertItems(at: [destinationIndexPath])
-            
-        }, completion: nil)
-        coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
-    }
-}

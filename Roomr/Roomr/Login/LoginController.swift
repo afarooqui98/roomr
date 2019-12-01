@@ -19,6 +19,10 @@ class LoginController: UIViewController, GIDSignInDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK: test
+        let _ = orderData(Auth.auth().currentUser?.uid ?? "invalid_user")
+        //MARK: end test
+        
         ref = Database.database().reference()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
