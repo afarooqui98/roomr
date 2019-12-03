@@ -18,6 +18,6 @@ target 'Roomr' do
   
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  
+  pod 'DateTextField'
   pod 'GoogleSignIn'
 end

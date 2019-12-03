@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Friends-->
         <scene sceneID="5Qz-2w-8aj">
             <objects>
                 <viewController id="d22-hN-JtB" sceneMemberID="viewController">
@@ -18,13 +18,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QKe-LI-LPx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="eWF-4R-20k"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.2" catalog="system" selectedImage="person.2" id="eWF-4R-20k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKL-Xn-zrx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1720" y="146"/>
         </scene>
-        <!--Item 1-->
+        <!--Match-->
         <scene sceneID="e3C-pP-dVD">
             <objects>
                 <viewController id="KOR-qa-Myr" customClass="MatchViewController" customModule="Roomr" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1pe-qG-qAO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="2FW-U2-X6V"/>
+                    <tabBarItem key="tabBarItem" title="Match" image="repeat" catalog="system" selectedImage="repeat" id="2FW-U2-X6V"/>
                     <connections>
                         <outlet property="matchCollection" destination="W3d-Z7-zqR" id="12X-7S-YWZ"/>
                     </connections>
@@ -128,5 +128,7 @@
     </scenes>
     <resources>
         <image name="example" width="225" height="225"/>
+        <image name="person.2" catalog="system" width="64" height="40"/>
+        <image name="repeat" catalog="system" width="64" height="48"/>
     </resources>
 </document>
