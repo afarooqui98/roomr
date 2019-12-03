@@ -41,8 +41,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
          NSAttributedString.Key.font: UIFont(name: "Lato-Regular", size: 30)!]
         
         // do this in background?
-        let potentials = translateCSVToUser()
-        print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
+//        let potentials = translateCSVToUser()
+//        print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
         print("DONE")
     } /* viewDidLoad() */
     

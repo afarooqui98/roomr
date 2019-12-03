@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // For testing purpose
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let storyboard = UIStoryboard(name: "match", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "MatchTabController")
+        let storyboard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "sideMenuController")
         self.window?.windowScene = windowScene
         self.window?.rootViewController = vc
         
