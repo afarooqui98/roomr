@@ -9,19 +9,25 @@
 import UIKit
 import Koloda
 import SideMenuSwift
+import FirebaseDatabase
+import Firebase
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var kolodaView: KolodaView!
     @IBOutlet weak var userName_label: UILabel!
+    @IBOutlet weak var userAge_label: UILabel!
     
-    var candidatesImages = [UIImage]()
-    var likedCandidates = [UIImage]()
+    @IBOutlet weak var userDistance_label: UILabel!
     
-    let candidateNames = ["Abigail", "Aria", "Ava", "Benjamin", "Emma", "Hannah", "James", "Liam", "Mason", "Mila", "Noah", "Oliver", "Olivia", "William"]
-    
-    // Have an array of images associated with each candidate
+    var likedCandidates = [ProfileSummary]()
+    var dislikedCandidates = [ProfileSummary]()
+
+    var candidateProfiles = [ProfileSummary]()
+    var potential_roommates : [DataSnapshot]?
+    var currentUserIndex: Int = -1 // keep track of index of card user is viewing
+    var tapStartLocation: CGPoint?
     
     
     override func viewDidLoad() {
@@ -30,12 +36,16 @@ class HomeViewController: UIViewController {
         loadCandidates()
         kolodaView.dataSource = self
         kolodaView.delegate = self
-
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.font: UIFont(name: "Lato-Bold", size: 30)!]
-        //kolodaView.reloadData()
+         NSAttributedString.Key.font: UIFont(name: "Lato-Regular", size: 30)!]
+        
+        // do this in background?
+        let potentials = translateCSVToUser()
+        print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
+        print("DONE")
     } /* viewDidLoad() */
+    
     
     
     func setSideMenuPreferences() {
@@ -48,30 +58,66 @@ class HomeViewController: UIViewController {
         SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
     } /* setSideMenuPreferences() */
 
+    
+    
+    
     @IBAction func hamburger_pressed(_ sender: UIButton) {
         sideMenuController?.revealMenu()
     }
     
     
     func loadCandidates() {
-        let assetsFolder = "Home_PotentialMatches/"
-        
-        // add images of each candidate to array
-        let images = candidateNames.map { name -> UIImage? in
-            if let candidate = UIImage(named: "\(assetsFolder)\(name)") {
-                return candidate
+        // use most recent user data from firebase
+        // first call filter fxn and make sure current user not included
+        let rootRef = Database.database().reference()
+        rootRef.child("user").observe(.value, with: { snapshot in
+            guard let candidates = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            // Build array of candidate profiles
+            for user in candidates {
+                // extract user info
+                let userName = user.childSnapshot(forPath: "firstName").value as? String
+                let userDOB = user.childSnapshot(forPath: "dob").value as? String
+                let userGender = user.childSnapshot(forPath: "gender").value as? String
+                let userPref = user.childSnapshot(forPath: "genderpref").value as? String
+                
+                var userImage : UIImage?
+                switch userGender {
+                case "Woman":
+                    userImage = UIImage(named: "Home_PotentialMatches/Aria")
+                case "Man":
+                    userImage = UIImage(named: "Home_PotentialMatches/James")
+                default:
+                    print("could not get user image")
+                    return
+                }
+                
+                // create profile summary from user info and add to candidates
+                let profile = ProfileSummary(image: userImage, name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: nil, clean: nil, vol: nil, pics: [nil], info: nil, uid: user.key)
+                self.candidateProfiles.append(profile)
             }
-            return nil
-        }
-        
-        candidatesImages = images.compactMap { $0 }
-    } /* loadCandidates(): For now load pictures of potential matches */
+            DispatchQueue.main.async {
+                self.kolodaView.reloadData()
+            }
+        })
+        //kolodaView.reloadCardsInIndexRange(Range<Int>(0, candidateProfiles.count))
+    } /* loadCandidates(): Load users from firebase */
     
     
-    
+    // change touch up inside event to event that triggers after finger lifted from tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         guard let location = touch?.location(in: self.kolodaView) else { return }
+        tapStartLocation = location
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        guard let location = touch?.location(in: self.kolodaView) else { return }
+        
+        if tapStartLocation == nil || location != tapStartLocation || currentUserIndex == -1 {
+            return
+        } // if user dragged card (tapStart != tap lift) or no user cards available
         
         let height = kolodaView.frame.height
         let width = kolodaView.frame.width
@@ -87,9 +133,36 @@ class HomeViewController: UIViewController {
         } else if rightTapRegion.contains(location) {
             print("right region tapped")
         } else if downTapRegion.contains(location) {
+            showProfileSummary()
             print("down region tapped")
         }
-    }
+    } /* touchesEnded(): on tap of lower region of koloda view, popup profile summary */
+    
+    
+    
+    func showProfileSummary() {
+        
+        let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "profileSummaryViewController")
+        let profile_vc = vc as! ProfileSummaryViewController
+        
+        let profileSummary = candidateProfiles[currentUserIndex]
+        
+        guard let age = profileSummary.user_age,
+            let preference = profileSummary.gender_preference,
+            let pic = profileSummary.user_image,
+            let name = profileSummary.user_name else { return }
+        
+        profile_vc.user_age = "\(String(age)) years old"
+        profile_vc.user_name = name
+        profile_vc.user_preference = "Likes \(preference)"
+        profile_vc.user_image = pic
+        
+        
+        profile_vc.modalPresentationStyle = .pageSheet
+        self.present(profile_vc, animated: true, completion: nil)
+
+    } /* showProfileSummary(): display popup with user information */
 
 } /* HomeViewController: Browse potential matches & navigate to other components */
 
@@ -114,16 +187,28 @@ extension HomeViewController: KolodaViewDelegate {
 
 
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        let rootRef = Database.database().reference()
         if direction == .right {
-            self.likedCandidates.append(candidatesImages[index])
+            guard let current_uid = Auth.auth().currentUser?.uid else { return }
+            let key = rootRef.child("user").child(current_uid).child("likes")
+            key.child(candidateProfiles[index].user_key).setValue(true)
+            self.likedCandidates.append(candidateProfiles[index])
+        } else {
+            self.dislikedCandidates.append(candidateProfiles[index])
         }
     } /* called whenever card is swiped */
 
 
 
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        currentUserIndex = -1
         userName_label.text = ""
-        koloda.reloadData()
+        userAge_label.text = ""
+        userDistance_label.text = ""
+        candidateProfiles = likedCandidates
+        DispatchQueue.main.async {
+            self.kolodaView.reloadData()
+        }
     } /* called when no more cards to display */
 
 
@@ -173,7 +258,12 @@ extension HomeViewController: KolodaViewDelegate {
 
 
     func koloda(_ koloda: KolodaView, didShowCardAt index: Int) {
-        userName_label.text = candidateNames[index]
+        currentUserIndex = index
+        userName_label.text = candidateProfiles[index].user_name
+        
+        if let age = candidateProfiles[index].user_age {
+        userAge_label.text = "\(String(age)) yrs old"
+        }
     } /* called after card is shown (animation complete) */
 
 
@@ -194,13 +284,13 @@ extension HomeViewController: KolodaViewDelegate {
 
 extension HomeViewController: KolodaViewDataSource {
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return candidatesImages.count
+        return candidateProfiles.count
     } /* return # items in koloda view */
 
 
 
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        let view = UIImageView(image: candidatesImages[index])
+        let view = UIImageView(image: candidateProfiles[index].user_image)
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
 

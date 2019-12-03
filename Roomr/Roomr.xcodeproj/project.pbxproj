@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,11 @@
 		022A268D2383DF21009DD8C0 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */; };
 		022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A268F2383E083009DD8C0 /* CameraViewController.swift */; };
 		022A26922383E083009DD8C0 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A26902383E083009DD8C0 /* Camera.storyboard */; };
+		02693D082396059B00FD3333 /* UserFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D072396059B00FD3333 /* UserFilter.swift */; };
+		02693D0A2396062000FD3333 /* roomr_users.csv in Resources */ = {isa = PBXBuildFile; fileRef = 02693D092396062000FD3333 /* roomr_users.csv */; };
+		02693D0C2396070300FD3333 /* ProfileSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */; };
+		02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */; };
+		02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0F2396072D00FD3333 /* ProfileSummary.swift */; };
 		652755DE23946E2E00F36828 /* DataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652755DD23946E2E00F36828 /* DataFilter.swift */; };
 		65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */; };
 		65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */; };
@@ -65,6 +70,11 @@
 		022A26822383DF20009DD8C0 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		022A268F2383E083009DD8C0 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		022A26902383E083009DD8C0 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		02693D072396059B00FD3333 /* UserFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilter.swift; sourceTree = "<group>"; };
+		02693D092396062000FD3333 /* roomr_users.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = roomr_users.csv; sourceTree = "<group>"; };
+		02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryViewController.swift; sourceTree = "<group>"; };
+		02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
+		02693D0F2396072D00FD3333 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		652755DD23946E2E00F36828 /* DataFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFilter.swift; sourceTree = "<group>"; };
 		65B6ECA623752BF4002CE8D7 /* Roomr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +159,15 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		02693D042396055B00FD3333 /* Filtering */ = {
+			isa = PBXGroup;
+			children = (
+				02693D092396062000FD3333 /* roomr_users.csv */,
+				02693D072396059B00FD3333 /* UserFilter.swift */,
+			);
+			path = Filtering;
+			sourceTree = "<group>";
+		};
 		40C2341635D989A501C91058 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +195,7 @@
 		65B6ECA823752BF4002CE8D7 /* Roomr */ = {
 			isa = PBXGroup;
 			children = (
+				02693D042396055B00FD3333 /* Filtering */,
 				022A268E2383E083009DD8C0 /* Camera */,
 				022A26762383DF20009DD8C0 /* Fonts */,
 				EC5FBEE6238366A300B60C57 /* Profile */,
@@ -228,6 +248,9 @@
 			children = (
 				65F924AA237E5B4F0089EE3B /* HomeViewController.swift */,
 				65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */,
+				02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */,
+				02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */,
+				02693D0F2396072D00FD3333 /* ProfileSummary.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -324,6 +347,7 @@
 				022A268B2383DF21009DD8C0 /* Lato-BoldItalic.ttf in Resources */,
 				022A26892383DF21009DD8C0 /* Lato-BlackItalic.ttf in Resources */,
 				65F92497237E179C0089EE3B /* Main.storyboard in Resources */,
+				02693D0A2396062000FD3333 /* roomr_users.csv in Resources */,
 				EC834404237CAFCE00EBB218 /* match.storyboard in Resources */,
 				022A26872383DF21009DD8C0 /* Lato-Black.ttf in Resources */,
 				65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */,
@@ -346,7 +370,10 @@
 			files = (
 				65EC8A07237DEB9E009CBF8F /* AccountSetupNameController.swift in Sources */,
 				65EC8A0D237DEBD7009CBF8F /* AccountSetupGenderPrefController.swift in Sources */,
+				02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */,
 				65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */,
+				02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */,
+				02693D082396059B00FD3333 /* UserFilter.swift in Sources */,
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
 				65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */,
@@ -367,6 +394,7 @@
 				94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */,
 				65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */,
 				022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */,
+				02693D0C2396070300FD3333 /* ProfileSummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
