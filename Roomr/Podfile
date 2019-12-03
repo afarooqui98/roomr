@@ -9,6 +9,7 @@ target 'Roomr' do
   pod 'Koloda'
   pod 'SideMenuSwift'
   pod "BSImagePicker"
+  pod 'CSV.swift', '~> 2.4.2'
   # Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
 

@@ -18,7 +18,6 @@ class LoginController: UIViewController, GIDSignInDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self

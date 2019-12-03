@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-class UserSetupProfile {
+/*housingPref: 1 means need apartment
+                2 means need roommate
+                3 means both
+ cleanliness and volume go from 1-10*/
+class UserSetupProfile{
+    var uid : String
     var firstName : String
     var DOB : Date
     var gender: String
@@ -18,8 +23,11 @@ class UserSetupProfile {
     var cleanliness: Float
     var volume: Float
     var pics : [UIImage]
+    var bio: String
+    var score: Float
     
     init(){
+        self.uid = ""
         self.firstName = ""
         self.DOB = Date()
         self.gender = ""
@@ -28,5 +36,7 @@ class UserSetupProfile {
         self.cleanliness = 0.0
         self.volume = 0.0
         self.pics = []
+        self.bio = ""
+        self.score = 0.0
     }
 }
