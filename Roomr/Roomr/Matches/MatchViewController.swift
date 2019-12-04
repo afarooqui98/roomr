@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class MatchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    var storage: Storage!
     var ref: DatabaseReference!
     var peopleInit: [People] = []
     var peopleQuery: [People] = []
@@ -23,6 +24,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.matchCollection.dataSource = self
         self.matchCollection.delegate = self
         
+        self.storage = Storage.storage()
         self.ref = Database.database().reference()
         self.fetchData(ref)
         self.setupCollectionViewItemSize()
@@ -61,13 +63,24 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
 
             for person in snapshot {
                 let name = person.childSnapshot(forPath: "Name").value as? String
-                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date())
+                let downloadURL = person.childSnapshot(forPath: "URL").value as? String
+//                let storageRef = self.storage.reference(forURL: downloadURL ??
+//                    "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png")
+                
+//                storageRef.downloadURL { (url, error) in
+//                    let data = NSData(contentsOf: url!)
+//                    let image = UIImage(data: data! as Data)
+//                    let people = People(image: image ?? #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date())
+//                }
+                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date(), url: downloadURL ??  "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png")
                 allPeople.append(people)
             }
+            DispatchQueue.main.async {
+                self.peopleInit = allPeople
+                self.peopleQuery = allPeople
+                self.matchCollection.reloadData()
+            }
             
-            self.peopleInit = allPeople
-            self.peopleQuery = allPeople
-            self.matchCollection.reloadData()
         }){(error) in
             print(error.localizedDescription)
         }
@@ -85,13 +98,13 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let person = peopleQuery[indexPath.row]
         let cell = matchCollection.dequeueReusableCell(withReuseIdentifier: "Contact", for: indexPath as IndexPath) as! ContactCell
-        cell.setContact(profile: person)
+        cell.person = person
         
         // make the image circle
-        cell.ImageView.layer.cornerRadius = (cell.ImageView.frame.size.width ) / 2
-        cell.ImageView.clipsToBounds = true
-        cell.ImageView.layer.borderWidth = 3.0
-        cell.ImageView.layer.borderColor = UIColor.white.cgColor
+//        cell.ImageView.layer.cornerRadius = (cell.ImageView.frame.size.width ) / 2
+//        cell.ImageView.clipsToBounds = true
+//        cell.ImageView.layer.borderWidth = 3.0
+//        cell.ImageView.layer.borderColor = UIColor.white.cgColor
 
         return cell
     }

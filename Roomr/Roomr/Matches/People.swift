@@ -14,10 +14,12 @@ class People {
     let image: UIImage
     let name: String
     let date: Date
+    let profileURL: String
     
-    init(image: UIImage, name: String, date: Date) {
+    init(image: UIImage, name: String, date: Date, url: String) {
         self.image = image
         self.name = name
         self.date = Date()
+        self.profileURL = url
     }
 }
