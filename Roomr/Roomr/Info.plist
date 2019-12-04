@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The camera will be used to take user profile pictures</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The photo library will be used to store user profile pictures</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -23,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.537915405274-uigtsb318kje55ujqmt2rn3ff6falirr</string>
+				<string>com.googleusercontent.apps.537915405274-6jr9uk7cte5sa9pnil15skot9cemajqh</string>
 			</array>
 		</dict>
 	</array>
