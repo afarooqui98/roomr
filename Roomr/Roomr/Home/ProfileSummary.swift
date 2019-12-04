@@ -26,11 +26,12 @@ class ProfileSummary {
     var location: String?
     var major: String?
     var school: String?
+    var likesCurrentUser: Bool // true if you are included in their list of likes (right swipes)
 
 
 
     init(image: UIImage?, name: String?, dob: String?, gender: String?, gender_pref: String?,
-         housing_pref: Int?, clean: Int?, vol: Int?, pics: [UIImage?], info: String?, uid: String) {
+         housing_pref: Int?, clean: Int?, vol: Int?, pics: [UIImage?], info: String?, uid: String, likesYou: Bool) {
         self.user_key = uid
         user_image = image
         user_name = name
@@ -42,6 +43,7 @@ class ProfileSummary {
         volume = vol
         room_pics = pics
         user_info = info
+        likesCurrentUser = likesYou
         
         if let birthday = user_dob {
             user_age = calculateAge(birthdate: birthday)
