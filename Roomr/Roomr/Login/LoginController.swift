@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import SideMenuSwift
 
 class LoginController: UIViewController, GIDSignInDelegate{
     @IBOutlet weak var faceBookButton: UIButton!
@@ -51,8 +52,8 @@ class LoginController: UIViewController, GIDSignInDelegate{
             self.navigationController?.pushViewController(nameSetup, animated: true)
         } else {
             let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
-            let vc = storyBoard.instantiateViewController(identifier: "homeViewController")
-            let home = vc as! HomeViewController
+            let vc = storyBoard.instantiateViewController(identifier: "sideMenuController")
+            let home = vc as! SideMenuController
             vc.modalPresentationStyle = .fullScreen
             self.present(home, animated: true, completion: {})
         }
