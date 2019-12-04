@@ -8,14 +8,11 @@
 
 import UIKit
 
-class ContactCell: UITableViewCell {
+class ContactCell: UICollectionViewCell {
 
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var msg: UILabel!
-    
 
-    
     func setContact(profile: People) {
         // set up UI
         self.ImageView.contentMode = .scaleAspectFill
@@ -26,8 +23,6 @@ class ContactCell: UITableViewCell {
         // assign data
         self.ImageView.image = profile.image
         self.Name.text = profile.name
-        self.msg.text = profile.message
-        
     }
 
 }

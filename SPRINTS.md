@@ -26,3 +26,12 @@ This week's sprint will probably be somewhat intense given the holidays. Push no
 - Ryan: finish off profile view/flow/aesthetics
 - Sophia: have working match screen with notifications sent to users
 - Katie: filter profiles
+
+### Meeting 5
+It's the final stretch. Here are the assignments:
+- Ahmed: 
+  - Meet with Katie to make sure user matches are working, simulate like/dislike and match flow.
+  - Meet with Sophia to simulate messaging flow
+  - Meet with Ryan to finish off the profile view (media loading and storing)
+  - clean up code
+- Everybody else: clean up their respective code, make sure errors are handled sufficiently

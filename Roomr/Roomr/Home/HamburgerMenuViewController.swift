@@ -34,16 +34,13 @@ class HamburgerMenuViewController: UIViewController, UINavigationControllerDeleg
         }, with: "profileVC")
         
         self.sideMenuController?.cache(viewControllerGenerator: {
-            matchesStoryBoard.instantiateViewController(withIdentifier: "matchViewController")
+            matchesStoryBoard.instantiateViewController(withIdentifier: "MatchTabController")
         }, with: "matchesVC")
         
         self.sideMenuController?.cache(viewControllerGenerator: {
             profileStoryBoard.instantiateViewController(withIdentifier: "SettingsViewController")
         }, with: "settingsVC")
         
-        self.sideMenuController?.cache(viewControllerGenerator: {
-            matchesStoryBoard.instantiateViewController(withIdentifier: "matchViewController")
-        }, with: "matchesVC")
         
         self.sideMenuController?.cache(viewControllerGenerator: {
             homeStoryBoard.instantiateViewController(withIdentifier: "sideMenuController")

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,13 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         // For testing purpose
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let storyboard = UIStoryboard(name: "match", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "matchViewController")
-//        self.window?.windowScene = windowScene
-//        self.window?.rootViewController = vc
-//        
-//        guard let _ = (scene as? UIWindowScene) else { return }
+//        if Auth.auth().currentUser != nil{
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            let storyboard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
+//            let vc = storyboard.instantiateViewController(identifier: "sideMenuController")
+//            self.window?.windowScene = windowScene
+//            self.window?.rootViewController = vc
+//        }
+        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

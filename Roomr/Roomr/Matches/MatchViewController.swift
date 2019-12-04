@@ -7,76 +7,94 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
 
-class MatchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MatchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var SearchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
-    
     var ref: DatabaseReference!
     var peopleInit: [People] = []
     var peopleQuery: [People] = []
+    var matchCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    @IBOutlet weak var matchCollection: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.SearchBar.delegate = self
+        self.matchCollection.dataSource = self
+        self.matchCollection.delegate = self
+        
         self.ref = Database.database().reference()
-        let userID = "90VZVPq028eFEJPCt83PeLFPKem2"
+        self.fetchData(ref)
+        self.setupCollectionViewItemSize()
+    }
+    
+
+    // MARK: UICollectionViewCell Size
+    private func setupCollectionViewItemSize() {
+        if matchCollectionViewFlowLayout == nil {
+            let numberOfItemsPerRow: CGFloat = 2
+            let lineSpacing: CGFloat = 2
+            let interItemSpacing: CGFloat = 1
+            
+            let width = (self.matchCollection.frame.width - (numberOfItemsPerRow - 1) * interItemSpacing) / numberOfItemsPerRow
+            let height = width
+            
+            // cell display setting
+            matchCollectionViewFlowLayout = UICollectionViewFlowLayout()
+            matchCollectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
+            matchCollectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
+            matchCollectionViewFlowLayout.scrollDirection = .vertical
+            matchCollectionViewFlowLayout.minimumLineSpacing = lineSpacing
+            matchCollectionViewFlowLayout.minimumInteritemSpacing = interItemSpacing
+            self.matchCollection.setCollectionViewLayout(matchCollectionViewFlowLayout, animated: true)
+        }
+    }
+
+    // MARK: import data
+    func fetchData (_ ref: DatabaseReference?) -> Void {
+        let userID = "90VZVPq028eFEJPCt83PeLFPKem2" // hard code
         var allPeople: [People] = []
         
-//        ref?.child("Contact").observe(DataEventType.value, with: { (snapshot) in
-        ref?.child("user").child(userID).child("Contacts").observe(DataEventType.value, with: { (snapshot) in
+        ref?.child(userID).child("Contacts").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return }
 
             for person in snapshot {
                 let name = person.childSnapshot(forPath: "Name").value as? String
-                let msg = person.childSnapshot(forPath: "Msg").value as? String
-
-                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil", message: msg ?? "nil", date: "Nov 1st")
-
+                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date())
                 allPeople.append(people)
             }
+            
             self.peopleInit = allPeople
             self.peopleQuery = allPeople
-            print(self.peopleInit)
-            self.tableView.reloadData()
+            self.matchCollection.reloadData()
         }){(error) in
             print(error.localizedDescription)
-
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.peopleQuery.count)
-        return self.peopleQuery.count
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+           return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return self.peopleQuery.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let person = peopleQuery[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as! ContactCell
+        let cell = matchCollection.dequeueReusableCell(withReuseIdentifier: "Contact", for: indexPath as IndexPath) as! ContactCell
         cell.setContact(profile: person)
+        
+        // make the image circle
+        cell.ImageView.layer.cornerRadius = (cell.ImageView.frame.size.width ) / 2
+        cell.ImageView.clipsToBounds = true
+        cell.ImageView.layer.borderWidth = 3.0
+        cell.ImageView.layer.borderColor = UIColor.white.cgColor
+
         return cell
     }
 
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            peopleQuery = self.peopleInit
-            self.tableView.reloadData()
-            
-        } else {
-            filterTableView(text: searchText)
-        }
-    }
-    
-    func filterTableView(text: String) {
-        peopleQuery = self.peopleInit.filter({(mod) -> Bool in
-            return mod.name.lowercased().contains(text.lowercased())
-        })
-        self.tableView.reloadData()
-    }
+
 }

@@ -10,6 +10,7 @@ target 'Roomr' do
   pod 'SideMenuSwift'
   pod "BSImagePicker"
   pod 'CSV.swift', '~> 2.4.2'
+  pod 'PushNotifications'
   # Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
 
@@ -19,6 +20,6 @@ target 'Roomr' do
   
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
-  
+  pod 'Firebase/Messaging'
   pod 'GoogleSignIn'
 end
