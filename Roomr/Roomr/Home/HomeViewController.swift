@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         // do this in background?
         // let potentials = translateCSVToUser()
         //print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
-        print("DONE")
     } /* viewDidLoad() */
     
     

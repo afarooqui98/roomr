@@ -26,11 +26,13 @@
 		02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */; };
 		02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0F2396072D00FD3333 /* ProfileSummary.swift */; };
 		652755DE23946E2E00F36828 /* DataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652755DD23946E2E00F36828 /* DataFilter.swift */; };
+		65514C742397A56900B60CA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65514C732397A56900B60CA9 /* GoogleService-Info.plist */; };
+		65514C762397A9E000B60CA9 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C752397A9E000B60CA9 /* PushNotificationManager.swift */; };
+		65514C7823981FCF00B60CA9 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */; };
 		65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */; };
 		65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */; };
 		65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ECAD23752BF4002CE8D7 /* LoginController.swift */; };
 		65B6ECBE23753955002CE8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBD23753955002CE8D7 /* Assets.xcassets */; };
-		65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */; };
 		65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */; };
 		65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */; };
 		65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */; };
@@ -76,6 +78,10 @@
 		02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		02693D0F2396072D00FD3333 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		652755DD23946E2E00F36828 /* DataFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFilter.swift; sourceTree = "<group>"; };
+		652755DF23972C7300F36828 /* Roomr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Roomr.entitlements; sourceTree = "<group>"; };
+		65514C732397A56900B60CA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65514C752397A9E000B60CA9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		65B6ECA623752BF4002CE8D7 /* Roomr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +89,6 @@
 		65B6ECB523752BF5002CE8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65B6ECB723752BF5002CE8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B6ECBD23753955002CE8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65D56821238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupMorePrefsController.swift; sourceTree = "<group>"; };
 		65D56822238DCBAB00C893C8 /* AccountSetupUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupUtils.swift; sourceTree = "<group>"; };
 		65D56823238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSetupHousingPrefsController.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 		65B6ECA823752BF4002CE8D7 /* Roomr */ = {
 			isa = PBXGroup;
 			children = (
+				652755DF23972C7300F36828 /* Roomr.entitlements */,
 				02693D042396055B00FD3333 /* Filtering */,
 				022A268E2383E083009DD8C0 /* Camera */,
 				022A26762383DF20009DD8C0 /* Fonts */,
@@ -206,9 +212,11 @@
 				65B6ECB423752BF5002CE8D7 /* LaunchScreen.storyboard */,
 				65EC8A10237E14F5009CBF8F /* Main.storyboard */,
 				652755DD23946E2E00F36828 /* DataFilter.swift */,
+				65514C752397A9E000B60CA9 /* PushNotificationManager.swift */,
+				65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */,
 				65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */,
 				65B6ECAB23752BF4002CE8D7 /* SceneDelegate.swift */,
-				65B6ECBF237BC85C002CE8D7 /* GoogleService-Info.plist */,
+				65514C732397A56900B60CA9 /* GoogleService-Info.plist */,
 				65B6ECB723752BF5002CE8D7 /* Info.plist */,
 				65B6ECBD23753955002CE8D7 /* Assets.xcassets */,
 			);
@@ -350,7 +358,6 @@
 				02693D0A2396062000FD3333 /* roomr_users.csv in Resources */,
 				EC834404237CAFCE00EBB218 /* match.storyboard in Resources */,
 				022A26872383DF21009DD8C0 /* Lato-Black.ttf in Resources */,
-				65B6ECC0237BC85C002CE8D7 /* GoogleService-Info.plist in Resources */,
 				65B6ECBE23753955002CE8D7 /* Assets.xcassets in Resources */,
 				94AB192423835B8400D2928C /* Profile.storyboard in Resources */,
 				022A26832383DF21009DD8C0 /* Lato-Italic.ttf in Resources */,
@@ -358,6 +365,7 @@
 				022A26882383DF21009DD8C0 /* Lato-Regular.ttf in Resources */,
 				022A26842383DF21009DD8C0 /* Lato-LightItalic.ttf in Resources */,
 				65F924AF237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard in Resources */,
+				65514C742397A56900B60CA9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +380,7 @@
 				65EC8A0D237DEBD7009CBF8F /* AccountSetupGenderPrefController.swift in Sources */,
 				02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */,
 				65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */,
+				65514C7823981FCF00B60CA9 /* PushNotificationSender.swift in Sources */,
 				02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */,
 				02693D082396059B00FD3333 /* UserFilter.swift in Sources */,
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
@@ -382,6 +391,7 @@
 				94AB192A2383B1A800D2928C /* TabController.swift in Sources */,
 				94AB192723835B8400D2928C /* ProfileViewController.swift in Sources */,
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
+				65514C762397A9E000B60CA9 /* PushNotificationManager.swift in Sources */,
 				9415C42B23868974007D1FD3 /* ProfileTableViewController.swift in Sources */,
 				652755DE23946E2E00F36828 /* DataFilter.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
@@ -540,14 +550,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Roomr/Roomr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NL234S6923;
+				DEVELOPMENT_TEAM = KLPH4R4V52;
 				INFOPLIST_FILE = Roomr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ecs189e.Roomr;
+				PRODUCT_BUNDLE_IDENTIFIER = ecs189e.RoomrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,14 +569,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Roomr/Roomr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NL234S6923;
+				DEVELOPMENT_TEAM = KLPH4R4V52;
 				INFOPLIST_FILE = Roomr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ecs189e.Roomr;
+				PRODUCT_BUNDLE_IDENTIFIER = ecs189e.RoomrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -21,7 +21,12 @@ class AccountSetupNameController: UIViewController {
         
         titleField.adjustsFontSizeToFitWidth = true
         titleField.minimumScaleFactor = 0.2
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        view.endEditing(true)
     }
     
     @IBAction func fillName(_ sender: Any) {

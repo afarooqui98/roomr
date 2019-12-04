@@ -11,8 +11,11 @@ import Firebase
 import AVFoundation
 import Photos
 import BSImagePicker
+import CoreLocation
+import SideMenuSwift
+import PushNotifications
 
-class AccountSetupPicsController: UIViewController{
+class AccountSetupPicsController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var picsCollection: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
@@ -22,21 +25,18 @@ class AccountSetupPicsController: UIViewController{
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
     let maxPics = 12
     var profile : UserSetupProfile!
-    var encodedPicsArray : [String] = []
+    var locationManager: CLLocationManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         storageRef = Storage.storage().reference()
-        self.populateImages(profile.pics)
         
         picsCollection.backgroundColor = .white
         picsCollection.dragInteractionEnabled = true
         picsCollection.dataSource = self
         picsCollection.delegate = self
-        picsCollection.dragDelegate = self
-        picsCollection.dropDelegate = self
         self.setupCollectionViewItemSize()
         
         cameraButton.layer.cornerRadius = 4
@@ -64,30 +64,24 @@ class AccountSetupPicsController: UIViewController{
         }
     }
     
-    func populateImages(_ pics: [UIImage]){
-        for _ in 0...maxPics{
-            if let defaultPic = UIImage(named: "image_placeholder"), let data = defaultPic.pngData(){
-                profile.pics.append(defaultPic)
-                let pngRepresentation = data.base64EncodedString(options: .endLineWithLineFeed)
-                print(pngRepresentation)
-                encodedPicsArray.append(pngRepresentation)
-            }
-        }
-    }
-    
     @IBAction func takePicture(_ sender: Any) {
+        //clear current array
+        self.profile.pics.removeAll()
+        self.picsCollection.reloadData()
+        
         //ask for permissions
         askCameraPermission(self)
         askPhotoLibraryPermission(self)
         //open camera
         let vc = BSImagePickerViewController()
         vc.takePhotos = true
+        var arr: [UIImage] = []
         bs_presentImagePickerController(vc, animated: true, select: nil, deselect: nil, cancel: nil, finish: {(assets: [PHAsset]) -> Void in
             let assets = self.getAssetThumbnail(assets: assets) //only add the pictures youve uploaded
             for i in 0...assets.count-1{
-                self.profile.pics[i] = assets[i]
-                self.encodedPicsArray[i] = assets[i].pngData()?.base64EncodedString(options: .endLineWithLineFeed) ?? "invalid_picture"
+                arr.append(assets[i])
             }
+            self.profile.pics = arr
             self.picsCollection.reloadData()
             print(self.profile.pics.count)
         }, completion: nil)
@@ -96,13 +90,25 @@ class AccountSetupPicsController: UIViewController{
     
     @IBAction func goHome(_ sender: Any) {
         //load home view
+//        askLocationPermissions()
+        storeFirebaseRealtimeData()
+        storeFirebasePictureData()
+        pushData()
         let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "homeViewController")
-        let home = vc as! HomeViewController
+        let vc = storyBoard.instantiateViewController(identifier: "sideMenuController")
+        let home = vc as! SideMenuController
         vc.modalPresentationStyle = .fullScreen
         self.present(home, animated: true, completion: {})
-        
-        //store user data
+    }
+    
+    func pushData(){
+        let userId = Auth.auth().currentUser?.uid ?? "invalid_user"
+        let pushManager = PushNotificationManager(userID: userId)
+        pushManager.registerForPushNotifications()
+    }
+    
+    func storeFirebaseRealtimeData(){
+        //store firebase data
         let key = ref.child("user").child(Auth.auth().currentUser?.uid ?? "invalid_user")
         let df = DateFormatter()
         df.dateFormat = "mm-dd-yyyy"
@@ -116,7 +122,10 @@ class AccountSetupPicsController: UIViewController{
             "volume" : profile.volume
             ] as [String : Any]
         key.setValue(post)
-        
+        print("saved user \(String(describing: Auth.auth().currentUser?.uid))")
+    }
+    
+    func storeFirebasePictureData(){
         let storage = Storage.storage()
         var i = 0
         for image in profile.pics{
@@ -133,8 +142,12 @@ class AccountSetupPicsController: UIViewController{
                 i += 1
             }
         }
-        
-        //store picture datas
+    }
+    
+    func askLocationPermissions(){
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
     }
     
     //MARK: Convert array of PHAsset to UIImages
@@ -155,16 +168,25 @@ class AccountSetupPicsController: UIViewController{
     
     //MARK: reorders the collection view as well as the array of pictures
     func reorder(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
-        if let item = coordinator.items.first , let sourceIndexPath = item.sourceIndexPath {
+        if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
             collectionView.performBatchUpdates({
                 //MARK: reorder array
-                self.encodedPicsArray.remove(at: sourceIndexPath.item)
-                self.encodedPicsArray.insert(item.dragItem.localObject as! String, at: destinationIndexPath.item)
                 collectionView.deleteItems(at: [sourceIndexPath])
                 collectionView.insertItems(at: [destinationIndexPath])
                 
             }, completion: nil)
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
+    }
+    
+    //MARK: location manager protocol
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    // do stuff
+                }
+            }
         }
     }
 }
