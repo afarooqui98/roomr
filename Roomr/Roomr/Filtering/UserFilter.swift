@@ -49,7 +49,7 @@ func parseAndTranslateCSVRow(row: [String]) -> ProfileSummary {
     
     
     // create ProfileSummary and append to result array
-    let tempUser = ProfileSummary(image: nil, name: userInfo[0], dob: nil, gender: user_gender, gender_pref: gender_preference, housing_pref: housePref, clean: clean, vol: volume, pics: [nil], info: nil, uid: "")
+    let tempUser = ProfileSummary(image: nil, name: userInfo[0], dob: nil, gender: user_gender, gender_pref: gender_preference, housing_pref: housePref, clean: clean, vol: volume, pics: [nil], info: nil, uid: "", likesYou: false)
     tempUser.location = userInfo[5]
     tempUser.major = userInfo[6]
     tempUser.school = userInfo[7]
@@ -124,17 +124,17 @@ func checkGenderCompatibility(user1: ProfileSummary, user2: ProfileSummary) -> B
     // return true only if both users' genders match each other's preferences
     var result = false
     switch (user1.gender_preference, user2.user_gender) {
-    case ("Female", "Male"):
+    case ("Women", "Man"):
         return false
-    case ("Female", "Female"):
+    case ("Women", "Woman"):
         result = true
-    case ("Male", "Male"):
+    case ("Men", "Man"):
         result = true
-    case ("Male", "Female"):
+    case ("Men", "Woman"):
         return false
-    case ("Everyone", "Male"):
+    case ("Everyone", "Man"):
         result = true
-    case ("Everyone", "Female"):
+    case ("Everyone", "Woman"):
         result = true
     default:
         return false
@@ -142,17 +142,17 @@ func checkGenderCompatibility(user1: ProfileSummary, user2: ProfileSummary) -> B
     
     // now check other way
     switch (user2.gender_preference, user1.user_gender) {
-        case ("Female", "Male"):
+        case ("Women", "Man"):
             return false
-        case ("Female", "Female"):
+        case ("Women", "Woman"):
             result = true
-        case ("Male", "Male"):
+        case ("Men", "Man"):
             result = true
-        case ("Male", "Female"):
+        case ("Men", "Woman"):
             return false
-        case ("Everyone", "Male"):
+        case ("Everyone", "Man"):
             result = true
-        case ("Everyone", "Female"):
+        case ("Everyone", "Woman"):
             result = true
         default:
             return false
@@ -211,29 +211,22 @@ func checkVolumeCompatibility(user1: ProfileSummary, user2: ProfileSummary) -> B
 
 
 
-func filterPreferenceMismatches(targetUser: ProfileSummary, users: [ProfileSummary]) -> [ProfileSummary] {
-    // NOTE: make sure the target user is not included in users array
-    var compatibleUsers = [ProfileSummary]()
-    
-    for user in users {
-        // only add user if compatible with target user:
-        if (targetUser.user_name == user.user_name) {
-            continue // skip if same person
-        } else if (checkHousingCompatibility(user1: targetUser, user2: user) == false) {
-            continue
-        } else if (checkGenderCompatibility(user1: targetUser, user2: user) == false) {
-            continue
-        } else if (checkCleanCompatibility(user1: targetUser, user2: user) == false) {
-            continue
-        } else if (checkVolumeCompatibility(user1: targetUser, user2: user) == false) {
-            continue
-        // TODO: make sure they aren't in matched, liked or disliked candidates
-        } else {
-            compatibleUsers.append(user)
-        }
+func filterPreferenceMismatches(targetUser: ProfileSummary, user: ProfileSummary) -> Bool {
+    // only add user if compatible with target user:
+    if (targetUser.user_key == user.user_key) {
+        return false  // skip if same person
+    } else if (checkHousingCompatibility(user1: targetUser, user2: user) == false) {
+        return false
+    } else if (checkGenderCompatibility(user1: targetUser, user2: user) == false) {
+        return false
+    } else if (checkCleanCompatibility(user1: targetUser, user2: user) == false) {
+        return false
+    } else if (checkVolumeCompatibility(user1: targetUser, user2: user) == false) {
+        return false
+    // TODO: make sure they aren't in matched, liked or disliked candidates
+    } else {
+        return true
     }
-    
-    return compatibleUsers
 } /* filterPreferenceMismatches(): remove incompatible users */
 
 
