@@ -15,6 +15,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
     var ref: DatabaseReference!
     var peopleQuery: [People] = []
     var matchCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    var refreshingData = false
     
     @IBOutlet weak var matchCollection: UICollectionView!
 
@@ -55,10 +56,11 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
     // MARK: import data
     func fetchData (_ ref: DatabaseReference?) -> Void {
         self.peopleQuery = []
-        let userID = "90VZVPq028eFEJPCt83PeLFPKem2" // hard code
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         var allPeople: [People] = []
         
-        ref?.child(userID).child("matches").observe(DataEventType.value, with: { (snapshot) in
+        ref?.child("user").child(userID).child("matches").observe(DataEventType.value, with: { (snapshot) in
+            self.refreshingData = true
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return }
 
@@ -72,6 +74,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
                     allPeople.append(people)
                 }
             }
+            self.refreshingData = false
             DispatchQueue.main.async {
                 self.peopleQuery = allPeople
                 self.matchCollection.reloadData()
@@ -103,35 +106,42 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = peopleQuery[indexPath.row]
-        loadAlert(person)
+        
+        //if (!refreshingData) {
+            loadAlert(person, index:indexPath)
+        //}
         // cur user want to talk person.id
     }
     
-    func loadAlert(_ person: People){
-        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
-        let targetKey = self.ref?.child(person.key)
-        _ = targetKey?.child("matches").child(currID).observe(DataEventType.value, with: { (snapshot) in
-            let wantToTalk = snapshot.childSnapshot(forPath: "wantToTalk").value as! Bool
-            if wantToTalk{
-                return
-            } else {
-                let alertController = UIAlertController(title: "Are You Sure You Want to Send a Message Request?" , message: "", preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "Yes", style: .default, handler: { alert -> Void in
-                    //MARK: send notification
-                    print("request sent to user \(person.name)")
+    func loadAlert(_ person: People, index: IndexPath){
+        guard let currID = Auth.auth().currentUser?.uid else { return }
+        let matches_key = ref?.child("user").child(person.key).child("matches")
+        matches_key?.child(currID).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(String(describing: snapshot))
+            let value = snapshot.value as? NSDictionary
+            if let talk = value?["wantToTalk"], let wantToTalk = talk as? Bool {
+                if wantToTalk {
+                    return
+                } else {
+                    let alertController = UIAlertController(title: "Are You Sure You Want to Send a Message Request?" , message: "", preferredStyle: .alert)
                     
-                    //set the wantToTalk values
-                    self.wantToTalk(person.key)
-                })
-                
-                //alert action to cancel
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
-                
-                alertController.addAction(cancelAction)
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+                    let okAction = UIAlertAction(title: "Yes", style: .default, handler: { alert -> Void in
+                        //MARK: send notification
+                        print("request sent to user \(person.name)")
+                        self.matchCollection.deleteItems(at: [index])
+                        //set the wantToTalk values
+                        self.wantToTalk(person.key)
+                    })
+                    
+                    //alert action to cancel
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+                    
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
+            
         })
     }
     
@@ -151,40 +161,38 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    func createMatches(){
-        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
-        let userToMove = "1D91042E-7EA6-4C56-A55C-49EC5FBDF235"
-        
-        if let matchesTable1 = self.ref?.child(currID).child("matches").child(userToMove){
-            let userPost = [
-                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
-                "name": "Sophia",
-                "wantToTalk":true,
-                "isFriend":false
-            ] as [String : Any]
-            matchesTable1.setValue(userPost)
-        }
-        
-        if let matchesTable2 = self.ref?.child(userToMove).child("matches").child(currID){
-            let userPost = [
-                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
-                "name": "Ahmed",
-                "wantToTalk":false,
-                "isFriend":false
-            ] as [String : Any]
-            matchesTable2.setValue(userPost)
-        }
-        
-    }
+//    func createMatches(){
+//        guard let currID  = Auth.auth().currentUser?.uid else { return }
+//        let userToMove = "1D91042E-7EA6-4C56-A55C-49EC5FBDF235"
+//
+//        if let matchesTable1 = self.ref?.child("user").child(currID).child("matches").child(userToMove){
+//            let userPost = [
+//                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
+//                "name": "Sophia",
+//                "wantToTalk":true,
+//                "isFriend":false
+//            ] as [String : Any]
+//            matchesTable1.setValue(userPost)
+//        }
+//
+//        if let matchesTable2 = self.ref?.child("user").child(userToMove).child("matches").child(currID){
+//            let userPost = [
+//                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
+//                "name": "Ahmed",
+//                "wantToTalk":false,
+//                "isFriend":false
+//            ] as [String : Any]
+//            matchesTable2.setValue(userPost)
+//        }
+//
+//    }
 
     func wantToTalk(_ personID: String){
         // check my own mathces list
-        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
-//        guard let currID = Auth.auth().currentUser?.uid else {return}
-//        let status = self.ref?.child(currID).child("matches").child(personID).child("wantToTalk")
-//        status?.removeValue()
-        let currentKey = self.ref?.child(currID)
-        let targetKey = self.ref?.child(personID)
+        guard let currID = Auth.auth().currentUser?.uid else {return}
+
+        let currentKey = self.ref?.child("user").child(currID)
+        let targetKey = self.ref?.child("user").child(personID)
         currentKey?.child("matches").child(personID).observe(DataEventType.value, with: { (snapshot) in
             //target user's snapshot
             let wantToTalk = snapshot.childSnapshot(forPath: "wantToTalk").value as! Bool

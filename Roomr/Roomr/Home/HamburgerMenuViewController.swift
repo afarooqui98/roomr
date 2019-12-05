@@ -18,7 +18,9 @@ class Preferences {
 class HamburgerMenuViewController: UIViewController, UINavigationControllerDelegate {
     
     var current_VC : String? // current view controller being presented
-
+    @IBOutlet weak var UserName_label: UILabel!
+    static var user_name = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

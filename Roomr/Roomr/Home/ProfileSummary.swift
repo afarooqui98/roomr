@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseStorage
 import Koloda
 
 class ProfileSummary {
@@ -30,6 +31,7 @@ class ProfileSummary {
     var likesCurrentUser: Bool // true if you are included in their list of likes (right swipes)
     var currentImgDisplayed: Int = 0 // index of image displayed in koloda view
     var profilePic_Url: String = ""
+    var push_token : String?
 
 
     func calculateAge(birthdate: String) -> Int? {

@@ -12,6 +12,8 @@ import SideMenuSwift
 import PopupDialog
 import FirebaseDatabase
 import Firebase
+import FirebaseMessaging
+import FirebaseAuth
 
 
 class HomeViewController: UIViewController, UINavigationControllerDelegate {
@@ -76,6 +78,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         guard let current_uid = Auth.auth().currentUser?.uid else { return }
         
         rootRef.child("user").child(current_uid).observe(.value, with: { (snapshot) in
+            let token = Messaging.messaging().fcmToken
+            rootRef.child("user").child(current_uid).child("fcmToken").setValue(token)
             let value = snapshot.value as? NSDictionary
             let userName = value?["firstName"] as? String
             let userDOB = value?["dob"] as? String
@@ -89,7 +93,9 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
             self.user_dislikes = value?["dislikes"] as? Dictionary<String, Any>
             self.matches = value?["matches"] as? Dictionary<String, Any>
             
+            
             self.curr_user = ProfileSummary(name: userName, dob: userDOB, gender: userGender, gender_pref: genderPref, housing_pref: housingPref, clean: cleanliness, vol: volume, info: nil, uid: current_uid, likesYou: false, imgIndex: 0, kv: self.kolodaView)
+            self.curr_user?.push_token = token
             self.loadCandidates()
         })
     } /* createCurrentUser(): ProfileSummary for current user */
@@ -125,6 +131,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 let volume = Int(user.childSnapshot(forPath: "volume").value as? Double ?? 0.0)
                 let cleanliness = Int(user.childSnapshot(forPath: "cleanliness").value as? Double ?? 0.0)
                 let likes = user.childSnapshot(forPath: "likes").value as? Dictionary<String, Any>
+                let info = user.childSnapshot(forPath: "bio").value as? String
                 
                 // check if user liked you before
                 var likesYou = false
@@ -133,7 +140,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 }
                     
                 // create profile summary from user info (also loads images) and add to candidates
-                let profile = ProfileSummary(name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: housingPref, clean: cleanliness, vol: volume, info: nil, uid: user.key, likesYou: likesYou, imgIndex: 0, kv: self.kolodaView)
+                let profile = ProfileSummary(name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: housingPref, clean: cleanliness, vol: volume, info: info, uid: user.key, likesYou: likesYou, imgIndex: 0, kv: self.kolodaView)
                 
                 // filter out potentially bad matches
                 if (filterPreferenceMismatches(targetUser: currUser, user: profile) == true) {
@@ -216,7 +223,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         profile_vc.user_preference = "Prefers to live with \(preference)"
         profile_vc.user_image = profileSummary.user_images[profileSummary.currentImgDisplayed]
         profile_vc.user_gender = profileSummary.user_gender
-        // profile_vc.user_bio
+        profile_vc.user_bio = profileSummary.user_info
         
         profile_vc.modalPresentationStyle = .pageSheet
         self.present(profile_vc, animated: true, completion: nil)
