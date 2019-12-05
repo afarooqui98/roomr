@@ -240,29 +240,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAq-qc-CCw" userLabel="User Image">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CurvedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-wz-3R6">
-                                <rect key="frame" x="0.0" y="270" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="48"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-VV-UWH" userLabel="Name Label">
-                                <rect key="frame" x="40" y="328" width="240" height="0.0"/>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-YT-BP7" userLabel="Profile Stack">
-                                <rect key="frame" x="20" y="368" width="280" height="8"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-YT-BP7" userLabel="Profile Stack">
+                                <rect key="frame" x="20" y="420" width="280" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRW-9N-e9Q" userLabel="Age Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-VV-UWH" userLabel="Name Label">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7n-Df-p47" userLabel="Preference Label">
-                                        <rect key="frame" x="0.0" y="8" width="280" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LC-nt-nQg" userLabel="Gender Label">
+                                        <rect key="frame" x="0.0" y="10" width="280" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRW-9N-e9Q" userLabel="Age Label">
+                                        <rect key="frame" x="0.0" y="20" width="280" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7n-Df-p47" userLabel="Preference Label">
+                                        <rect key="frame" x="0.0" y="30" width="280" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="29" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-3o-WcF" userLabel="Bio Label">
+                                        <rect key="frame" x="0.0" y="40" width="280" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -271,18 +283,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UCM-4b-xhr" firstAttribute="bottom" secondItem="Nqo-YT-BP7" secondAttribute="bottom" constant="20" id="1va-dn-o0Q"/>
                             <constraint firstItem="oAq-qc-CCw" firstAttribute="top" secondItem="UCM-4b-xhr" secondAttribute="top" id="2kH-yV-iV2"/>
                             <constraint firstItem="4y1-wz-3R6" firstAttribute="trailing" secondItem="UCM-4b-xhr" secondAttribute="trailing" id="3oD-7L-aRb"/>
                             <constraint firstItem="4y1-wz-3R6" firstAttribute="leading" secondItem="UCM-4b-xhr" secondAttribute="leading" id="Bae-cw-jos"/>
                             <constraint firstItem="UCM-4b-xhr" firstAttribute="trailing" secondItem="Nqo-YT-BP7" secondAttribute="trailing" constant="20" id="BwF-8l-Kym"/>
-                            <constraint firstItem="bsf-VV-UWH" firstAttribute="leading" secondItem="UCM-4b-xhr" secondAttribute="leading" constant="40" id="Hdp-G2-2y2"/>
-                            <constraint firstItem="UCM-4b-xhr" firstAttribute="trailing" secondItem="bsf-VV-UWH" secondAttribute="trailing" constant="40" id="N4g-Pn-ETj"/>
+                            <constraint firstItem="Nqo-YT-BP7" firstAttribute="top" secondItem="4y1-wz-3R6" secondAttribute="bottom" id="InF-y8-M2Y"/>
                             <constraint firstItem="4y1-wz-3R6" firstAttribute="bottom" secondItem="oAq-qc-CCw" secondAttribute="bottom" id="SI6-eW-IH5"/>
-                            <constraint firstItem="UCM-4b-xhr" firstAttribute="bottom" secondItem="Nqo-YT-BP7" secondAttribute="bottom" constant="104" id="U7g-qH-Z03"/>
                             <constraint firstItem="oAq-qc-CCw" firstAttribute="leading" secondItem="UCM-4b-xhr" secondAttribute="leading" id="Uyo-UC-wKl"/>
-                            <constraint firstItem="bsf-VV-UWH" firstAttribute="top" secondItem="oAq-qc-CCw" secondAttribute="bottom" constant="10" id="alz-6E-k1G"/>
                             <constraint firstItem="4y1-wz-3R6" firstAttribute="top" secondItem="oAq-qc-CCw" secondAttribute="bottom" constant="-48" id="ens-T3-yat"/>
-                            <constraint firstItem="Nqo-YT-BP7" firstAttribute="top" secondItem="bsf-VV-UWH" secondAttribute="bottom" constant="40" id="qk3-gP-G45"/>
                             <constraint firstItem="Nqo-YT-BP7" firstAttribute="leading" secondItem="UCM-4b-xhr" secondAttribute="leading" constant="20" id="quF-Ko-89o"/>
                             <constraint firstItem="oAq-qc-CCw" firstAttribute="trailing" secondItem="UCM-4b-xhr" secondAttribute="trailing" id="w0E-Hg-wta"/>
                         </constraints>
@@ -290,6 +299,8 @@
                     </view>
                     <connections>
                         <outlet property="age_label" destination="sRW-9N-e9Q" id="iNj-1m-sVK"/>
+                        <outlet property="bio_label" destination="DdF-3o-WcF" id="Q2b-To-UDU"/>
+                        <outlet property="gender_label" destination="7LC-nt-nQg" id="EPd-9g-wRI"/>
                         <outlet property="name_label" destination="bsf-VV-UWH" id="8Aq-Vz-Llj"/>
                         <outlet property="preference_label" destination="S7n-Df-p47" id="uxp-Oy-9Tx"/>
                         <outlet property="user_imageView" destination="oAq-qc-CCw" id="NOd-8G-hVp"/>
@@ -297,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcY-hy-bdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628" y="591.45427286356824"/>
+            <point key="canvasLocation" x="-628.125" y="591.25"/>
         </scene>
         <!--Home-->
         <scene sceneID="L8g-JE-leO">
@@ -319,35 +330,28 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="sn9-hF-18M">
                                 <rect key="frame" x="140.5" y="234" width="39" height="39"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-sJ-inm" userLabel="DetailsStack">
-                                <rect key="frame" x="30" y="309" width="260" height="49"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-sJ-inm" userLabel="DetailsStack">
+                                <rect key="frame" x="30" y="309" width="260" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-lm-8MD">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="49"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="30"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bullet" translatesAutoresizingMaskIntoConstraints="NO" id="Jux-5x-ORn">
-                                        <rect key="frame" x="94.5" y="0.0" width="71" height="49"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Jux-5x-ORn" secondAttribute="height" multiplier="13:9" id="y33-uu-BP4"/>
-                                        </constraints>
+                                        <rect key="frame" x="94.5" y="0.0" width="71" height="30"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         </preferredSymbolConfiguration>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-mR-5RG">
-                                        <rect key="frame" x="173.5" y="0.0" width="86.5" height="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKU-mR-5RG" userLabel="User Housing Pref label">
+                                        <rect key="frame" x="173.5" y="0.0" width="86.5" height="30"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="5iU-lm-8MD" firstAttribute="width" secondItem="vKU-mR-5RG" secondAttribute="width" id="DWA-a8-4M7"/>
-                                    <constraint firstItem="5iU-lm-8MD" firstAttribute="height" secondItem="vKU-mR-5RG" secondAttribute="height" id="IMZ-H1-geM"/>
-                                </constraints>
                             </stackView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-Sh-7bC" customClass="KolodaView" customModule="Koloda">
                                 <rect key="frame" x="50" y="99" width="220" height="103"/>
@@ -390,7 +394,7 @@
                     <connections>
                         <outlet property="kolodaView" destination="n1c-Sh-7bC" id="AQU-g6-tVE"/>
                         <outlet property="userAge_label" destination="5iU-lm-8MD" id="p2A-1c-y2Q"/>
-                        <outlet property="userDistance_label" destination="vKU-mR-5RG" id="uHt-bc-0t9"/>
+                        <outlet property="userHousingPref_label" destination="vKU-mR-5RG" id="UxQ-3o-jPT"/>
                         <outlet property="userName_label" destination="M2j-j0-VF8" id="OIG-cj-aGR"/>
                     </connections>
                 </viewController>
