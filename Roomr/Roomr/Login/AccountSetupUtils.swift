@@ -11,6 +11,7 @@ import Firebase
 import AVFoundation
 import Photos
 import BSImagePicker
+import CoreLocation
 
 //MARK: add functionality for images to be loaded from the profile data structure
 extension AccountSetupPicsController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
@@ -18,7 +19,7 @@ extension AccountSetupPicsController: UICollectionViewDelegateFlowLayout, UIColl
         return CGSize(width: ((collectionView.frame.width - 8) / 3), height: ((collectionView.frame.width - 8) / 3))
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return maxPics
+        return self.profile.pics.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

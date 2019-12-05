@@ -94,6 +94,8 @@ class AccountSetupPicsController: UIViewController, CLLocationManagerDelegate{
         storeFirebaseRealtimeData()
         storeFirebasePictureData()
         pushData()
+        askLocationPermissions()
+        
         let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
         let vc = storyBoard.instantiateViewController(identifier: "sideMenuController")
         let home = vc as! SideMenuController

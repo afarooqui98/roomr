@@ -52,6 +52,7 @@
 		94AB192723835B8400D2928C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB192223835B8300D2928C /* ProfileViewController.swift */; };
 		94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB192323835B8300D2928C /* SettingsViewController.swift */; };
 		94AB192A2383B1A800D2928C /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB19292383B1A800D2928C /* TabController.swift */; };
+		B670632FE0BB0527C69168CF /* Pods_Roomr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8533AA5733F7658DA3CD4E /* Pods_Roomr.framework */; };
 		EC834404237CAFCE00EBB218 /* match.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC834403237CAFCD00EBB218 /* match.storyboard */; };
 		EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC834405237CB46200EBB218 /* MatchViewController.swift */; };
 		EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83440B237D095B00EBB218 /* ContactCell.swift */; };
@@ -77,6 +78,7 @@
 		02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryViewController.swift; sourceTree = "<group>"; };
 		02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		02693D0F2396072D00FD3333 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
+		0EAD9D0E0165577D974F1BA8 /* Pods-Roomr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.debug.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.debug.xcconfig"; sourceTree = "<group>"; };
 		652755DD23946E2E00F36828 /* DataFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFilter.swift; sourceTree = "<group>"; };
 		652755DF23972C7300F36828 /* Roomr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Roomr.entitlements; sourceTree = "<group>"; };
 		65514C732397A56900B60CA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -101,12 +103,14 @@
 		65F924AA237E5B4F0089EE3B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		65F924AC237E5B4F0089EE3B /* HomeViewsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		65F924C8237E7EF10089EE3B /* AccountSetupPicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupPicsController.swift; sourceTree = "<group>"; };
+		8D7C964CB25C399D28AE65C5 /* Pods-Roomr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomr.release.xcconfig"; path = "Target Support Files/Pods-Roomr/Pods-Roomr.release.xcconfig"; sourceTree = "<group>"; };
 		9415C42A23868974007D1FD3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		94AB191F23835B8300D2928C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		94AB192123835B8300D2928C /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
 		94AB192223835B8300D2928C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		94AB192323835B8300D2928C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		94AB19292383B1A800D2928C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		AF8533AA5733F7658DA3CD4E /* Pods_Roomr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5FBEE7238366A300B60C57 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		EC5FBEE8238366A300B60C57 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EC5FBEE9238366A300B60C57 /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B670632FE0BB0527C69168CF /* Pods_Roomr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +181,8 @@
 		40C2341635D989A501C91058 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				0EAD9D0E0165577D974F1BA8 /* Pods-Roomr.debug.xcconfig */,
+				8D7C964CB25C399D28AE65C5 /* Pods-Roomr.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 				65B6ECA823752BF4002CE8D7 /* Roomr */,
 				65B6ECA723752BF4002CE8D7 /* Products */,
 				40C2341635D989A501C91058 /* Pods */,
+				808901704005FD4C41B0DA28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,6 +271,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		808901704005FD4C41B0DA28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF8533AA5733F7658DA3CD4E /* Pods_Roomr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		94AB191E23835B8300D2928C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B6ECBA23752BF5002CE8D7 /* Build configuration list for PBXNativeTarget "Roomr" */;
 			buildPhases = (
+				00835115E4FC3218AE9391A6 /* [CP] Check Pods Manifest.lock */,
 				65B6ECA223752BF4002CE8D7 /* Sources */,
 				65B6ECA323752BF4002CE8D7 /* Frameworks */,
 				65B6ECA423752BF4002CE8D7 /* Resources */,
+				0485D549EB732EC0A05445F5 /* [CP] Embed Pods Frameworks */,
+				DAC6D521777F8B0FA0410F64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,6 +389,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00835115E4FC3218AE9391A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roomr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0485D549EB732EC0A05445F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAC6D521777F8B0FA0410F64 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roomr/Pods-Roomr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65B6ECA223752BF4002CE8D7 /* Sources */ = {
@@ -548,6 +626,7 @@
 		};
 		65B6ECBB23752BF5002CE8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EAD9D0E0165577D974F1BA8 /* Pods-Roomr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Roomr/Roomr.entitlements;
@@ -567,6 +646,7 @@
 		};
 		65B6ECBC23752BF5002CE8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7C964CB25C399D28AE65C5 /* Pods-Roomr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Roomr/Roomr.entitlements;

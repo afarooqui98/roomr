@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will use this to match you with the nearest potential roommate</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We will use this to match you with the nearest potential roommate</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We will use this to match you with the nearest potential roommate</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We will use this to match you with the nearest potential roommate</string>
+	<key>NSFileProviderDomainUsageDescription</key>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string>The camera will be used to take user profile pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>
