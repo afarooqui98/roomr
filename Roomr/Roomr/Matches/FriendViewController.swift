@@ -51,10 +51,10 @@ class FriendViewController:  UIViewController, UICollectionViewDelegate, UIColle
     }
     func fetchData (_ ref: DatabaseReference?) -> Void {
         self.peopleQuery = []
-        let userID = "90VZVPq028eFEJPCt83PeLFPKem2" // hard code
+        guard let userID = Auth.auth().currentUser?.uid else {return}
         var allPeople: [People] = []
         
-        ref?.child(userID).child("friends").observe(DataEventType.value, with: { (snapshot) in
+        ref?.child("user").child(userID).child("friends").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return }
 
