@@ -9,6 +9,7 @@
 import UIKit
 import Koloda
 import SideMenuSwift
+import PopupDialog
 import FirebaseDatabase
 import Firebase
 
@@ -21,10 +22,14 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var userDistance_label: UILabel!
     
-    var likedCandidates = [ProfileSummary]()
-    var dislikedCandidates = [ProfileSummary]()
-
+    var curr_user: ProfileSummary?
+    // store current user's previous likes, dislikes, matches from firebase
+    var user_likes : Dictionary<String, Any>?
+    var user_dislikes : Dictionary<String, Any>?
+    var matches : Dictionary<String, Any>?
+    
     var candidateProfiles = [ProfileSummary]()
+    var candidateKeys = [String]()
     var potential_roommates : [DataSnapshot]?
     var currentUserIndex: Int = -1 // keep track of index of card user is viewing
     var tapStartLocation: CGPoint?
@@ -33,7 +38,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSideMenuPreferences()
-        loadCandidates()
+        createCurrentUser() // also loads candidates
         kolodaView.dataSource = self
         kolodaView.delegate = self
         self.navigationController?.navigationBar.titleTextAttributes =
@@ -41,9 +46,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
          NSAttributedString.Key.font: UIFont(name: "Lato-Regular", size: 30)!]
         
         // do this in background?
-//        let potentials = translateCSVToUser()
-//        print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
-        print("DONE")
+        // let potentials = translateCSVToUser()
+        //print(filterPreferenceMismatches(targetUser: potentials[0], users: potentials))
     } /* viewDidLoad() */
     
     
@@ -66,21 +70,77 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     
+    func createCurrentUser() {
+        let rootRef = Database.database().reference()
+        guard let current_uid = Auth.auth().currentUser?.uid else { return }
+        
+        rootRef.child("user").child(current_uid).observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let userName = value?["firstName"] as? String
+            let userDOB = value?["dob"] as? String
+            let userGender = value?["gender"] as? String
+            let genderPref = value?["genderpref"] as? String
+            let housingPref = value?["housingpref"] as? Int
+            let volume = Int(value?["volume"] as? Double ?? 0.0)
+            let cleanliness = Int(value?["cleanliness"] as? Double ?? 0.0)
+            
+            self.user_likes = value?["likes"] as? Dictionary<String, Any>
+            self.user_dislikes = value?["dislikes"] as? Dictionary<String, Any>
+            self.matches = value?["matches"] as? Dictionary<String, Any>
+            
+            var userImage : UIImage?
+            if (userGender == "Woman") {
+                userImage = UIImage(named: "Home_PotentialMatches/Aria")
+            } else {
+                userImage = UIImage(named: "Home_PotentialMatches/James")
+            }
+            
+            self.curr_user = ProfileSummary(image: userImage, name: userName, dob: userDOB, gender: userGender, gender_pref: genderPref, housing_pref: housingPref, clean: cleanliness, vol: volume, pics: [nil], info: nil, uid: current_uid, likesYou: false)
+            self.loadCandidates()
+        })
+    } /* createCurrentUser(): ProfileSummary for current user */
+    
+    
+    
+    
     func loadCandidates() {
+        
         // use most recent user data from firebase
         // first call filter fxn and make sure current user not included
         let rootRef = Database.database().reference()
+        guard let current_uid = Auth.auth().currentUser?.uid else { return }
+        
+        guard let currUser = curr_user else { return }
         rootRef.child("user").observe(.value, with: { snapshot in
-            guard let candidates = snapshot.children.allObjects as? [DataSnapshot] else { return }
-            
-            // Build array of candidate profiles
+        guard let candidates = snapshot.children.allObjects as? [DataSnapshot] else { return }
+        // Build array of candidate profiles
             for user in candidates {
+                print("\(user.key) and current key: \(currUser.user_key)")
+                
+                // if candidate was already matched/liked/disliked with/by user or loaded in card view, don't include
+                if ((self.user_likes?[user.key] != nil) ||
+                    (self.user_dislikes?[user.key] != nil) ||
+                    (self.matches?[user.key] != nil) ||
+                    (self.candidateKeys.contains(user.key))) {
+                    continue
+                }
+                        
                 // extract user info
                 let userName = user.childSnapshot(forPath: "firstName").value as? String
                 let userDOB = user.childSnapshot(forPath: "dob").value as? String
                 let userGender = user.childSnapshot(forPath: "gender").value as? String
                 let userPref = user.childSnapshot(forPath: "genderpref").value as? String
+                let housingPref = user.childSnapshot(forPath: "housingpref").value as? Int
+                let volume = Int(user.childSnapshot(forPath: "volume").value as? Double ?? 0.0)
+                let cleanliness = Int(user.childSnapshot(forPath: "cleanliness").value as? Double ?? 0.0)
+                let likes = user.childSnapshot(forPath: "likes").value as? Dictionary<String, Any>
                 
+                var likesYou = false
+                if (likes?[currUser.user_key] != nil) {
+                    likesYou = true
+                }
+                
+                // FIXME: change user image to url URL: (String)
                 var userImage : UIImage?
                 switch userGender {
                 case "Woman":
@@ -91,11 +151,14 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                     print("could not get user image")
                     return
                 }
-                
+                    
                 // create profile summary from user info and add to candidates
-                let profile = ProfileSummary(image: userImage, name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: nil, clean: nil, vol: nil, pics: [nil], info: nil, uid: user.key)
-                self.candidateProfiles.append(profile)
-            }
+                let profile = ProfileSummary(image: userImage, name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: housingPref, clean: cleanliness, vol: volume, pics: [nil], info: nil, uid: user.key, likesYou: likesYou)
+                if (filterPreferenceMismatches(targetUser: currUser, user: profile) == true) {
+                    self.candidateProfiles.append(profile)
+                    self.candidateKeys.append(profile.user_key)
+                }
+            } // for each candidate, check compatibility with current user
             DispatchQueue.main.async {
                 self.kolodaView.reloadData()
             }
@@ -155,7 +218,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         
         profile_vc.user_age = "\(String(age)) years old"
         profile_vc.user_name = name
-        profile_vc.user_preference = "Likes \(preference)"
+        profile_vc.user_preference = "Prefers to live with \(preference)"
         profile_vc.user_image = pic
         
         
@@ -163,13 +226,49 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         self.present(profile_vc, animated: true, completion: nil)
 
     } /* showProfileSummary(): display popup with user information */
+    
+    
+    func createMatchPopup() {
+        // Customize dialog appearance
+        let pv = PopupDialogDefaultView.appearance()
+        pv.titleFont    = UIFont(name: "Lato-Bold", size: 16)!
+        pv.titleColor   = .white
+        pv.messageFont  = UIFont(name: "Lato-Regular", size: 14)!
+        pv.messageColor = UIColor(white: 0.8, alpha: 1)
+
+        // Customize the container view appearance
+        let pcv = PopupDialogContainerView.appearance()
+        pcv.backgroundColor = UIColor(red:0.23, green:0.23, blue:0.27, alpha:1.00)
+        pcv.cornerRadius    = 2
+        pcv.shadowEnabled   = true
+        pcv.shadowColor     = .black
+
+        // Customize overlay appearance
+        let ov = PopupDialogOverlayView.appearance()
+        ov.blurEnabled     = true
+        ov.blurRadius      = 30
+        ov.liveBlurEnabled = true
+        ov.opacity         = 0.7
+        ov.color           = .black
+
+        // Customize default button appearance
+        let db = DefaultButton.appearance()
+        db.titleFont      = UIFont(name: "Lato-Regular", size: 14)!
+        db.titleColor     = .white
+        db.buttonColor    = UIColor(red:0.25, green:0.25, blue:0.29, alpha:1.00)
+        db.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+        
+        let title = "It's a match!"
+        let message = "You both liked each other. You can see them under 'Matches' now!"
+        
+        let popup = PopupDialog(title: title, message: message)
+        let ok_button = DefaultButton(title: "Ok", dismissOnTap: false) {}
+        
+        popup.addButton(ok_button)
+        self.present(popup, animated: true, completion: nil)
+    } /* createMatchPopup(): Shown when there is an immediate match */
 
 } /* HomeViewController: Browse potential matches & navigate to other components */
-
-
-
-
-
 
 
 
@@ -188,13 +287,26 @@ extension HomeViewController: KolodaViewDelegate {
 
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         let rootRef = Database.database().reference()
+        guard let current_uid = Auth.auth().currentUser?.uid else { return }
+        
+        // FIXME: maybe remove profile from candidateProfiles after?
         if direction == .right {
-            guard let current_uid = Auth.auth().currentUser?.uid else { return }
-            let key = rootRef.child("user").child(current_uid).child("likes")
-            key.child(candidateProfiles[index].user_key).setValue(true)
-            self.likedCandidates.append(candidateProfiles[index])
-        } else {
-            self.dislikedCandidates.append(candidateProfiles[index])
+            // right swipe: match if they also like you, otherwise add to likes (firebase)
+            if (candidateProfiles[index].likesCurrentUser) {
+                let matches_key = rootRef.child("user").child(current_uid).child("matches")
+                matches_key.child(candidateProfiles[index].user_key).setValue(true)
+                createMatchPopup()
+            } else {
+                let likes_key = rootRef.child("user").child(current_uid).child("likes")
+                likes_key.child(candidateProfiles[index].user_key).setValue(true)
+            }
+            
+        } else { // left swipe: add to dislikes
+            let dislikes_key = rootRef.child("user").child(current_uid).child("dislikes")
+            dislikes_key.child(candidateProfiles[index].user_key).setValue(true)
+        }
+        DispatchQueue.main.async {
+            self.kolodaView.reloadData()
         }
     } /* called whenever card is swiped */
 
@@ -205,7 +317,7 @@ extension HomeViewController: KolodaViewDelegate {
         userName_label.text = ""
         userAge_label.text = ""
         userDistance_label.text = ""
-        candidateProfiles = likedCandidates
+        //candidateProfiles.removeAll()
         DispatchQueue.main.async {
             self.kolodaView.reloadData()
         }
