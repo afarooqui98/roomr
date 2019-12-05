@@ -13,7 +13,6 @@ class AccountSetupHousingPrefsController: UIViewController {
     @IBOutlet weak var secondaryTitleLabel: UILabel!
     @IBOutlet weak var roommateButton: UIButton!
     @IBOutlet weak var apartmentButton: UIButton!
-    @IBOutlet weak var bothButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     var roomrBlue = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
@@ -30,7 +29,6 @@ class AccountSetupHousingPrefsController: UIViewController {
         
         roommateButton.layer.cornerRadius = 4
         apartmentButton.layer.cornerRadius = 4
-        bothButton.layer.cornerRadius = 4
         nextButton.layer.cornerRadius = 4
         nextButton.layer.borderColor = roomrBlue.cgColor
         nextButton.layer.borderWidth = 1
@@ -41,22 +39,12 @@ class AccountSetupHousingPrefsController: UIViewController {
         profile.housingPref = 1
         setWhite(roommateButton)
         setBlue(apartmentButton)
-        setBlue(bothButton)
     }
     
     @IBAction func selectApartment(_ sender: Any) {
         profile.housingPref = 2
         setWhite(apartmentButton)
         setBlue(roommateButton)
-        setBlue(bothButton)
-    }
-    
-    @IBAction func selectBoth(_ sender: Any) {
-        profile.housingPref = 3
-        setWhite(bothButton)
-        setBlue(roommateButton)
-        setBlue(apartmentButton)
-        
     }
     
     func setWhite(_ button: UIButton){

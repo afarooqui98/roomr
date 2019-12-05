@@ -56,24 +56,7 @@ class AccountSetupGenderController: UIViewController {
         setBlue(manButton)
         setBlue(womanButton)
         
-        //alert to set custom gender
-        let alertController = UIAlertController(title: "Please Enter the Gender you Most Closely Identify with:" , message: "", preferredStyle: .alert)
-        alertController.addTextField {(textField : UITextField!) -> Void in
-            textField.keyboardType = .alphabet
-        }
-        
-        let okAction = UIAlertAction(title: "Done", style: .default, handler: { alert -> Void in
-            if let field = alertController.textFields?[0], let str = field.text{
-                self.profile.gender = str
-            }
-        })
-        
-        //alert action to cancel
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        profile.gender = "Other"
     }
     
     func setWhite(_ button: UIButton){

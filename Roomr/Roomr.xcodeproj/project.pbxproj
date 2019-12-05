@@ -25,7 +25,6 @@
 		02693D0C2396070300FD3333 /* ProfileSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */; };
 		02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */; };
 		02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0F2396072D00FD3333 /* ProfileSummary.swift */; };
-		652755DE23946E2E00F36828 /* DataFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652755DD23946E2E00F36828 /* DataFilter.swift */; };
 		65514C762397A9E000B60CA9 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C752397A9E000B60CA9 /* PushNotificationManager.swift */; };
 		65514C7823981FCF00B60CA9 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */; };
 		65514C802398904B00B60CA9 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C7A2398904B00B60CA9 /* TabController.swift */; };
@@ -80,7 +79,6 @@
 		02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryViewController.swift; sourceTree = "<group>"; };
 		02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		02693D0F2396072D00FD3333 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
-		652755DD23946E2E00F36828 /* DataFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFilter.swift; sourceTree = "<group>"; };
 		652755DF23972C7300F36828 /* Roomr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Roomr.entitlements; sourceTree = "<group>"; };
 		65514C752397A9E000B60CA9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				65F92499237E48970089EE3B /* Login */,
 				65B6ECB423752BF5002CE8D7 /* LaunchScreen.storyboard */,
 				65EC8A10237E14F5009CBF8F /* Main.storyboard */,
-				652755DD23946E2E00F36828 /* DataFilter.swift */,
 				65514C752397A9E000B60CA9 /* PushNotificationManager.swift */,
 				65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */,
 				65B6ECA923752BF4002CE8D7 /* AppDelegate.swift */,
@@ -386,7 +383,6 @@
 				EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */,
 				65B6ECAE23752BF4002CE8D7 /* LoginController.swift in Sources */,
 				65514C762397A9E000B60CA9 /* PushNotificationManager.swift in Sources */,
-				652755DE23946E2E00F36828 /* DataFilter.swift in Sources */,
 				65514C842398904B00B60CA9 /* ProfileViewController.swift in Sources */,
 				65B6ECAA23752BF4002CE8D7 /* AppDelegate.swift in Sources */,
 				65D56825238DCBAB00C893C8 /* AccountSetupUtils.swift in Sources */,
@@ -395,9 +391,6 @@
 				65514C852398904B00B60CA9 /* SettingsViewController.swift in Sources */,
 				65B6ECAC23752BF4002CE8D7 /* SceneDelegate.swift in Sources */,
 				65F924AD237E5B4F0089EE3B /* HomeViewController.swift in Sources */,
-
-				94AB192623835B8400D2928C /* AddMediaViewController.swift in Sources */,
-				94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */,
 				ECACF5C1239912EC000BDA49 /* FriendViewController.swift in Sources */,
 				65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */,
 				022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */,

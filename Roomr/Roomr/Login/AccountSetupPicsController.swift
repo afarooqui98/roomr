@@ -116,6 +116,7 @@ class AccountSetupPicsController: UIViewController, CLLocationManagerDelegate{
         df.dateFormat = "mm-dd-yyyy"
         let post = [
             "firstName" : profile.firstName,
+            "bio": profile.bio,
             "dob" : df.string(from: profile.DOB),
             "gender" : profile.gender,
             "genderpref" : profile.genderPref,
