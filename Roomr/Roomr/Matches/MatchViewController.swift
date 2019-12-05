@@ -13,7 +13,6 @@ import FirebaseStorage
 class MatchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var storage: Storage!
     var ref: DatabaseReference!
-    var peopleInit: [People] = []
     var peopleQuery: [People] = []
     var matchCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
@@ -74,7 +73,6 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
                 }
             }
             DispatchQueue.main.async {
-                self.peopleInit = allPeople
                 self.peopleQuery = allPeople
                 self.matchCollection.reloadData()
             }
@@ -105,8 +103,36 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = peopleQuery[indexPath.row]
-        wantToTalk(person.key)
+        loadAlert(person)
         // cur user want to talk person.id
+    }
+    
+    func loadAlert(_ person: People){
+        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
+        let targetKey = self.ref?.child(person.key)
+        _ = targetKey?.child("matches").child(currID).observe(DataEventType.value, with: { (snapshot) in
+            let wantToTalk = snapshot.childSnapshot(forPath: "wantToTalk").value as! Bool
+            if wantToTalk{
+                return
+            } else {
+                let alertController = UIAlertController(title: "Are You Sure You Want to Send a Message Request?" , message: "", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "Yes", style: .default, handler: { alert -> Void in
+                    //MARK: send notification
+                    print("request sent to user \(person.name)")
+                    
+                    //set the wantToTalk values
+                    self.wantToTalk(person.key)
+                })
+                
+                //alert action to cancel
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+                
+                alertController.addAction(cancelAction)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        })
     }
     
     func addUserToFriendTable(currentUserRef: DatabaseReference?, userToMove: String, snapshot: DataSnapshot){
@@ -153,7 +179,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func wantToTalk(_ personID: String){
         // check my own mathces list
-        let currID = "1D91042E-7EA6-4C56-A55C-49EC5FBDF235"
+        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
 //        guard let currID = Auth.auth().currentUser?.uid else {return}
 //        let status = self.ref?.child(currID).child("matches").child(personID).child("wantToTalk")
 //        status?.removeValue()
@@ -172,7 +198,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
                 })
             } else{
                 //go to target user, find current user, set wantToTalk to true
-                targetKey?.child(currID).updateChildValues(["wantToTalk": true])
+                targetKey?.child("matches").child(currID).updateChildValues(["wantToTalk": true])
             }
             
             self.fetchData(self.ref)

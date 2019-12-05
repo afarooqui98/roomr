@@ -54,6 +54,8 @@
 		EC834406237CB46200EBB218 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC834405237CB46200EBB218 /* MatchViewController.swift */; };
 		EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83440B237D095B00EBB218 /* ContactCell.swift */; };
 		EC83440E237D0A5600EBB218 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83440D237D0A5600EBB218 /* People.swift */; };
+		ECACF5C1239912EC000BDA49 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECACF5C0239912EC000BDA49 /* FriendViewController.swift */; };
+		ECACF5C323991F79000BDA49 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECACF5C223991F78000BDA49 /* FriendCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		EC834405237CB46200EBB218 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		EC83440B237D095B00EBB218 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		EC83440D237D0A5600EBB218 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		ECACF5C0239912EC000BDA49 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		ECACF5C223991F78000BDA49 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,8 @@
 				EC83440D237D0A5600EBB218 /* People.swift */,
 				EC83440B237D095B00EBB218 /* ContactCell.swift */,
 				EC834403237CAFCD00EBB218 /* match.storyboard */,
+				ECACF5C0239912EC000BDA49 /* FriendViewController.swift */,
+				ECACF5C223991F78000BDA49 /* FriendCell.swift */,
 			);
 			path = Matches;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */,
 				65EC8A09237DEBAD009CBF8F /* AccountSetupAgeController.swift in Sources */,
 				02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */,
+				ECACF5C323991F79000BDA49 /* FriendCell.swift in Sources */,
 				02693D082396059B00FD3333 /* UserFilter.swift in Sources */,
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
@@ -392,6 +399,7 @@
 				65F924AD237E5B4F0089EE3B /* HomeViewController.swift in Sources */,
 				94AB192623835B8400D2928C /* AddMediaViewController.swift in Sources */,
 				94AB192823835B8400D2928C /* SettingsViewController.swift in Sources */,
+				ECACF5C1239912EC000BDA49 /* FriendViewController.swift in Sources */,
 				65D56826238DCBAB00C893C8 /* AccountSetupHousingPrefsController.swift in Sources */,
 				022A26912383E083009DD8C0 /* CameraViewController.swift in Sources */,
 				02693D0C2396070300FD3333 /* ProfileSummaryViewController.swift in Sources */,
