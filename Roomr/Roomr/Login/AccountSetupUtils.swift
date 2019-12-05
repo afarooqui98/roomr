@@ -25,50 +25,19 @@ extension AccountSetupPicsController: UICollectionViewDelegateFlowLayout, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picsCollectionCell", for: indexPath)
         cell.backgroundColor = .white
         
-        let img = UIImageView(image: profile.pics[indexPath.row])
-        img.translatesAutoresizingMaskIntoConstraints = false
-        cell.contentView.addSubview(img)
-        img.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 4).isActive = true
-        img.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 4).isActive = true
-        img.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -4).isActive = true
-        img.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -4).isActive = true
-        img.contentMode = .scaleToFill
-        img.layer.masksToBounds = true
+        if profile.pics.indices.contains(indexPath.row){
+            let img = UIImageView(image: profile.pics[indexPath.row])
+            img.translatesAutoresizingMaskIntoConstraints = false
+            cell.contentView.addSubview(img)
+            img.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 4).isActive = true
+            img.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 4).isActive = true
+            img.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -4).isActive = true
+            img.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -4).isActive = true
+            img.contentMode = .scaleToFill
+            img.layer.masksToBounds = true
+        }
         
         return cell
-    }
-}
-
-//MARK: collectionview delegates
-extension AccountSetupPicsController: UICollectionViewDragDelegate, UICollectionViewDropDelegate{
-    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-        if collectionView.hasActiveDrag{
-            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-        }
-        return UICollectionViewDropProposal(operation: .forbidden)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        var destinationIndexPath: IndexPath
-        if let indexPath = coordinator.destinationIndexPath{
-            destinationIndexPath = indexPath
-        } else {
-            let row = collectionView.numberOfItems(inSection: 0)
-            destinationIndexPath = IndexPath(item: row - 1, section: 0)
-        }
-        
-        if coordinator.proposal.operation == .move {
-            reorder(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = self.encodedPicsArray[indexPath.row]
-//        let img = "example"
-        let itemProvider = NSItemProvider(object: item as NSString)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = item
-        return [dragItem]
     }
 }
 
