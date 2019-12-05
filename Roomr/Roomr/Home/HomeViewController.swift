@@ -132,6 +132,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                 let cleanliness = Int(user.childSnapshot(forPath: "cleanliness").value as? Double ?? 0.0)
                 let likes = user.childSnapshot(forPath: "likes").value as? Dictionary<String, Any>
                 let info = user.childSnapshot(forPath: "bio").value as? String
+                let token = user.childSnapshot(forPath: "fcmToken").value as? String
                 
                 // check if user liked you before
                 var likesYou = false
@@ -141,7 +142,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
                     
                 // create profile summary from user info (also loads images) and add to candidates
                 let profile = ProfileSummary(name: userName, dob: userDOB, gender: userGender, gender_pref: userPref, housing_pref: housingPref, clean: cleanliness, vol: volume, info: info, uid: user.key, likesYou: likesYou, imgIndex: 0, kv: self.kolodaView)
-                
+                profile.push_token = token
                 // filter out potentially bad matches
                 if (filterPreferenceMismatches(targetUser: currUser, user: profile) == true) {
                     //profile.user_images = self.loadUserImages(userKey: profile.user_key)
@@ -320,6 +321,12 @@ extension HomeViewController: KolodaViewDelegate {
                 likes_key.removeValue()
                 let other_matches_key = rootRef.child("user").child(candidate.user_key).child("matches")
                 other_matches_key.child(current_uid).setValue(createMatchInfo(user: self.curr_user))
+                
+                // show push notification to user:
+                if let token = candidateProfiles[index].push_token {
+                    var sender = PushNotificationSender()
+                    sender.sendPushNotification(to: token, title: "You Got a Match on Roomr!", body: "Look under matches")
+                }
                 createMatchPopup()
                 
             } else { // is a like
