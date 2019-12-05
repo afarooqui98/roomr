@@ -38,7 +38,7 @@ class HamburgerMenuViewController: UIViewController, UINavigationControllerDeleg
         }, with: "matchesVC")
         
         self.sideMenuController?.cache(viewControllerGenerator: {
-            profileStoryBoard.instantiateViewController(withIdentifier: "TabController")
+            profileStoryBoard.instantiateViewController(withIdentifier: "SettingsViewController")
         }, with: "settingsVC")
         
         
@@ -85,12 +85,12 @@ class HamburgerMenuViewController: UIViewController, UINavigationControllerDeleg
     
     @IBAction func settings_pressed(_ sender: UIButton) {
         if (current_VC == nil || current_VC != "Roomr.SettingsViewController") {
-            self.sideMenuController?.setContentViewController(with: "settingsVC", animated: Preferences.shared.enableTransitionAnimation)
-            // TODO: add this after Ryan merges
-//            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier: "TabController") as! TabController
-        //vc.defaultIndex = 0
-//            self.sideMenuController?.setContentViewController(to: vc, animated: false, completion: nil)
+            //self.sideMenuController?.setContentViewController(with: "settingsVC", animated: Preferences.shared.enableTransitionAnimation)
+            //TODO: add this after Ryan merges
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "TabController") as! TabController
+            vc.defaultIndex = 0
+            self.sideMenuController?.setContentViewController(to: vc, animated: false, completion: nil)
             current_VC = "Roomr.SettingsViewController"
         }
         self.sideMenuController?.hideMenu()

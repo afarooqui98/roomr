@@ -10,36 +10,19 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
     
-    @IBAction func editName(_ sender: UIButton) {
-        //UIAlertView
-        //Update server data
-        //Update parent view controller display
-    }
-    
-    @IBAction func editGender(_ sender: UIButton) {
-
-    }
-    
-    @IBAction func editLocation(_ sender: UIButton) {
-        //Update parent view controller display
-    }
-    
-    @IBAction func editUniversity(_ sender: UIButton) {
-
-    }
-    
-    @IBAction func editMajor(_ sender: UIButton) {
-
-    }
-
-    
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var housingLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 75.0
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
-
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
