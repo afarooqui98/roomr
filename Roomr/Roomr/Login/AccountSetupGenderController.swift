@@ -52,7 +52,11 @@ class AccountSetupGenderController: UIViewController {
     }
     
     @IBAction func selectOther(_ sender: Any) {
-        //MARK: add alert to set custom gender
+        setWhite(otherButton)
+        setBlue(manButton)
+        setBlue(womanButton)
+        
+        profile.gender = "Other"
     }
     
     func setWhite(_ button: UIButton){

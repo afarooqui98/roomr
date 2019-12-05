@@ -28,19 +28,19 @@ class AccountSetupMorePrefsController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if profile.cleanliness == 0 || profile.volume == 0{
-//            return false
-//        }
-//
-//        return true
-//    }
-
+    @IBAction func cleanlinessSliderChanged(_ sender: UISlider) {
+        sender.value = round(sender.value)
+        self.profile.cleanliness = Int(round(sender.value))
+    }
+    
+    @IBAction func volumeSliderChanged(_ sender: UISlider) {
+        sender.value = round(sender.value)
+        self.profile.volume = Int(round(sender.value))
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? AccountSetupHousingPrefsController
-        profile.cleanliness = cleanlinessSlider.value
-        profile.volume = volumeSlider.value
         vc?.profile = self.profile
     }
 }

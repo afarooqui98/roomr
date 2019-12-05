@@ -13,7 +13,6 @@ import SideMenuSwift
 
 class LoginController: UIViewController, GIDSignInDelegate{
     @IBOutlet weak var faceBookButton: UIButton!
-    @IBOutlet weak var studentEmailButton: UIButton!
     @IBOutlet weak var googleButton: GIDSignInButton!
     var ref : DatabaseReference!
     
@@ -25,23 +24,10 @@ class LoginController: UIViewController, GIDSignInDelegate{
 //        GIDSignIn.sharedInstance()?.signIn()
         
         faceBookButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        studentEmailButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-        studentEmailButton.titleLabel?.minimumScaleFactor = 0.5
         faceBookButton.titleLabel?.minimumScaleFactor = 0.5
         
         faceBookButton.layer.cornerRadius = 4
-        studentEmailButton.layer.cornerRadius = 4
-        studentEmailButton.layer.borderWidth = 1
-        studentEmailButton.layer.borderColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0).cgColor
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func cameraSegue(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "Camera", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "cameraViewController")
-        let camera = vc as! CameraViewController
-        self.navigationController?.pushViewController(camera, animated: false)
     }
     
     func pushNextController(existing user: Bool){

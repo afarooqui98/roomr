@@ -16,12 +16,13 @@ import UIKit
 class UserSetupProfile{
     var uid : String
     var firstName : String
+    var phoneNumber: String
     var DOB : Date
     var gender: String
     var genderPref: String
     var housingPref: Int
-    var cleanliness: Float
-    var volume: Float
+    var cleanliness: Int
+    var volume: Int
     var pics : [UIImage]
     var bio: String
     var score: Float
@@ -29,12 +30,13 @@ class UserSetupProfile{
     init(){
         self.uid = ""
         self.firstName = ""
+        self.phoneNumber = ""
         self.DOB = Date()
         self.gender = ""
         self.genderPref = ""
         self.housingPref = 0
-        self.cleanliness = 0.0
-        self.volume = 0.0
+        self.cleanliness = 0
+        self.volume = 0
         self.pics = []
         self.bio = ""
         self.score = 0.0

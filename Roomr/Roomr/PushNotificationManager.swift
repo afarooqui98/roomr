@@ -35,23 +35,22 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
             UIApplication.shared.registerUserNotificationSettings(settings)
         }
         UIApplication.shared.registerForRemoteNotifications()
-        updateFirestorePushTokenIfNeeded()
+        updateFirebasePushTokenIfNeeded()
     }
-    func updateFirestorePushTokenIfNeeded() {
+    func updateFirebasePushTokenIfNeeded() {
         print("in func to add token")
         if let token = Messaging.messaging().fcmToken {
+            print("token is \(token)")
             let ref = Database.database().reference()
             let key = ref.child("user").child(Auth.auth().currentUser?.uid ?? "invalid_user")
             key.updateChildValues(["fcmToken": token])
-//            let usersRef = Firestore.firestore().collection("users_table").document(userID)
-//            usersRef.setData(["fcmToken": token], merge: true)
         }
     }
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
     }
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        updateFirestorePushTokenIfNeeded()
+        updateFirebasePushTokenIfNeeded()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(response)

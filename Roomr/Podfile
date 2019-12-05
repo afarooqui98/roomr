@@ -8,7 +8,7 @@ target 'Roomr' do
   # Pods for Roomr
   pod 'Koloda'
   pod 'SideMenuSwift'
-  pod "BSImagePicker"
+  pod 'BSImagePicker'
   pod 'CSV.swift', '~> 2.4.2'
   pod 'PopupDialog', '~> 1.1'
   pod 'PushNotifications'
@@ -23,4 +23,5 @@ target 'Roomr' do
   pod 'Firebase/Storage'
   pod 'Firebase/Messaging'
   pod 'GoogleSignIn'
+  pod 'PhoneNumberKit'
 end

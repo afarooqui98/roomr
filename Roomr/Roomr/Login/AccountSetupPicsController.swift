@@ -94,6 +94,8 @@ class AccountSetupPicsController: UIViewController, CLLocationManagerDelegate{
         storeFirebaseRealtimeData()
         storeFirebasePictureData()
         pushData()
+        askLocationPermissions()
+        
         let storyBoard = UIStoryboard(name: "HomeViewsStoryboard", bundle: nil)
         let vc = storyBoard.instantiateViewController(identifier: "sideMenuController")
         let home = vc as! SideMenuController
@@ -114,6 +116,7 @@ class AccountSetupPicsController: UIViewController, CLLocationManagerDelegate{
         df.dateFormat = "mm-dd-yyyy"
         let post = [
             "firstName" : profile.firstName,
+            "bio": profile.bio,
             "dob" : df.string(from: profile.DOB),
             "gender" : profile.gender,
             "genderpref" : profile.genderPref,
