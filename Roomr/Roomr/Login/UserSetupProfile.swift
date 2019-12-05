@@ -16,6 +16,7 @@ import UIKit
 class UserSetupProfile{
     var uid : String
     var firstName : String
+    var phoneNumber: String
     var DOB : Date
     var gender: String
     var genderPref: String
@@ -29,6 +30,7 @@ class UserSetupProfile{
     init(){
         self.uid = ""
         self.firstName = ""
+        self.phoneNumber = ""
         self.DOB = Date()
         self.gender = ""
         self.genderPref = ""
