@@ -18,8 +18,11 @@ class ContactCell: UICollectionViewCell {
             self.setContact()
         }
     }
+    
+
+    
     func setContact() {
-        // set up UI
+        // set up image UI
         self.ImageView.contentMode = .scaleAspectFill
         self.ImageView.layer.cornerRadius = 40
         self.ImageView.translatesAutoresizingMaskIntoConstraints = false

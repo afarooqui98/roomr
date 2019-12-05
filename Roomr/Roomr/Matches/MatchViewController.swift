@@ -28,6 +28,7 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.ref = Database.database().reference()
         self.fetchData(ref)
         self.setupCollectionViewItemSize()
+//        self.createMatches()
     }
     
 
@@ -54,26 +55,23 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     // MARK: import data
     func fetchData (_ ref: DatabaseReference?) -> Void {
+        self.peopleQuery = []
         let userID = "90VZVPq028eFEJPCt83PeLFPKem2" // hard code
         var allPeople: [People] = []
         
-        ref?.child(userID).child("Contacts").observe(DataEventType.value, with: { (snapshot) in
+        ref?.child(userID).child("matches").observe(DataEventType.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
                 else { return }
 
             for person in snapshot {
-                let name = person.childSnapshot(forPath: "Name").value as? String
-                let downloadURL = person.childSnapshot(forPath: "URL").value as? String
-//                let storageRef = self.storage.reference(forURL: downloadURL ??
-//                    "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png")
-                
-//                storageRef.downloadURL { (url, error) in
-//                    let data = NSData(contentsOf: url!)
-//                    let image = UIImage(data: data! as Data)
-//                    let people = People(image: image ?? #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date())
-//                }
-                let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date(), url: downloadURL ??  "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png")
-                allPeople.append(people)
+                let isFriend = person.childSnapshot(forPath: "isFriend").value as! Bool
+                if isFriend == false {
+                    let key = person.key
+                    let name = person.childSnapshot(forPath: "name").value as? String
+                    let downloadURL = person.childSnapshot(forPath: "imageURL").value as? String
+                    let people = People(image: #imageLiteral(resourceName: "example"), name: name ?? "nil",  date: Date(), url: downloadURL ??  "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png", key:key)
+                    allPeople.append(people)
+                }
             }
             DispatchQueue.main.async {
                 self.peopleInit = allPeople
@@ -99,15 +97,87 @@ class MatchViewController: UIViewController, UICollectionViewDelegate, UICollect
         let person = peopleQuery[indexPath.row]
         let cell = matchCollection.dequeueReusableCell(withReuseIdentifier: "Contact", for: indexPath as IndexPath) as! ContactCell
         cell.person = person
-        
-        // make the image circle
-//        cell.ImageView.layer.cornerRadius = (cell.ImageView.frame.size.width ) / 2
-//        cell.ImageView.clipsToBounds = true
-//        cell.ImageView.layer.borderWidth = 3.0
-//        cell.ImageView.layer.borderColor = UIColor.white.cgColor
 
         return cell
     }
+    
 
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let person = peopleQuery[indexPath.row]
+        wantToTalk(person.key)
+        // cur user want to talk person.id
+    }
+    
+    func addUserToFriendTable(currentUserRef: DatabaseReference?, userToMove: String, snapshot: DataSnapshot){
+        if let friendsTable = currentUserRef?.child("friends").child(userToMove){
+            let imageURL = snapshot.childSnapshot(forPath: "imageURL").value as! String
+            let name = snapshot.childSnapshot(forPath: "name").value as! String
+            let userPost = [
+                "imageURL": imageURL,
+                "name": name
+            ] as [String : Any]
+            friendsTable.setValue(userPost)
+        }
+        
+        if let matchesTable = currentUserRef?.child("matches").child(userToMove){
+            matchesTable.updateChildValues(["isFriend": true])
+        }
+    }
+    
+    func createMatches(){
+        let currID = "90VZVPq028eFEJPCt83PeLFPKem2"
+        let userToMove = "1D91042E-7EA6-4C56-A55C-49EC5FBDF235"
+        
+        if let matchesTable1 = self.ref?.child(currID).child("matches").child(userToMove){
+            let userPost = [
+                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
+                "name": "Sophia",
+                "wantToTalk":true,
+                "isFriend":false
+            ] as [String : Any]
+            matchesTable1.setValue(userPost)
+        }
+        
+        if let matchesTable2 = self.ref?.child(userToMove).child("matches").child(currID){
+            let userPost = [
+                "imageURL": "gs://roomr-ecee8.appspot.com/mOgPHxdnz7N9aQ5fOrlFS2sDoD92/image7.png",
+                "name": "Ahmed",
+                "wantToTalk":false,
+                "isFriend":false
+            ] as [String : Any]
+            matchesTable2.setValue(userPost)
+        }
+        
+    }
+
+    func wantToTalk(_ personID: String){
+        // check my own mathces list
+        let currID = "1D91042E-7EA6-4C56-A55C-49EC5FBDF235"
+//        guard let currID = Auth.auth().currentUser?.uid else {return}
+//        let status = self.ref?.child(currID).child("matches").child(personID).child("wantToTalk")
+//        status?.removeValue()
+        let currentKey = self.ref?.child(currID)
+        let targetKey = self.ref?.child(personID)
+        currentKey?.child("matches").child(personID).observe(DataEventType.value, with: { (snapshot) in
+            //target user's snapshot
+            let wantToTalk = snapshot.childSnapshot(forPath: "wantToTalk").value as! Bool
+            if wantToTalk == true{ //user already wants to be friends with you, immediately move to friends table
+                //move target user to current users friend table
+                self.addUserToFriendTable(currentUserRef: currentKey, userToMove: personID, snapshot: snapshot)
+                    
+                //move current user data to target user's friend table
+                targetKey?.child("matches").child(currID).observe(DataEventType.value, with: {(currSnapshot) in
+                    self.addUserToFriendTable(currentUserRef: targetKey, userToMove: currID, snapshot: currSnapshot)
+                })
+            } else{
+                //go to target user, find current user, set wantToTalk to true
+                targetKey?.child(currID).updateChildValues(["wantToTalk": true])
+            }
+            
+            self.fetchData(self.ref)
+         }){(error) in
+             print(error.localizedDescription)
+         }
+    }
 }
