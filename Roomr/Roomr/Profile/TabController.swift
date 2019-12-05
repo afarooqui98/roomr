@@ -11,6 +11,8 @@ import UIKit
 class TabController: UITabBarController {
 
     @IBInspectable var defaultIndex: Int = 0
+    var indexNum = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

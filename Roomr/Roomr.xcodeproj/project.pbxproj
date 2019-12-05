@@ -25,6 +25,7 @@
 		02693D0C2396070300FD3333 /* ProfileSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0B2396070300FD3333 /* ProfileSummaryViewController.swift */; };
 		02693D0E2396071B00FD3333 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */; };
 		02693D102396072D00FD3333 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02693D0F2396072D00FD3333 /* ProfileSummary.swift */; };
+		654698552399776900C12A02 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654698542399776800C12A02 /* EditProfileTableViewController.swift */; };
 		65514C762397A9E000B60CA9 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C752397A9E000B60CA9 /* PushNotificationManager.swift */; };
 		65514C7823981FCF00B60CA9 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */; };
 		65514C802398904B00B60CA9 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65514C7A2398904B00B60CA9 /* TabController.swift */; };
@@ -80,6 +81,7 @@
 		02693D0D2396071B00FD3333 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
 		02693D0F2396072D00FD3333 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		652755DF23972C7300F36828 /* Roomr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Roomr.entitlements; sourceTree = "<group>"; };
+		654698542399776800C12A02 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		65514C752397A9E000B60CA9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		65514C7723981FCF00B60CA9 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		65514C7A2398904B00B60CA9 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		65514C792398904A00B60CA9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				654698542399776800C12A02 /* EditProfileTableViewController.swift */,
 				65514C7A2398904B00B60CA9 /* TabController.swift */,
 				65514C7B2398904B00B60CA9 /* Profile.storyboard */,
 				65514C7C2398904B00B60CA9 /* ProfileTableViewController.swift */,
@@ -377,6 +380,7 @@
 				65EC8A0B237DEBBE009CBF8F /* AccountSetupGenderController.swift in Sources */,
 				65514C822398904B00B60CA9 /* ProfileTableViewController.swift in Sources */,
 				65EC8A0F237DEBF0009CBF8F /* UserSetupProfile.swift in Sources */,
+				654698552399776900C12A02 /* EditProfileTableViewController.swift in Sources */,
 				65D56824238DCBAB00C893C8 /* AccountSetupMorePrefsController.swift in Sources */,
 				65514C802398904B00B60CA9 /* TabController.swift in Sources */,
 				EC83440C237D095B00EBB218 /* ContactCell.swift in Sources */,
