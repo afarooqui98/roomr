@@ -15,7 +15,7 @@ class AccountSetupPhoneNumberController: UIViewController {
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet weak var secondaryTitleField: UILabel!
     
-    var profile : UserSetupProfile = UserSetupProfile.init()
+    var profile : UserSetupProfile!
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.layer.cornerRadius = 4
