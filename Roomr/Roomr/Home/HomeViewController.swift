@@ -15,7 +15,6 @@ import Firebase
 import FirebaseMessaging
 import FirebaseAuth
 
-
 class HomeViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var kolodaView: KolodaView!
