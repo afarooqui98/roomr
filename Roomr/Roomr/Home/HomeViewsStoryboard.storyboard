@@ -65,7 +65,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-oD-qND" userLabel="Menu Items Stack View">
-                                        <rect key="frame" x="5" y="250.5" width="240" height="182"/>
+                                        <rect key="frame" x="5" y="220.5" width="240" height="182"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkt-Fc-4Ao" userLabel="Matches View">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
@@ -166,22 +166,22 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Divider" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-B0-nUM">
-                                        <rect key="frame" x="30" y="220" width="190" height="1"/>
+                                        <rect key="frame" x="30" y="190" width="190" height="1"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TaJ-Si-hae" userLabel="User Profile View">
-                                        <rect key="frame" x="10" y="50" width="230" height="160"/>
+                                        <rect key="frame" x="10" y="50" width="230" height="130"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HamburgerMenu/Profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-Qk-swV">
                                                 <rect key="frame" x="0.0" y="0.0" width="230" height="90"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cameron" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieD-PW-8j9" userLabel="Name Label">
-                                                <rect key="frame" x="0.0" y="95" width="230" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieD-PW-8j9" userLabel="Name Label">
+                                                <rect key="frame" x="0.0" y="95" width="230" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obr-wZ-cWH" userLabel="Edit Profile Button">
-                                                <rect key="frame" x="0.0" y="130" width="230" height="30"/>
+                                                <rect key="frame" x="0.0" y="100" width="230" height="30"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <state key="normal" title="EDIT PROFILE">
                                                     <color key="titleColor" red="0.17973387239999999" green="0.61933022739999999" blue="0.98636561629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -381,7 +381,7 @@
                     <navigationItem key="navigationItem" title="Home" id="Bau-An-Rvf">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="XHT-Dc-qhq">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wVp-yB-Ows" userLabel="Hamburger Button">
-                                <rect key="frame" x="16" y="0.0" width="40" height="44"/>
+                                <rect key="frame" x="16" y="3" width="40" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="35"/>
                                 <state key="normal" image="HamburgerMenu/Hamburger"/>

@@ -15,7 +15,6 @@ import Firebase
 import FirebaseMessaging
 import FirebaseAuth
 
-
 class HomeViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var kolodaView: KolodaView!
@@ -323,11 +322,11 @@ extension HomeViewController: KolodaViewDelegate {
                 other_matches_key.child(current_uid).setValue(createMatchInfo(user: self.curr_user))
                 
                 // show push notification to user:
-                if let token = candidateProfiles[index].push_token {
-                    var sender = PushNotificationSender()
-                    sender.sendPushNotification(to: token, title: "You Got a Match on Roomr!", body: "Look under matches")
-                }
                 createMatchPopup()
+//                if let token = candidateProfiles[index].push_token {
+//                    var sender = PushNotificationSender()
+//                    sender.sendPushNotification(to: token, title: "You Got a Match on Roomr!", body: "Look under matches")
+//                }
                 
             } else { // is a like
                 let likes_key = rootRef.child("user").child(current_uid).child("likes")
