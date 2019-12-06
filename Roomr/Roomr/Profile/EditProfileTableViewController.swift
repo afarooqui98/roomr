@@ -41,9 +41,9 @@ class EditProfileTableViewController: UITableViewController {
             let genderString = value["gender"] as? String ?? ""
             var genderNum = 2
             switch genderString{
-            case "Male":
+            case "Man":
                 genderNum = 0
-            case "Female":
+            case "Woman":
                 genderNum = 1
             default:
                 genderNum = 2
@@ -90,9 +90,9 @@ class EditProfileTableViewController: UITableViewController {
         let uid = Auth.auth().currentUser?.uid ?? ""
         switch sender.selectedSegmentIndex{
         case 0:
-            gender_string = "Male"
+            gender_string = "Man"
         case 1:
-            gender_string = "Female"
+            gender_string = "Woman"
         case 2:
             gender_string = "Other"
         default:

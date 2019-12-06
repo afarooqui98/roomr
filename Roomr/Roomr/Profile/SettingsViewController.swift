@@ -22,7 +22,19 @@ class SettingsViewController: UITableViewController {
     @IBAction func genderPrefChanged(_ sender: UISegmentedControl) {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid ?? ""
-        ref.child("user").child(uid).child("genderpref").setValue(sender.selectedSegmentIndex) {
+        
+        var gender_pref = ""
+        switch sender.selectedSegmentIndex {
+        case 0:
+            gender_pref = "Men"
+        case 1:
+            gender_pref = "Women"
+        case 2:
+            gender_pref = "Everyone"
+        default:
+            gender_pref = "Everyone"
+        }
+        ref.child("user").child(uid).child("genderpref").setValue(gender_pref) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Gender pref could not be saved: \(error).")
