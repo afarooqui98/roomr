@@ -9,7 +9,8 @@ Designs: Balsamiq + Design file both in design folder as well as some assets
 __Purpose:__ Help students find roommates & housing.
 
 __App Features:__
-**Login:**, *Done by Ahmed Farooqui*
+
+**Under Login**, *Done by Ahmed Farooqui*
 * Login with Google account
 * Profile Setup:
     - *name, gender, gender greference, cleanliness, loudness, DOB, looking/offering a room...*
