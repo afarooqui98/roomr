@@ -18,8 +18,6 @@ __App Features:__
 * Storing these user profiles in realtime database on Firebase
 *  *Push Notifications also done by Ahmed*
 
-
-
 **Under Settings**, *Done by Chak Hin Ryan Chan*
 * Editing profile info & preferences:
     - Profile: *(name, bio, gender, DOB, looking/offering a room)*
